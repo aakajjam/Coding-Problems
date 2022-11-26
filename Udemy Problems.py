@@ -1152,7 +1152,7 @@ print(display_info("colt",13,4,55,2,5, status = "married", age = 87, mood = "thr
 # If you do not provide a status this will come out to be single since it is a default parameter
 
 # A Common Gotcha: Mutable Default Args - works for mutable objects only
-def add_twice(val, lst = []): # This fuction expects two parameters a value and a list to be passed in
+def add_twice(val, lst = []): # This fuction expects two parameters, a value and a list to be passed in
     lst.append(val)
     lst.append(val)
     return lst # It appends the value to the list twice and returns the list
