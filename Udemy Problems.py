@@ -1202,3 +1202,64 @@ def average(*args): # Can't pass a list since the function asks for individual a
 
 nums = [7,4,9,2,11,2,3,4]
 print(average(nums)) # This will give an error, to fix this we need to upack the list into individual arguments
+
+# Upacking nums by doing *nums allows us to add new values
+new_values = [*nums, 9999, True]
+print(new_values)
+
+# THE * IN FRONT OF ARGS(OR NUMS) CAN MEAN TWO DIFFERENT THINGS, 
+# IT CAN MEAN COLLECTING ALL THE ARGUEMENTS(INPUTS) EX: OUR *ARGS
+# OR IT CAN MEAN UNPACKING THE ELEMENTS EX: *NUMS
+"""
+# ARGS/KWARGS Problem Set
+# ============== PART 1 ==============
+# Write a function called contains_pickle that accepts any number of arguments.
+# The function should return True if it is passed "pickle" as one of the args
+# Otherwise it should return False
+def contains_pickle(*args):
+    for argument in args:
+        if "pickle" in args:
+            return True
+        else:
+            return False
+
+a = print(contains_pickle(44,"pickle", 99.3))
+b = print(contains_pickle("asdas", 99, 66.4))
+#  contains_pickle("red", 45, "pickle", [])  --> True
+#  contains_pickle(1,2, "blue") ---------------> False
+"""
+# Another way of writing
+def contains_pickle(*args):
+    return "pickle" in args
+"""
+# ============== PART 2 ==============
+# Write a function called count_fails that counts up the number of failing test scores it is passes
+# It should accept any number of arguments
+# It should return a count of how many args are less than or equal to 50
+def count_fails(*args):
+    count = 0
+    for score in args:
+        if score <= 50:
+            count = count + 1
+    return count
+
+score = count_fails(33,55,22)
+print(score)
+# count_fails(99,48,79,36) -------> 2
+# count_fails(85,78,91) ----------> 0
+# count_fails(50,41,47,74,76,81) -> 3
+
+
+# ============== PART 3 ==============
+# Write a function called get_top_students that helps teachers find their A-grade students!
+# It should accept any number of student=score keyword arguments like colt=78 or elton=98
+# It should return a list containing the names of students who scored 90 or above
+def get_top_students(**kwargs):
+    best_students = []
+    for student, score in kwargs.items():
+        if score >= 90:
+            best_students.append(student)
+    return best_students
+
+student = get_top_students(colt = 78, elton = 98, blue = 99)
+print(student)
