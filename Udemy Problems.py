@@ -1265,3 +1265,84 @@ def get_top_students(**kwargs):
 student = get_top_students(colt = 78, elton = 98, blue = 99)
 print(student)
 """
+"""
+# WORKING WITH ERRORS
+# Common Error Types
+# The common errors - SyntaxError, NameError, IndexError, TypeError, ValueError, KeyError
+
+# Raising Exceptions
+#print("hello")
+#"lol"[9] # At this point the code will stop running due to this error
+#print("goodbye)")
+# We can raise our own exception (force them to happen) whenever we want, using the raise keyword
+# raise ValueError - We write the raise keyword and then followed by some sort of exception just like what is on the left of the dash
+# raise IndexError - This is a generic error
+
+#raise ValueError("invalid character") - We can provide a specific message when raising an exception (optional) look at the example on the left of the dash, anything can be written in the quotes
+#raise ValueError("invalid character")
+#int('f')
+
+# When To Raise
+# We do this anytime something truly exceptional occurs that we need to stop execution for or potentially handle(catch).
+def get_user_name():
+    inp = input("Please enter your name: ")
+    if not inp.isalpha(): # The isalpha() is a method that determines if a string has alphabetical characters
+        raise ValueError("Alpha chars only") # We are saying valueError because the error is what the string contains. It is not a TypeError because a string is valid, but numberical values that are strings are not valid
+    return inp
+# Running this program and entering invalid characters will give a ValueError("Alpha chars only") in the console
+
+def register_user():
+    user = get_user_name()
+    Database.save(user) # This database does not exist, this is merely an example
+# The database my have some rules such as the name CAN'T have numbers in it
+
+# Usually its better to except a specific exception and handle it rather than handling any possible exception that can occur (try/except is good for handling the errors)
+#try:
+   # <code that could generate error>
+#except:
+   # <code that run if error is raised>
+try: # We use try if we anticipate an error could occur. In this example someone could accidentally enter letters instead of numbers
+    num = int(input("Enter a number: "))
+except (ValueError, EOFError): # If you enter a valid input, then the except block will not run, we can chain multiple errors in the except, if we wanted to
+    print("I will pick for you...7")
+    num = 7
+
+print(f"you enterted {num}")
+# If a non-numerical character is entered this would still work because the try failed, which causes the except to run, in the except, default num is 7 which is valid allowing the rest of the code to run
+# In this example, if we don't enter anything and hit CRTL D, we get end of file (EOF) error instead of ValueError since no value was entered. This is more of an edge case
+
+# IF AN EXCEPTION IS RAISED IN THE TRY BLOCK, THEN THE EXCEPT BLOCK WILL RUN
+# For try/except its better to except a specific exception and handle it, rather than handling any possible exception that could occur
+
+# Multiple Excepts
+try:
+    num = int(input("Enter an integer: "))
+    print(10/num)
+except ValueError:
+    print("That's not an int!")
+except ZeroDivisionError:
+    print("Can't divide by zero")
+except EOFError: # If this were to run and we didn't enter anything in the try blocks, then the default num will be 0
+    print("Ypu didn't enter anything")
+    num = 0
+
+# LBYL (LOOK BEFORE YOU LEEP) AND EAFP (EASIER TO ASK FORGIVENESS THAN PERMISSION)
+
+#LBYL - Coding style where you explicitly test for pre-conditions before making calls or " leaping". Characterized by lots of if statements
+# Here is an example
+year = input("Enter a year: ")
+if year.isnumeric(): # This is the look, it checks to see if the year is a numerical value
+    year = int(year) # This is the leap, it converts the input to an int once we know the string input has numbers
+else:
+    year = 2025
+
+# EAFP - Assume things will work, and catch exceptions if you are wrong. This is a style characterized by lots of try/except blocks - This is better
+# Here is an example
+try:
+    year = int(input("Enter a year: ")) # Assume it will work - Try converting year to an integer
+    # Assume it will work - We assume a number will be enterted for a year
+except ValueError: # Catch the exception if try block does not work- The code runs if the variable year can't be cast as an integer
+    year = 2025
+
+# Both examples (EAFP and LBYL) work
+"""
