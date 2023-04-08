@@ -1346,3 +1346,72 @@ except ValueError: # Catch the exception if try block does not work- The code ru
 
 # Both examples (EAFP and LBYL) work
 """
+"""
+# MODULES
+# Working With Built-In Modules
+    # Modules - Python files that contain code that cna be re-used in other files. Modules allow us to break up complex programs into smaller, more manageable pieces across multiple files.
+    # Working with modules: Three types - Built-In, Custom, 3rd Party
+    # Built-In - Comes with python that we can use IF WE IMPORT THEM, each module consists of methods and functionality bunduled together, we can find them in the python docs
+
+# Importing More Built-In Modules
+# Here is an example
+import calendar # Imported the calendar module
+leap_year = calendar.isleap(2010) # Using one of the methods in the module
+print(leap_year)
+
+moon_landing = calendar.weekday(1969,7,20)
+print(moon_landing)
+
+import math
+constant = math.pi # The pi is not a method since it is a constant. We do not need to give any parameters since pi = 3.14
+print(constant)
+
+# Fancy Import Syntax
+# Using the "as" keyword to import a module and give it your own custom name in the program - Example below
+import random as rand # We imported the random module and gave it the name rand
+rand.randint(1,6)
+# Since the name has changed from random to rand, we can attach the method to the name rand instead of random. We can't say random.randint(1,6) because random word no longer exists after changing the name to rand
+# IF WE WANT SPECIFIC PIECES OF A MODULE WE SAY from <module name> import <method(it does not have to be a method, it can be a class or constant> - Example below
+
+from math import pi
+# We ONLY have pi since that is all we imported from the math module
+
+# We can fo multiple imports. Example below
+from math import sin, cos, tan # Only these three are available since that is all we imported, to use others we have to import them
+print(sin(1))
+print(cos(1))
+print(tan(1))
+
+# We can import all pieces of a module individually using import *, but this NOT the best approach to importing
+from math import * # This import EVERY SINGLE piece of the math. We don't want to do this because we can use the methods without knowing where they came from making it confusing. Example below
+print(sqrt(4)) # This is valid but we don't know where this came from which can cause confusion
+print(e) # This is valid but we don't know where this came from which can cause confusion
+# Better to go with <import math> or <import math as mth> or <from math import pi, e, cos>. Its just easier to understand
+
+# Creating Custom Modules
+    # Step 1: Create a separate file (a .py file) either in the same or different folder give it a name
+    # Step 2: In that file write some code
+    # Step 3: Import that file that you gave the name for. You don't need to include the .py when using the import syntax
+    # Example: I created a file called App_Udemy.py
+import App_Udemy
+print(App_Udemy.brand_colors)
+
+# Another Way
+from App_Udemy import brand_colors, mean
+print(brand_colors)
+print(mean([1,2,3,4,5,6,7,99]))
+
+import art
+art_work = art.art("woman")
+print(art_work)
+
+coffee = art.art("coffee")
+print(coffee)
+
+print(art.text2art("Hello", font = "block"))
+
+from translate import Translator
+translator = Translator(to_lang="te")
+translation = translator.translate("Hello. How are you? Have a good day")
+print(translation)
+"""
