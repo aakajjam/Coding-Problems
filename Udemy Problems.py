@@ -710,6 +710,7 @@ print(" ".join(fruits))
 print("!!!".join(fruits))
 """
 """
+# List Unpacking
 # Unpacking - We can unpack values from a list and store them in specific variables
 user = ["Joe", "Bucky", 42]
 first, last, age = user # Unpacks all at once from first to last
@@ -724,7 +725,7 @@ quantity, *others, price = item # The asterisk must come before the variable nam
 print(quantity)
 print(*others)
 print(price)
-# The asterisk with a variable name unpacks all of the values in between the first and last elements
+# The asterisk with a variable name unpacks all of the values in between the first and last elements and puts it into another list
 
 # Copying Lists - The copy method returns a SHALLOW COPY of an existing list meaning nested objects are NOT copied
 # They will not be the same in memory even when copied
