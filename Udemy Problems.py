@@ -725,7 +725,8 @@ quantity, *others, price = item # The asterisk must come before the variable nam
 print(quantity)
 print(*others)
 print(price)
-# The asterisk with a variable name unpacks all of the values in between the first and last elements and puts it into another list
+print(others) # If you have just print(others) it will print out a new list because there is no asterisk
+# The asterisk with a variable name unpacks all of the values in between the first and last elements
 
 # Copying Lists - The copy method returns a SHALLOW COPY of an existing list meaning nested objects are NOT copied
 # They will not be the same in memory even when copied
