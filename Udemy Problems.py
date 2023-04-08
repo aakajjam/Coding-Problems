@@ -1417,3 +1417,95 @@ translator = Translator(to_lang="te")
 translation = translator.translate("Hello. How are you? Have a good day")
 print(translation)
 """
+"""
+# RETURNING BACK TO SECTION 8: THE WORLD OF METHODS
+# Strip Methods
+# Example
+"hi".upper() # Accepts no arguments
+#str.strip([chars]) # chars is optional. When you see square brackets around a value, it means this is optional
+# The strip method will remove leading or trailing character. When we don't give any value it removes any whitespace
+# The will also remove /n characters and /t characters
+# If you have this below:
+"   hello     h      ".strip
+# This removes the leading and trailing. So the lone h will still remain,
+# The space in between hello and h will remain since that space in between is not leading or trailing
+# If you forget you can check the python docs that will explain this as well
+
+"------hello-----".strip("-") # This removes the leading and trailing dashes since we gave an argument/input we want removed
+".,.,.,.,hello,.,.,.,.,".strip(",")
+# This strips the last comma only, the very first comma comes after a period so nothing is stripped
+# To remove this we need to give the inputs ., Example below
+print(".,.,.,.,hello,.,.,.,.,".strip(".,"))
+# This is looking for commas OR period to remove
+# strip methods lstrip does the same as strip but for left characters only rstrip does the same as strip but for right side characters
+
+# Replace
+# str.replace(old, new, [count]) # This is the syntax for replace, the old and new are required
+# The old parameter is the original that we want to replace
+# The new is the parameter that we want to replace with
+# The count is the number of occurrences we want to replace.
+    # If we hae $1.99, $2.99, $3.99 and we give replace("$", "@", 1) This will replace dollar with at symbol once only
+    # We would have @1.99, $2.99, $3.99
+race = "5 kilometers"
+print(race.replace("kilometers", "km")) # kilometers was original, and we replaced it with km
+# We can also replace the old with nothing as well
+price = "$19.19"
+new_price = price.replace("$", "") # We replace dollar sign with nothing as noted with an empty string
+print(new_price)
+
+# Other String methods
+# Find & Index
+# Find - Tells us the the first/lowest index where a substring is found from left to right
+    # The start and end: start will be where we want to start, at what index we want to start
+    # The start and end: end will be where we want to end, at what index we want to end
+# Syntax: fing(sub,[start,[end]])
+msg = "Cat in a hat"
+msg.find("a")
+msg.rfind("a")
+msg.index("a")
+
+# Count- Tells us how many times a substring occurs within a string
+#count(sub,[start,[end]]) - This is the syntax, one input is required.
+# The rest are optional. Anything with square brackets are optional
+
+# Method Chaining
+email = "TODD@gmail.com    "
+email.strip().lower()
+# The strip will run first to remove whitespace and then lower will run second to lowercase, this is efficient
+print(email.strip().lower())
+# Chaining will not work for every method, because some methods return strings while others return integers
+# Chaining generally works better with string methods
+
+
+# Press Release Excersise - Make sure to remove commented out sections before starting
+# press_release = """
+
+#Doody Calls, a nationwide leader in dog poop removal services, 
+#is growing its footprint in the pooper scooper industry with the opening of an office in Orlando, Florida.
+#Doody Calls currently cleans up dog poop
+#in over 57 territories across 23 states 
+#and has been named the number-one dog poop removal franchise in the United States by
+#Entrepreneur Magazine's annual Franchise 500 list.
+
+"""
+#press_release = press_release.strip().replace("dog poop", "pet waste").replace("Doody Calls", "DoodyCalls").upper()
+#print(press_release) # This is another way to do it
+
+# Remove the leading and trailing whitespace (new lines) from press_release
+press_release = press_release.strip()
+
+# Replace the phrase "dog poop" with "pet waste" in the press release.  Our research shows "pet phrase" tests better than "dog poop"
+press_release = press_release.replace("dog poop", "pet waste")
+
+# We changed our company name! replace the phrase "Doody Calls" with "DoodyCalls" (no space between the words)
+press_release = press_release.replace("Doody Calls", "DoodyCalls")
+
+# Our research shows that it's best to shout our press releases. Make the entire press release uppercased!
+press_release = press_release.upper()
+
+# Print out the updated press release with all of the above changes:
+print(press_release)
+
+press_release = press_release.strip().replace("dog poop", "pet waste").replace("Doody Calls", "DoodyCalls").upper()
+#print(press_release) # This is another way to do it
+"""
