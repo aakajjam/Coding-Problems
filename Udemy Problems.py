@@ -1509,3 +1509,146 @@ print(press_release)
 press_release = press_release.strip().replace("dog poop", "pet waste").replace("Doody Calls", "DoodyCalls").upper()
 #print(press_release) # This is another way to do it
 """
+"""
+# Sentiment Analysis
+from textblob import TextBlob
+import pyttsx3
+
+engine = pyttsx3.init()
+engine.say("Noooo God. No god please no. No. No. Nooooooo")
+engine.runAndWait()
+
+print("Enter your wellness statement")
+phrase = input("< ")
+blob = TextBlob(phrase)
+while blob.sentiment.polarity < 0.5:
+    engine.say("No. No God. No God please no.")
+    print("More positive")
+    phrase = input("< ")
+
+engine.say("Thank you for your kind and positive statement. We appreciate the work you do")
+print("We appreciate you too")
+"""
+
+# SECTION 25: OBJECT ORIENTED PROGRAMMING
+# Introducing OOP - This involves modeling "things" into Python objects, These so called objects can contain both data AND functionality all wrapped up together into a reusable component
+# This is a new way of organizing code
+# For example we have a list and dictionary objects. But other object types like cars, or people don't exsist. We can create them and give functionality and data
+# Example:
+    # Chess
+        # Board
+        # Piece
+        # Player
+        # AIPlayer
+        # Match
+
+# Class - Blueprints or recepies that we can later use to create objects from. A class describes what properties and functionality individual objects will have.
+# Instance - These are the individial objects that we create
+
+# Example of classes and instances:
+    # A cupcake recepie is a Class: - It has the blueprints/recipe for making the cupcake. Those things are flour type, flavor, frosting and color
+    # The instance would be each individual cupcake that we bake
+        # The first cupcake can be made of: wheat (flour type), red velvet (flavor), vanilla (frosting), red (color)
+        # The second cupcake can be made of: rye (flour type), chocolate (flavor), strawberry (frosting), brown (color)
+    # We made two individual cupcakes which are instances. They are both different cupcakes but they all followed the same recipe/Class. Both needed flour type, flavor, frosting, and color
+
+# Another example:
+# Class can be our chess peice
+    # The data about the chess peice would be color and piece type:
+        # Chess piece 1: white knight - Instance (each individual chess piece/object)
+        # Chess piece 2: black pawn - Instance (each individual chess piece/object)
+
+# Class Syntax
+"""
+# Example
+class Puppy: # The class name is capitalized, we defined a pattern that we make instances from
+    def __init__(self, name): # The init method is automatically called when a new puppy is created, The word self refers to the current puppy we are creating an instance for
+        self.name = name
+        self.tricks = []
+# Whenever init is called it means we are creating a new puppy, the self refers to that particular puppy. We are building on that puppy with a name (since its in the parenthesis next to name)
+# We have to give the puppy a name just like in functions
+    # If we give the name Elton as an input, in the name parameter, this will assign Elton to self.name, so it will look like self.name = "Elton
+    # This is allowing the class Puppy to create objects by building on itself (hence the name self)
+    # We don't need to give an argument/input for self. It combines puts all the parameters (stuff in the parenthesis in the init syntax) building on itself to create a puppy
+
+elton = Puppy("Elton") # We created a puppy instance/object by giving it a name
+print(elton.name)  # The elton.name used the input passed in to build a puppy with a name. Its building on itself
+print(elton.tricks)
+"""
+
+# Writing Our First Class
+"""
+class Dog:
+    def __init__(self, name, breed, location): # The self refers to the individual dog instances/individual dogs
+        self.name = name
+        self.breed = breed
+        self.location = location
+        self.tricks = [] # This says no matter what every dog starts off with no tricks (default), we don't need to have a parameter for this since we already defined it with a list as default
+
+
+otter = Dog("Otter","Husky", 94921) # self is not needed to be passed through, it refers to the instance we are creating
+print(otter)
+print(type(otter)) # This will print out __main__.Dog at <some string>. This is saying thta otter is some instance/individual object of the class/recipe of Dog
+# Remember we defined out Dog class with name, breed, location (as a zip code) and saved it to a variable called otter
+
+print(isinstance(otter, Dog)) # This function checks to see if an object is an instance of a class/recipe - This means it checks to see if the individual object was created from the recipie/blueprint
+# To use isinstance() we give the object name first, then the class name
+
+# These are an instance of our class called Dog, with four pieces of data
+print(otter.name)
+print(otter.location)
+print(otter.breed)
+print(otter.tricks)
+"""
+
+# Instance Methods
+# Going back to our Puppy Class
+class Puppy:
+    def __init__(self, name):
+        self.name = name
+        self.tricks = []
+
+    def add_tricks(self, new_trick): # This add_trick() method appends a new trick to a Puppy instance's ticks list
+        self.tricks.append(new_trick)
+
+elton = Puppy("Elton")
+print(elton.tricks) # This will be an empty list since this is what we gave by default
+elton.add_tricks("sit")
+print(elton.tricks) # This will show the trick as sit in the list
+
+# To add a method, we define it inside a class. The first parameter is always self. When we call add_tricks it expects an input for new_trick since it is already defined
+# The add_tricks looks like a function, but its a method because we will call it to an object/instance/individual
+
+# A method is something we call on an object, example:
+nums = [1,2,3]
+nums.reverse() # The reverse() is a method, since we called it on a list object that is set to the variable nums
+# The reverse() itself is a function but since we called it to an object which we named nums, it is then a method
+
+class Dog:
+    def __init__(self, name, breed, location):
+        self.name = name
+        self.breed = breed
+        self.location = location
+        self.tricks = []
+
+    def bark(self): # Self is required even NOT used
+        print(f"{self.name} says WOOF!") # The self refers the particular dog we call bark on. Also self.name variable is set equal to a name that we must provide since it is a parameter
+    # This is an instance method. We create an individual Dog object/instance and attach bark to it (method) hence the name instance method
+
+tina = Dog("tina", "mutt", 32672)
+print(tina.name)
+print(tina.breed)
+print(tina.location)
+print(tina.tricks)
+
+# Now we can attach our instance method
+print(tina.bark())
+
+doggy = Dog("todd", "poodle", 48284)
+print(doggy.name)
+print(doggy.breed)
+print(doggy.location)
+print(doggy.tricks)
+print(doggy.bark())
+
+# In order to call a method on an instance. We have to define our method with self. def bark(self) is correct. def bark() is wrong
