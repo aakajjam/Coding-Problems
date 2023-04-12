@@ -1652,3 +1652,148 @@ print(doggy.tricks)
 print(doggy.bark())
 
 # In order to call a method on an instance. We have to define our method with self. def bark(self) is correct. def bark() is wrong
+"""
+# Practicing Instance Methods
+# Going back to our Dog Class Again
+class Dog:
+    def __init__(self, name, breed, location):
+        self.name = name
+        self.breed = breed
+        self.location = location
+        self.tricks = []
+
+    def bark(self):
+        print(f"{self.name} says WOOF! ")
+
+    def learn_trick(self, new_trick):
+        if new_trick not in self.tricks:
+           self.tricks.append(new_trick) # This is appending the input we give for new trick into the variable called self.tricks
+
+    def perform_trick(self, trick):
+        if trick in self.tricks:
+            print(f"{self.name} performs {trick}") # This tricks that we have in the print statement cames from the parameter that we give an input to
+        else:
+            print(f"{self.name} does not know {trick}")
+
+elton = Dog("elton", "australian shepard", 97236)
+
+elton.learn_trick("sit")
+print(elton.tricks)
+print(elton.learn_trick("down"))
+print(elton.tricks)
+print(elton.learn_trick("down"))
+print(elton.tricks)
+
+meatloaf = Dog("meatloaf", "pug", 18267)
+meatloaf.tricks
+meatloaf.learn_trick("spin")
+meatloaf.learn_trick("down")
+print(meatloaf.tricks)
+meatloaf.tricks.append("stay") # We can do this too. We are appending an input to tricks which already has a list which is defined by self.tricks.
+# In this case we already defined an instance which we called meatloaf. The method on the instance called meatloaf gives us a list. since the "tricks" part is a list we can use the append method to
+# add a new trick for meatloaf
+
+# Lets say we find out the meatloaf is not a pug but a pug mix. We don't have to change it in the class
+# We can take the instance variable name (meatloaf) use our method that we defined in the class (breed) and change the breed of the dog. See example
+
+# Original
+meatloaf.breed
+print(meatloaf.breed)
+
+# Now we change the breed of the dog - This is a better way to do it
+meatloaf.breed = "pug mix"
+print(meatloaf.breed)
+
+jimbo = Dog("jimbo", "mutt", 97236)
+jimbo.learn_trick("sit")
+jimbo.learn_trick("stay")
+jimbo.learn_trick("fetch")
+
+print(elton.tricks)
+print(jimbo.tricks)
+
+elton.perform_trick("sit") # We don't need a print statement here because in our perfrom_trick method we have a print statement which will run if the input we give is True
+elton.perform_trick("stay")
+
+jimbo.perform_trick("sit")
+jimbo.perform_trick("down")
+jimbo.perform_trick("fetch")
+"""
+
+# Class Attributes
+"""
+class Puppy:
+    # species is an attribute
+    species = "canine" # What this means is, all instances (individuals) will have the same value for species. Basically every puppy will have canine in common. It is not unique to each instance
+    # This is defined to the class itself.
+    num_dogs = 0
+    def __init__(self, name):
+        self.name = name
+        self.tricks = [] # This is different because we can only use tricks with an object
+        Puppy.num_dogs = Puppy.num_dogs + 1 # This here is incrementing the number of dogs as defined by num_dogs every time we create an instance/individual.
+        # We do Puppy.num_dogs because the num_dogs attribute is associated with the class NOT the stuff in the __init()__ method
+
+print(Puppy.num_dogs)
+
+bozo = Puppy("Bozo")
+enya = Puppy("Enya")
+
+# We call the attribute like we do a method. However, when we call species. All of the instances will have the same value which is canine
+
+print(bozo.species)
+print(enya.species)
+
+print(Puppy.species) # This will print out canine. This works because its part of the class. Unlike the rest of the stuff which apply only to methods
+
+# Outside of the class we can change the species. Every instance/individual we create and use species for will change. Example below
+
+# Original
+print(Puppy.species) # This prints canine since we defined canine as the species in class called Puppy
+
+# We can change the attribute of species. We don't have to go into the class to change it. See below
+Puppy.species = "C. Lupus"
+print(Puppy.species) # This will print our new species which we changed to "C. Lupus". All instances made for the class Puppy will have a species called "C. Lupus". Because it is shared among all instances
+
+# Both of these instances/individuals share the same species attribute.
+print(bozo.species)
+print(enya.species)
+# For example if we change the breed for bozo, the change only applies to him since the stuff in the __init()__ apply to creating individuals/instances
+
+print(Puppy.num_dogs) # This is changed to two dogs because we created two new dogs (bozo and enya)  which is means two new instances.
+"""
+
+# Class Methods
+# Lets go back to our Dog class
+class Dog:
+    species = "canine"
+    num_dogs = 0
+    def __init__(self, name, breed, location):
+        self.name = name
+        self.breed = breed
+        self.location = location
+        self.tricks = []
+        Dog.num_dogs = Dog.num_dogs + 1
+
+    @classmethod
+    def register_stray(cls):
+        cls("Coming soon", "unknown", "unknown")
+
+    def bark(self):
+        print(f"{self.name} says WOOF! ")
+
+    def learn_trick(self, new_trick):
+        if new_trick not in self.tricks:
+           self.tricks.append(new_trick) # This is appending the input we give for new trick into the variable called self.tricks
+
+    def perform_trick(self, trick):
+        if trick in self.tricks:
+            print(f"{self.name} performs {trick}") # This tricks that we have in the print statement cames from the parameter that we give an input to
+        else:
+            print(f"{self.name} does not know {trick}")
+
+Dog.register_stray()
+stray1 = Dog.register_stray()
+print(stray1.name)
+print(stray1.location)
+print(stray1.breed)
+print(stray1.bark())
