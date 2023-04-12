@@ -1088,6 +1088,7 @@ def average(*args): # The name does not have to be args it can be any name, BUT 
 # Using *args
 def count_stuff(*args): # Collects any number of arguments into a tuple called args
     print(f"You passed me {len(args)}")
+    
 print(count_stuff(1,4,2,True))
 
 def sum(*nums):
