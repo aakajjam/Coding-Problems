@@ -1877,8 +1877,9 @@ class Dog:
     def bark(self):
         print(f"{self.name} says WOOF!")
 
-    # def learn_trick(self, new_trick):
-        #if new_trick not in self.trick:
+    def learn_trick(self, new_trick):
+        if new_trick not in self.trick:
+           self.tricks.append(new_trick) # This is appending the input we give for new trick into the variable called self.tricks
 
 
 # The most common use case for class methods is, to create a new instance of Dog.
