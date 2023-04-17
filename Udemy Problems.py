@@ -1767,7 +1767,7 @@ print(Puppy.num_dogs) # This is changed to two dogs because we created two new d
 # Inheritance Basics
 # One class shares functionality from another class. We use inheritance when there is some overlap between entities
 # Example a User will have: email, name, birthday. An admin will have email, name, birthday - but they will have additional features like permissions.
-    # So we use inheritance since three is some overlap between User and Admin (the overlap being email, name, birthday
+    # So we use inheritance since three is some overlap between User and Admin (the overlap being email, name, birthday)
 
 # For example we can have a User class
     # User
@@ -1835,7 +1835,7 @@ class Lion(Cat): # Lion is the sub class of Cat
     def roar(self):
         print(f"{self.name} roars")
 
-# WHY WE USE THE SUPER() FUNCTION FOR INHERITANCE
+# WHY WE USE THE SUPER() FUNCTION FOR INHERITANCE. ANSWER BELOW
 # IF A CHILD CLASS HAS AN INIT() FUNCTION, IT WILL OVERWRITE THE PARENT INIT() FUNCTION
 # IN ORDER TO KEEP THE PARENT'S INIT() FUNCTION, WE HAVE TO A CALL IN THE CHILD CLASS TO ACCESS THE PARENT INIT() FUNCTION
 """
