@@ -1763,8 +1763,99 @@ print(enya.species)
 print(Puppy.num_dogs) # This is changed to two dogs because we created two new dogs (bozo and enya)  which is means two new instances.
 """
 
+"""
+# Inheritance Basics
+# One class shares functionality from another class. We use inheritance when there is some overlap between entities
+# Example a User will have: email, name, birthday. An admin will have email, name, birthday - but they will have additional features like permissions.
+    # So we use inheritance since three is some overlap between User and Admin (the overlap being email, name, birthday
+
+# For example we can have a User class
+    # User
+        # email
+        # name
+        # birthday
+    # Admin
+        # User stuff (email, name, birthday) plus permissions # We get everything from user because of the overlap and add permissions for Admin
+class Cat:
+    def __init__(self, name):
+        self.name = name
+    def meow(self):
+        print(f"{self.name} meows")
+
+class Lion(Cat): # The lion class inherits all the functionality from the base Cat class, we put that in the parenthesis of the new class we create. It calls the init method from Cat
+    def roar(self):
+        print(f"{self.name} roars")
+
+class Cougar(Cat): # Every cougar made (instance) will have all the funcionality of the Cat class. It calls the init method from Cat
+    def purr(self):
+        print(f"{self.name} purrs ")
+
+
+
+eli = Lion('Eli')
+eli.meow() # eli is a Lion, but he can meow because Lion inherits this functionality from the class called Cat
+eli.roar() # eli is a Lion. The lion class has the roar method which makes this valid
+
+puma = Cougar("tina")
+puma.name # Remember we don't say puma.name() since this name part is from the init() method
+puma.meow()
+puma.purr()
+
+blue = Cat("blue")
+#blue.purr() # This will give an error because we did not define a purr method in the class called Cat
+
+eli.name # Eli is part of the class Lion. But in lion we did not create the name parameter nor did we give it as an input.
+# SINCE WE DEFINED THE NAME PARAMTER IN THE CAT CLASS, eli GETS THE NAME FROM CLASS CAT
+# If there is no init() method in the Lion class, then python knows that the init() method is in the parent class called Cat
+# eli is still a Lion
+"""
+
+"""
+# The super() Function
+# We use the super() to refer to the base or parent class
+# Here we use the super() to access the __init__ method on from the Cat class
+
+class Cat: # Cat is the super class/parent class
+    def __init(self, name):
+        self.name = name
+        print
+    def meow(self):
+        print(f"{self.meow} meows")
+
+class Cougar(Cat):
+    def purr(self):
+        print(f"{self.name} purrs")
+
+
+class Lion(Cat): # Lion is the sub class of Cat
+    def __init__(self, name, pride_name):
+        super().__init__(self, name) # User the super() to refer to the base/parent class. We can say Cat.init but super() is better because if we change the name of the parent class, super() will take that new name
+        self.pride_name = pride_name # We accessed the parent with super(). and we can do out own stuff below
+
+    def roar(self):
+        print(f"{self.name} roars")
+
+# WHY WE USE THE SUPER() FUNCTION FOR INHERITANCE
+# IF A CHILD CLASS HAS AN INIT() FUNCTION, IT WILL OVERWRITE THE PARENT INIT() FUNCTION
+# IN ORDER TO KEEP THE PARENT'S INIT() FUNCTION, WE HAVE TO A CALL IN THE CHILD CLASS TO ACCESS THE PARENT INIT() FUNCTION
+"""
+
+"""
 # Class Methods
-# Lets go back to our Dog class
+class Puppy:
+    species = "canine"
+
+    @classmethod # This is a decorator, so this made def_register_anon a class method instead of an instance method, make sure to put it right above the method we want to make a class method
+    def register_anon(cls): # Here we say self, self is for instances, cls is for classes, in this case class Puppy
+        return cls("unknown")
+
+    def __init__(self, name):
+        self.name = name
+        self.tricks = []
+
+# We can define methods that are avialable on the class directly. The class methods are not concerned with a specific instance of the class
+# Using the @classmethod helps us create a new instance of Puppy
+
 class Dog:
     species = "canine"
     num_dogs = 0
@@ -1773,28 +1864,37 @@ class Dog:
         self.breed = breed
         self.location = location
         self.tricks = []
-        Dog.num_dogs = Dog.num_dogs + 1
+        Dog.num_dogs = Dog.num_dogs + 1 # Remember Dogs.num_dogs + 1 # This here is incrementing the number of dogs as defined by num_dogs every time we create an instance/individual.
+        # We do Dogs.num_dogs because the num_dogs attribute is associated with the class NOT the stuff in the __init()__ method
 
     @classmethod
     def register_stray(cls):
-        cls("Coming soon", "unknown", "unknown")
+       return cls("Coming soon", "Unknown", "Unknown")
+
+    def whine(self): # We have access to this method on the Dog class. But if we say Dog.whine() - We will get an error self isn't passed. We get this error because we are doing class methods NOT instance methods
+        print("WHINE") # The instance/individual we create will be passed in the self parameter
 
     def bark(self):
-        print(f"{self.name} says WOOF! ")
+        print(f"{self.name} says WOOF!")
 
-    def learn_trick(self, new_trick):
-        if new_trick not in self.tricks:
-           self.tricks.append(new_trick) # This is appending the input we give for new trick into the variable called self.tricks
+    # def learn_trick(self, new_trick):
+        #if new_trick not in self.trick:
 
-    def perform_trick(self, trick):
-        if trick in self.tricks:
-            print(f"{self.name} performs {trick}") # This tricks that we have in the print statement cames from the parameter that we give an input to
-        else:
-            print(f"{self.name} does not know {trick}")
 
-Dog.register_stray()
-stray1 = Dog.register_stray()
+# The most common use case for class methods is, to create a new instance of Dog.
+# In our example using the @classmethod helps us create a new instance of Puppy
+
+print(Dog.register_stray()) # The class was passed through
+# cls will be whatever the class name is, even if we change it
+
+# Another common use for class methods is using those methods to generate an instance
+
+# We call register_stray on the class we named Dog and it will return a new instance of the class Dog. See example
+stray1 = Dog.register_stray() # stray1 is an now an instance
 print(stray1.name)
 print(stray1.location)
 print(stray1.breed)
-print(stray1.bark())
+
+# stray1 can do the same things like bark because it is an instance of class dog. The way that we generated it was through the class method
+# If we want to use the class itself using a method we give the method name @classmethod and it automatically passes through the Dog class
+"""
