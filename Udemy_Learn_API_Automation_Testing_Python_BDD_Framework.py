@@ -63,7 +63,7 @@ file.close()
 # with open("test.txt") as file: # The with keyword opens our file name and saves it to a variable called file because of the keyword called as.
 # With that we do not need to say file.close()
 
-#with open("test.txt", "r") as file: # This opens the file in read mode
+#with open("test.txt", "r") as file: # This opens the file in read mode, if we don't say the "r" by default the file will be in read mode
 #with open("test.txt", "w") as file: # This opens the file in write mode
 
 # We can also say file = open("test.txt", "r") to open file in read mode as well as file = open("test.txt", "w") to open file in write mode. But then we have to say file.close()
