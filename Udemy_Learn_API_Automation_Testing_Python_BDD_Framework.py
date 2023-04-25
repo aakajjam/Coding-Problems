@@ -105,3 +105,44 @@ with open("test.txt", "w") as writer:
      # The reason for this is because when the with statement that opens the file has run it is exited, the file is automatically closed which means the variable we called r stil exists
      # Because of the fact that the with statement runs and exits our file in one line we have to open it again in order to write to it
 """
+"""
+# Section 25: Parse Content on Json File into Dictionary
+# Most of the time we will have the Json content in another file
+
+import json
+
+courses = '{"name": "RahulShetty", "languages": [ "Java", "Python"]}' # To turn this into JSON-formatted string we need to have single quotes at the very start and end
+# What we have is in fact a string variable because its in quotes
+
+# loads method which comes with the import json will parse a json string and it returns a dictionary making it easier to access. See below how to use
+dict_courses = json.loads(courses) # Again this will parse the json string and return a dictionary
+print(dict_courses)
+
+# Get me the first language taught by Rahul Shetty - Practice Problem
+print(dict_courses["languages"]) # This returned the list which we have as out key ["Java","Python"]
+list_of_languages = dict_courses["languages"][0] # Now we saved the list which into a variable that will call the first element in our key called languages
+
+###############################################################################################################################################################
+
+# Parse Content Present in Json FILE - This is different than parsing from a JSON string
+with open("C:\\Users\\aksha\\Downloads\\JSON_file.txt") as f:
+    data = json.load(f) # The load() method will read all the content from a FILE and return the content as a dictionary
+    print(data)
+
+# Print the second course title from the JSON that we did from above - Example Problem
+print(data["courses"]) # This returns a list. This is because our data variable is a dictionary and our key called courses has a value made up of a list of elements.
+print(data["courses"][1]) # Now this will return the index in our list
+# Now to access our title we say this
+print(data["courses"][1]['title']) # We are essentially parsing through different keys which are nested
+
+# We can't say data["courses"][1][0] Since we are not accessing another index. We are accessing the value of the index. To access a value we use the key
+
+# Now access the website in the JSON files
+print(data["dashboard"])
+print(data["dashboard"]["website"]) # Remember we don't say something like data["dashboard"][0] because the dictionary has another dictionary inside. The idnex works for a sequence (list or tuple).
+# To access the keys within keys we give our variable name[outer key][inner key]
+
+# When doing this understand what the keys are so it makes it easy to index and find the values
+"""
+
+
