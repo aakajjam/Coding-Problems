@@ -145,4 +145,100 @@ print(data["dashboard"]["website"]) # Remember we don't say something like data[
 # When doing this understand what the keys are so it makes it easy to index and find the values
 """
 
+"""
+# Section 26: Parsing Complex JSON with nested structure and extract values - See section 27 for more on the assert statement
+# Practice Problem - Lets get the price of the course RPA, we just want the price, for this assume we don't know the order
+
+import json
+with open("C:\\Users\\aksha\\Downloads\\JSON_file.txt") as f:
+    data = json.load(f)
+
+    print(type(data["courses"])) # This will gives us the list which is our values in our dictionary called data
+    for course in data["courses"]: # Here we are iterating over the list. Remember data is a dictionary and the value of data["courses"] (which is the syntax for accessing values) is a list
+        print(course) # In each iteration of our list what is printed is the dictionary because each element is a dictionary with key value pairs
+        if course["title"] == "RPA":# We can say course["title"] because course will take on each element in the list which is a dictionary,
+            print(course["price"]) 
+            # To access the value in the dictionary we need to give the key to our iterable which is called course and give the key which is called title thus we get course["title"]
+            assert course["price"] == 45
+            
+# Remember course is the variable used to iterate over the list thus taking on or assigning itself what ever is in the list this case a dictionary
+# After the first iteration course will be {'title': 'RPA', 'price': 45, 'copies': 10}, which means course = {'title': 'RPA', 'price': 45, 'copies': 10} - the first iteration only
+# To get the value we want we need to check if our key title has a value RPA in each iteration, thus we say course["title"] to access the value in the dictionary
+# The code we have is dynamic so even is we changed the order of the contents we will still get the same result - THIS IS HOW WE SHOULD WRITE OUR CODE
+"""
+
+"""
+# Section 27: Compare two JSON Schemas using Python Dictionaries - With Example
+import json
+
+with open("C:\\Users\\aksha\\Downloads\\JSON_file.txt") as f:
+    data = json.load(f)
+
+    print(type(data["courses"]))
+    for course in data["courses"]:
+        print(course)
+        if course["title"] == "RPA":
+            print(course["price"])
+            assert course["price"] == 45
+
+with open("C:\\Users\\aksha\\Downloads\\JSON_file_1.txt") as fi:
+    data2 = json.load(fi)
+
+    print(data == data2) # This compares two dictionary objects. This will return false since we changed the content in JSON_file_1.txt
+    assert data == data2 # To make our test pass or fail we use the assert statement, if we update the content of our file called JSON_file and make it match data in JSON_file_1 then it will be ture and it will pass
+
+# The assert keyword is used when debugging code
+# The assert keyword lets you test if a condition in your code returns True. If it does not return True we get an AssertionError
+# Example below
+
+x = "hello"
+# If condition returns False, AssertionError is raised:
+assert x == "goodbye" # Here we will get an AssertionError since x was set to "hello"
+
+# This is similar to an if statement. The only difference is when the assert statement is False, we get an AssertionError. Used for verifying assumptions and catching errors
+# Another explanation:
+    # Let's say we want to calculate the area of a rectangle, we assume that our lenght and width are positive numbers, if someone gives negative numbers the assert statement will catch this and raise an error
+
+
+
+# With an if statement, if something turns out to be false, the else runs and does not give us an error
+"""
+
+
+"""
+# Quiz 2
+# Practice Problem
+
+import json
+
+exampleJSON = (
+    '{"test1":[{"lang1": "Java", "lang2": "Python", "other":["fortran", "go", "C"]}]}')
+
+data = json.loads(exampleJSON)
+
+print(data, ": This is data")
+
+print(data["test1"], ": This is data[test1]")
+print(data["test1"][0], ": This is data[test1][0]")
+print(data["test1"][0]["lang1"], ": This is data[test1][0][lang1]")
+
+print(data["test1"][0]["other"][1], ": This is ata[test1][0][other][1]") # Answer the question, what will this value give us
+
+# The last print statement explained
+
+# data is the name of our dictionary derived from the json.loads
+# To access the key test1 we need to say data["test1] - This gives us a list which contains a dicitionary and a list contained in the dicionary - In our outer list we have one element which is the dictionary
+# Since we have a list we can give an index, since we have one element in test1 - we write data["test1"][0] and we get {"lang1": "Java", "lang2": "Python", "other":["fortran", "go", "C"]}
+    # Our syntax data["test1"][0] is a dictionary - we can see this by doing print(type(data["test1"][0]))
+
+
+# Now, first is element is a dictionary, to access the values in the dictionary we give a key so we write data["test1"][0]["other"] "other" is the name of our key
+# Since the value of our key called "other is a list we can specify the index again and we write data["test1"][0]["other"][1] we say index of 1 because "go" is the second index
+
+print(type(data["test1"][0]))
+
+# This is wrong because test1 maps to a list of dictionaries, not a single dictionary, in order to access "other" list we need to specify which dictionary inside the list you want to access
+#print(data["test1"]["other"][1])
+"""
+
 
