@@ -235,7 +235,6 @@ print(data["test1"][0]["other"][1], ": This is ata[test1][0][other][1]") # Answe
 # Now, first is element is a dictionary, to access the values in the dictionary we give a key so we write data["test1"][0]["other"] "other" is the name of our key
 # Since the value of our key called "other is a list we can specify the index again and we write data["test1"][0]["other"][1] we say index of 1 because "go" is the second index
 
-print(type(data["test1"][0]))
 
 # This is wrong because test1 maps to a list of dictionaries, not a single dictionary, in order to access "other" list we need to specify which dictionary inside the list you want to access
 #print(data["test1"]["other"][1])
