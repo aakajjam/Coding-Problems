@@ -162,7 +162,7 @@ with open("C:\\Users\\aksha\\Downloads\\JSON_file.txt") as f:
             assert course["price"] == 45
             
 # Remember course is the variable used to iterate over the list thus taking on or assigning itself what ever is in the list this case a dictionary
-# After the first iteration course will be {'title': 'RPA', 'price': 45, 'copies': 10}, which means course = {'title': 'RPA', 'price': 45, 'copies': 10} - the first iteration only
+# After the first iteration course will be {'title': 'RPA', 'price': 45, 'copies': 10}, which means course = {'title': 'RPA', 'price': 45, 'copies': 10} - for the first iteration
 # To get the value we want we need to check if our key title has a value RPA in each iteration, thus we say course["title"] to access the value in the dictionary
 # The code we have is dynamic so even is we changed the order of the contents we will still get the same result - THIS IS HOW WE SHOULD WRITE OUR CODE
 """
