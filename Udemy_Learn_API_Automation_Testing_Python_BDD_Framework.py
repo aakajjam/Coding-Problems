@@ -240,4 +240,90 @@ print(data["test1"][0]["other"][1], ": This is ata[test1][0][other][1]") # Answe
 #print(data["test1"]["other"][1])
 """
 
+"""
+# Section 28: Install Python Requests Library for API automation
+
+# This is from Library API which can be found on rahulshettyacademy.com -> sign in -> choose practice -> choose Library API
+
+import requests
+
+# BaseURI: http://216.10.245.166 - This is the base URL, meaning this is the server where the API is hosted
+"""
+
+"""
+# Section 29: Understanding Get http request calls and get response using JSON method
+
+import requests
+import json
+
+# The request is a class module. The get method is for the GET HTTP request. We need to give it inputs. Hover mouse over get() to see valid inputs
+    #requests.get()
+
+
+# This is the link we are using http://216.10.245.166/Library/GetBook.php?AuthorName=RahulShetty2
+    # The URL is -> http://216.10.245.166/Library/GetBook.php
+    # These are our parameters -> AuthorName=RahulShetty2
+    # In an API the parameters and URL are separated by a question mark IF IT IS A GET HTTP METHOD: Sometimes we may have slash instead
+    # Any parameters after the question mark are query parameters
+
+response = requests.get("http://216.10.245.166/Library/GetBook.php",
+                        params= {"AuthorName": "Rahul Shetty2"},)
+
+# Here we give the URL which is the information before the question mark, then our params which are the stuff after the question mark
+# The stuff after the question mark will look like AuthorName=RahulShetty. Remember this is kwargs so it looks that way
+# In the params section we give our AuthorName = RahulShetty inside a dictionary and set that equal to params, see above
+# The third part may be optional - we will see more later, but still put a comma even if nothing is given
+
+# We can see the parms in Postman when we select the GET method. Remember these are out query parameters
+    # What we have in Postman we replicated with Python code
+
+#response.text # Shows the contents of the response
+print(response.text)
+print(type(response.text))
+dict_response = json.loads(response.text)
+print(type(dict_response)) # This will be a list since our output is in list format
+print(dict_response[0]["isbn"])
+
+json_response = response.json() # This will give us a response directly in JSON format
+
+# This is a faster way of doing than the lines above
+print("This is a JSON response", json_response)
+print(type(json_response)) # We will get a list
+
+
+# The GET method accepts parameters as a dictionary (remember kwargs)
+"""
+
+# Section 30: Validating response status code and headers using response object
+import requests
+import json
+
+# json.load()
+
+response = requests.get("http://216.10.245.166/Library/GetBook.php",
+                        params= {"AuthorName": "Rahul Shetty2"},)
+
+
+
+#response.text # Shows the contents of the response
+print(response.text)
+print(type(response.text))
+dict_response = json.loads(response.text)
+print(type(dict_response)) # This will be a list since our output is in list format
+print(dict_response[0]["isbn"])
+
+json_response = response.json() # This will give us a response directly in JSON format
+
+# This is a faster way of doing than the lines above
+print("This is a JSON response", json_response)
+print(type(json_response)) # We will get a list
+
+assert response.status_code == 200 # The response.status_code will give us our staus code (200, 500, 400 etc)
+
+print("These are the headers", response.headers) # Monitors the headers (key value pairs) of our responses (200,400,500)
+# response.headers is a dictionary
+
+# Let's say we want to check the headers - you can see these in Postman
+assert response.headers["Content-Type"] == "application/json;charset=UTF-8"
+"""
 
