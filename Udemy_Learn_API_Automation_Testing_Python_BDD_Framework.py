@@ -325,5 +325,221 @@ print("These are the headers", response.headers) # Monitors the headers (key val
 
 # Let's say we want to check the headers - you can see these in Postman
 assert response.headers["Content-Type"] == "application/json;charset=UTF-8"
+
+# Now lets try to retrieve the book details with ISBN RGHCC and we need to compare it to an expected book
+expectedBook = {'book_name': 'Learn Appium Automation with Java', 'isbn': 'RGHCC', 'aisle': '22755'}
+
+for actualBook in json_response:
+    if actualBook["isbn"] == "RGHCC":
+        print(actualBook, "This is the actualBook")
+        assert actualBook == expectedBook
+        print(expectedBook, "This is the expectedBook")
+        break
+"""
+
+"""
+# Section 31: Undersanding automating POST http request with Payload and headers
+
+import json
+import requests
+
+addBook_response = requests.post("http://216.10.245.166/Library/Addbook.php", json={"name": "Learn Appium Automation with Java",
+                                                                 "isbn": "bcd",
+                                                                 "aisle": "4409fd",
+                                                                 "author": "John foe"}, headers= {"Content-Type": "application/json"}, )
+
+addBook_response.json() # Remember this will convert the response into JSON
+print(addBook_response.json()) # If you run this again it will fail because, when we run it the first time, the request is added to database, if we do the same request again it will fail since the information is the same
+# But in this case we will not get errors because it is a dummy API
+
+response_json = addBook_response.json()
+print(type(response_json))
+
+# This output is a dictionary{'Msg': 'successfully added', 'ID': 'bcd22fd7'} but why did it add ID only and not the entire dictionary
+    # ID was created by developers so it combines the strings from values of aisle and value of isbn
+
+
+
+
+# Now lets say we want to extract ID of the book. Just do this
+bookID = response_json["ID"]
+print(bookID, "This is our ID")
+
+# This section in a nutshell - With example above
+    # In the POST method, data is sent as JSON, unlike GET which asked for params
+    # In the POST method we need to give a payload as JSON parameter using the keyword json=, we can ignore the data parameter
+    # We give the details from out JSON payload so the server can store these details in their database
+    # The dictionary above is our JSON payload, this is our input payload and we are usually given this information
+    # Last argument is option
+    # We need to give headers, these are not mandatory but good to have. You can see the headers in Postman API Tool by putting URL in URL places, we are giving headers as JSON format so we need to give that info
+    # All headers need to be given as a dictionary format
+
+
+    # Payload is the input information given from the user, the key are given but the value we need to have someone provide us. This is the same as Body in Postman
+
+
+
+# Visit reqests.readthedox.io to see the documentaion on the requests libarary
+"""
+
+"""
+# Section 32: End to end automation flow of API calls using Python
+
+import requests
+import json
+from payLoad import *
+
+addBook_response = requests.post("http://216.10.245.166/Library/Addbook.php", json= addBookPayload("uuii"), headers= {"Content-Type": "application/json"}, )
+
+addBook_response.json() # Remember this will convert the response into JSON
+print(addBook_response.json()) # If you run this again it will fail because, when we run it the first time, the request is added to database, if we do the same request again it will fail since the information is the same
+# But in this case we will not get errors because it is a dummy API
+
+response_json = addBook_response.json()
+print(type(response_json))
+
+# This output is a dictionary{'Msg': 'successfully added', 'ID': 'bcd22fd7'} but why did it add ID only and not the entire dictionary
+    # ID was creaeted by developers so it combines the strings from values of aisle and value of isbn
+
+
+
+
+# Now lets say we want to extract ID of the book. Just do this
+bookID = response_json["ID"]
+print(bookID, "This is our ID")
+
+
+# Now to delete the Book. To Delete Book - To do this we need to delete the ID because that is what we created
+response_deleteBook = requests.delete("http://216.10.245.166/Library/DeleteBook.php", json= {"ID" : bookID}, headers= {"Content-Type": "application/json"},)
+
+# In the previouse example we put the entire dictionary in headers, but in practice this is not good. To fix this we should create a file with a function that has the dictionary in it
+    # To do this create a .py file which we called payLoad.py
+    # Next create function, in this case ours is called addBookPayload
+    # In the function set a variable called body (or any varaiable name) to a the dictionary we are given
+    # Have the function return our dictionary in this case we said return body
+    # Now since we created this py file externally we need to import it (import payLoad or say from payLoad import *) so we can use that functionality
+    # Now we can set headers equal to our function in this case addBookPayload(), we need to make sure we give the string as an input for our parameter isbn,
+
+
+
+
+assert response_deleteBook.status_code == 200
+res_json = response_deleteBook.json() # This will hold a JSON formate, we will get a dictionary
+
+print(res_json, "This is our res_json")
+assert res_json["msg"] == "book is successfully deleted"# This key will be given by the developer
+
+
+# If we ran this again we would get a success because the first time it adds a book and then finishes by deleting a book. The end result, the one we created is now gone making. So running again will recreate
+
+ # Difference betweeen params and headers
+    # Ask about the GetBook in URL, I thought we don't use the verb in the URI
+    # Ask why I got the long response instead of a short one
+    # Form parameters vs query parameters
+    # What exactly are headers
+"""
+
+
+
+"""
+# Section 33: Setting Global Configurations Using Python Cofig Object
+
+import requests
+import json
+from payLoad import *
+
+import configparser # To set up global configurations, we need to import a config parser
+config = configparser.ConfigParser()
+config.read('utilities/properties.ini') # This is config object is reading our file
+
+
+addBook_response = requests.post(config["API"]["endpoint"]+"/Library/Addbook.php", json= addBookPayload("uuii"), headers= {"Content-Type": "application/json"}, )
+# Here instead of giving the http://216.10.245.166 which points to one server, we gave the config which can point globally
+# The sections are defined by square brackets and the variables below is the stuff in the section (refer to the properties.ini file)
+# Here we called on congifparser and saved it to a variable called config
+    # This allows us to read our file
+    # Once the file is read, we can give the section which is called ["API"] and what we want in our specific section ["endpoint"]
+# In essence after reading saying config["API"]["endpoint"] in our post method will know where to go and what to pull (first the section and then the stuff in the section we want)
+# Note we give the + sign to concatenate and separate the string
+
+
+addBook_response.json() # Remember this will convert the response into JSON
+print(addBook_response.json()) # If you run this again it will fail because, when we run it the first time, the request is added to database, if we do the same request again it will fail since the information is the same
+# But in this case we will not get errors because it is a dummy API
+
+response_json = addBook_response.json()
+print(type(response_json))
+
+
+# Now lets say we want to extract ID of the book. Just do this
+bookID = response_json["ID"]
+print(bookID, "This is our ID")
+
+
+# Now to delete the Book. To Delete Book - To do this we need to delete the ID because that is what we created
+response_deleteBook = requests.delete(config["API"]["endpoint"]+"/Library/DeleteBook.php", json= {"ID" : bookID}, headers= {"Content-Type": "application/json"},)
+
+
+assert response_deleteBook.status_code == 200
+res_json = response_deleteBook.json() # This will hold a JSON formate, we will get a dictionary
+
+print(res_json, "This is our res_json")
+assert res_json["msg"] == "book is successfully deleted"# This key will be given by the developer
+
+#############################################################################################################
+
+# There is another way to do this that is much easier
+import requests
+import json
+from payLoad import *
+
+from utilities.configurations import getConfig
+# This is saying from our utlities package we created we want the configuations file we created hence the .configurations
+# We are importing our function getConfig from that file
+
+import configparser # To set up global configurations, we need to import a config parser
+config = getConfig()
+
+
+# We don't need the two lines below anymore
+    #config = configparser.ConfigParser()
+    #config.read('utilities/properties.ini')
+
+# We had this originally but we can put this under a function in a different file and call the file using import
+# We can then call the function using whatever the function name is (refer to the configurations.py file under the package utilities)
+# This just reduces the number of lines of coding
+# Now that those two lines are in a function in a different file we can import the function from our file
+    # fom utilities.configuarations import getconfig()
+
+
+addBook_response = requests.post(config["API"]["endpoint"]+"/Library/Addbook.php",
+                                 json= addBookPayload("uuii"),
+                                 headers= {"Content-Type": "application/json"}, )
+
+
+addBook_response.json() # Remember this will convert the response into JSON
+print(addBook_response.json()) # If you run this again it will fail because, when we run it the first time, the request is added to database, if we do the same request again it will fail since the information is the same
+# But in this case we will not get errors because it is a dummy API
+
+response_json = addBook_response.json()
+print(type(response_json))
+
+
+# Now lets say we want to extract ID of the book. Just do this
+bookID = response_json["ID"]
+print(bookID, "This is our ID")
+
+
+# Now to delete the Book. To Delete Book - To do this we need to delete the ID because that is what we created
+response_deleteBook = requests.delete(config["API"]["endpoint"]+"/Library/DeleteBook.php",
+                                      json= {"ID" : bookID},
+                                      headers= {"Content-Type": "application/json"},)
+
+
+assert response_deleteBook.status_code == 200
+res_json = response_deleteBook.json() # This will hold a JSON formate, we will get a dictionary
+
+print(res_json, "This is our res_json")
+assert res_json["msg"] == "book is successfully deleted"# This key will be given by the developer
 """
 
