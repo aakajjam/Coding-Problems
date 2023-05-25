@@ -368,7 +368,7 @@ print(bookID, "This is our ID")
 # This section in a nutshell - With example above
     # In the POST method, data is sent as JSON, unlike GET which asked for params
     # In the POST method we need to give a payload as JSON parameter using the keyword json=, we can ignore the data parameter
-    # We give the details from out JSON payload so the server can store these details in their database
+    # We give the details from our JSON payload so the server can store these details in their database
     # The dictionary above is our JSON payload, this is our input payload and we are usually given this information
     # Last argument is option
     # We need to give headers, these are not mandatory but good to have. You can see the headers in Postman API Tool by putting URL in URL places, we are giving headers as JSON format so we need to give that info
