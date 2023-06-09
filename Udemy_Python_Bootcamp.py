@@ -32,9 +32,5 @@ print([color.upper() for color in colors])
 nums = [4,5,6]
 print([str(num) + "HELLO" for num in nums])
 
-
-
-
-
 # In essence for list comprehensions we do our for loop normally, but instead of putting the expression in the next line, we place on the same line as the for loop
 # We also generate a new list
