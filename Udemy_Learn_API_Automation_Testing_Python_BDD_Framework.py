@@ -440,7 +440,6 @@ assert res_json["msg"] == "book is successfully deleted"# This key will be given
 """
 
 
-
 """
 # Section 33: Setting Global Configurations Using Python Cofig Object
 
@@ -543,3 +542,119 @@ print(res_json, "This is our res_json")
 assert res_json["msg"] == "book is successfully deleted"# This key will be given by the developer
 """
 
+# Section 34 Optimizing resources and payload from externally as reusable data
+
+import requests
+import json
+from payLoad import *
+from utilities.resources import * # We wrote code in resources.py file and since its from the utilities package we say utilities.resouces. Inside our resources.py file we have a class
+
+
+
+from utilities.configurations import getConfig
+# This is saying from our utlities package we created we want the configuations file we created hence the .configurations
+# We are importing our function getConfig from that file
+
+import configparser # To set up global configurations, we need to import a config parser
+config = getConfig()
+
+
+url = config["API"]["endpoint"]+ApiResources.addBook # The variables we used here came externally see the explanation below
+# Originally we wrote this entire URL in our POST, GET, and DELETE request. But we can save this to a variable for cleaner code
+#The /Library/Addbook.php is a resource which we gave but in our resources.py file we wrote a class that has the resources defined and saved to a varible
+# Remember config["API"]["endpoint"], the config is holds the getConfig() function which imports config parser and reads a file (refer to configurations.py file)
+# The thing we are getting our ["API"]["endpoint"] is from our properties.ini file (refer to the properties.ini file) which is being read in our configrations.py file
+
+headers = {"Content-Type": "application/json"}
+
+addBook_response = requests.post(url, json= addBookPayload("uuii"), headers= headers, )
+
+
+addBook_response.json() # Remember this will convert the response into JSON
+print(addBook_response.json()) # If you run this again it will fail because, when we run it the first time, the request is added to database, if we do the same request again it will fail since the information is the same
+# But in this case we will not get errors because it is a dummy API
+
+response_json = addBook_response.json()
+print(type(response_json))
+
+
+# Now lets say we want to extract ID of the book. Just do this
+bookID = response_json["ID"]
+print(bookID, "This is our ID")
+
+another_url = config["API"]["endpoint"]+"/Library/DeleteBook.php"
+
+# Now to delete the Book. To Delete Book - To do this we need to delete the ID because that is what we created
+response_deleteBook = requests.delete(another_url, json= {"ID" : bookID}, headers= headers,)
+
+
+assert response_deleteBook.status_code == 200
+res_json = response_deleteBook.json() # This will hold a JSON formate, we will get a dictionary
+
+print(res_json, "This is our res_json")
+assert res_json["msg"] == "book is successfully deleted"# This key will be given by the developer
+"""
+
+# Section 35: Authenticating APIs using Python Automation auth method
+
+import requests
+import json
+from payLoad import *
+from utilities.resources import * # We wrote code in resources.py file and since its from the utilities package we say utilities.resouces. Inside our resources.py file we have a class
+
+from utilities.configurations import getConfig
+# This is saying from our utlities package we created we want the configuations file we created hence the .configurations
+# We are importing our function getConfig from that file
+
+import configparser # To set up global configurations, we need to import a config parser
+config = getConfig()
+
+
+url = config["API"]["endpoint"]+ApiResources.addBook # The variables we used here came externally see the explanation below
+# Originally we wrote this entire URL in our POST, GET, and DELETE request. But we can save this to a variable for cleaner code
+#The /Library/Addbook.php is a resource which we gave but in our resources.py file we wrote a class that has the resources defined and saved to a varible
+# Remember config["API"]["endpoint"], the config is holds the getConfig() function which imports config parser and reads a file (refer to configurations.py file)
+# The thing we are getting our ["API"]["endpoint"] is from our properties.ini file (refer to the properties.ini file) which is being read in our configrations.py file
+
+headers = {"Content-Type": "application/json"}
+
+addBook_response = requests.post(url, json= addBookPayload("uuii"), headers= headers, )
+
+addBook_response.json() # Remember this will convert the response into JSON
+print(addBook_response.json()) # If you run this again it will fail because, when we run it the first time, the request is added to database, if we do the same request again it will fail since the information is the same
+# But in this case we will not get errors because it is a dummy API
+
+response_json = addBook_response.json()
+print(type(response_json))
+
+
+# Now lets say we want to extract ID of the book. Just do this
+bookID = response_json["ID"]
+print(bookID, "This is our ID")
+
+another_url = config["API"]["endpoint"]+"/Library/DeleteBook.php"
+
+# Now to delete the Book. To Delete Book - To do this we need to delete the ID because that is what we created
+response_deleteBook = requests.delete(another_url, json= {"ID" : bookID}, headers= headers,)
+
+
+assert response_deleteBook.status_code == 200
+res_json = response_deleteBook.json() # This will hold a JSON formate, we will get a dictionary
+
+print(res_json, "This is our res_json")
+assert res_json["msg"] == "book is successfully deleted" # This key will be given by the developer
+
+# Authentication
+# If there authentication required for sending an API how do we handle this through automation
+    # To do this we need to give a user and pass. This is using the auth parameter auth = (user, pass)
+    # Ex: r = requests.get("https://api.github.com/user", auth = ("user", "pass") - Here we give a user and pass to get stuff from this url
+    # To access you need to authenticate otherwise you can't access
+
+url = "https://github.com/aakajjam/Coding-Problems"
+access_token = {"Authorization": "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"}
+github_response = requests.get(url, verify=False, auth=("akshaymusic101@gmail.com", "Sanatana@@2013"), headers= access_token)
+# The verify=False disables SSL certificate verification, in other words disables the security
+
+print(github_response.status_code, "This is our status code")
+
+# The access token is good for 30 days, that is what I set it to in github
