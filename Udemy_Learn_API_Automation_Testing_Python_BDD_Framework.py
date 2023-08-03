@@ -688,10 +688,6 @@ assert res_json["msg"] == "book is successfully deleted"# This key will be given
 
 
 
-
-
-
-
 # Section 35: Authenticating APIs using Python Automation auth method
 
 import requests
@@ -755,3 +751,211 @@ github_response = requests.get(url, verify=False, auth=("akshaymusic101@gmail.co
 print(github_response.status_code, "This is our status code")
 
 # The access token is good for 30 days, that is what I set it to in github
+
+
+
+
+
+# Section 35: Authenticating API's useing Python Automation auth method - Example Practice Problem
+# Additional practice can be at httpbin.org
+
+# Section 36: This is only quiz. There is no coding for this section
+
+
+
+
+
+
+
+"""
+# Section 37: Importance of Session Managing in API Testing
+
+# Authentication
+# If there authentication required for sending an API how do we handle this through automation
+    # To do this we need to give a user and pass. This is using the auth parameter auth = (user, pass)
+    # Ex: r = requests.get("https://api.github.com/user", auth = ("user", "pass") - Here we give a user and pass to get stuff from this url
+    # To access you need to authenticate otherwise you can't access
+
+import requests
+session = requests.session() # Here we created an instance of the requests.session() class which we assigned to a variable called session
+session.auth = auth=("akshaymusic101@gmail.com", "Sanatana@@2013") # auth is an attribute of the session class
+
+url = "https://github.com/aakajjam/Coding-Problems"
+access_token = {"Authorization": "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"}
+github_response = session.get(url, verify=False, auth=("akshaymusic101@gmail.com", "Sanatana@@2013"), headers= access_token)
+
+# We can change requests.get to session.get, session and requests are essentially the same which is why we can change requests to session
+# While both are the same, session has the capability and knowledge of authentication as well
+# That is why session is the same as requests plus any other configuations we provide as part of the session method (i.e auth=("akshaymusic101@gmail.com", "Sanatana@@2013"))
+
+print(github_response.status_code, "This is our status code")
+
+second_url = "https://github.com/aakajjam/Coding-Problems" # api.github.com is the base URL, /user/repos is the resource
+
+response = session.get(second_url)
+# Here when we say session, we don't need to give auth=("akshaymusic101@gmail.com", "Sanatana@@2013")
+# That is because we added the authentication property to our session variable (session.auth = auth=("akshaymusic101@gmail.com", "Sanatana@@2013")
+# It will authenticate first and then execute our URL saved in variable called second_url
+
+print(response.status_code, "This our response code for our second_url")
+# This will give 401 if we don't give authorization
+# If we don't give the authentication details github won't know which user we are asking for
+
+
+
+# WHY WE USE THE SESSION MANAGER
+    # Everytime we make a call for that user for all the repositoties, we have to write the authentication each time
+    # So, to combat the redundancy, we can write our code globally, to apply to all github related URLs - This requires a session manager
+
+# New syntax
+# To create an instance of a class provided by a library in Python, you typically follow these steps:
+    # Import the necessary module or library containing the class you want to instantiate.
+    # Call the constructor of the class to create a new instance.
+    # Optionally, assign the instance to a variable for further use.
+
+# Example - This relates to the first two lines of code for Section 37
+# import library_name (import requests)
+# instance = library_name.ClassName() (session = requests.session())
+# instance.method() (session.auth)
+"""
+
+
+
+
+
+
+
+"""
+# Section 38: Send and Manage Cookies for API request calls
+import requests
+
+#http://rahulshettyacademy.com - This site has a cookie that shows the visit month
+#visit-month is the cookie
+
+# If we don't pass the cookie, it will load the website from the actual server
+cookie = {"visit_month": "February"}
+response = requests.get("http://rahulshettyacademy.com", cookies= cookie) # Cookies must be sent in dictionary format
+print(response.status_code, "This is our cookies response code") # This gave the 200 code but we don't know if this was accepted by the server
+
+# Practice available on httpbin.org
+
+
+# We can use session manager here as well
+session = requests.session()
+session.cookies.update({"visit-month":"February"}) # Our session is loaded with the cookie {"visit-month": "February"}
+
+res = session.get("http://httpbin.org/cookies", cookies= {"visit-year":"2022"})
+# When we hit this request, we are hitting the URL and we have the cookie next it in the cookie parameter.
+# Then {"visit-month": "February"} will be added by default since we are using session.get
+# This is loaded with the cookie "visit-month": "February"}
+
+print(res.text, "This is our return body response") # The .text will return a json
+
+# If we have common cookie, head or authentication which will be frequently used across all endpoint
+# Then use a session manager to update
+
+# If we change the line with session.get to requests.get, it will not return the visit-month, it will return visit-year
+
+# Why is this returning visit-month and visit year? - The reason is because we updated this with session.cookies.update
+    # Then the session.get() is executed returning the visit-month and visit-year
+    # Ask Sukanya or Logesh
+
+# WHY WE DO THIS - Ask Sukanya or Logesh
+"""
+
+
+
+
+
+
+
+"""
+# Section 39: Timeout and Redirection Attributes in making request calls
+
+# When we hit the site rahulshettyacademy.com, it will one URL and then the rahulshettyacademy.com
+# The first response we get is a 301 resonse and then after redirect we get the 200
+# When we do the response.status we get the final status code 200, 400, 500. It will not show the history
+
+import requests
+
+# http://rahulshettyacademy.com - This site has a cookie that shows the visit month
+# visit-month is the cookie
+
+# If we don't pass the cookie, it will load the website from the actual server
+cookie = {"visit_month": "February"}
+response = requests.get("http://rahulshettyacademy.com", cookies=cookie)  # Cookies must be sent in dictionary format
+
+#print(response.history, "This shows the redirect status code")  # This will show if there are redirects
+print(response.status_code, "This is our cookies response code")  # This gave the 200 code but we don't know if this was accepted by the server
+
+# Redirection is common due to things like security implementation
+
+# We can use session manager here as well
+session = requests.session()
+session.cookies.update({"visit-month": "February"})  # Our session is loaded with the cookie {"visit-month": "February"}
+
+res = session.get("http://httpbin.org/cookies", cookies={"visit-year": "2022"})
+# When we hit this request, we are hitting the URL and we have the cookie next it in the cookie parameter.
+# Then {"visit-month": "February"} will be added by default since we are using session.get
+# This is loaded with the cookie "visit-month": "February"}
+
+print(res.text, "This is our return body response")  # The .text will return a json
+
+# If we have common cookie, head or authentication which will be frequently used across all endpoint
+# Then use a session manager to update
+
+# If we don't want to redirect and simply want to go directly, here is what we can do
+no_redirect = requests.get("http://rahulshettyacademy.com", allow_redirects= False, cookies= cookie)
+# This will stop at the 301
+# To get a 200 code a redirect is reqired since we set allow_redirects= False, it will stop the redirect and end at status code 301
+
+print(no_redirect.status_code == 301, "This will stop at 301")
+
+
+# So far we had instant response, but with heavy load, the response may be delayed
+# We need to give a mechanism to wait a certain amount of time and then give the response
+
+time_out = requests.get("http://rahulshettyacademy.com", allow_redirects= False, cookies= cookie, timeout= 10)
+# This will wait one second and then give the response back - IMPORTANT
+
+# Find out why timeout is happening 1-2 seconds instead of 10 seconds
+
+print(time_out.status_code, "This is our timeout delay")
+"""
+
+
+
+
+
+
+
+"""
+# Section 40: Sending Attachments through POST request call using Files Dictionary Object
+
+# You can check the POST Multiple Multipart_Encoded Files on the site requests.readthedocs.io
+# Also look at petstore.swagger.io/?displayOperationId=false
+# petstore.swagger.io/ - This is the base URL
+
+# POST /pet/{petId}/uploadImage - This is the endpoint, The parameters are petId (required), additionalMetadata, file, this is the POST request
+
+# Attachments
+
+url = "https://petstore.swagger.io/v2/pet/9843217/uploadImage" # The valid petID is 9843217. Put this where it says {petID}
+
+# Here the file that we want to give as an attachment is in dict format. The key is file and the value is the file name (C:\Users\aksha\OneDrive\Pictures).
+# We want to open with in what permission (rb which is read)
+files = {"file" : open("FinalTree.png", "rb")}
+
+attachment_response = requests.post(url, files= files) # Here we are submitting a POST call with the file attachment
+print(attachment_response.status_code)
+print(attachment_response.text)
+
+# In the response (if successful) we get additionalMetadata: null\nFile. We get this since we did not send anything
+
+# Basically for the petID of 9843217 we successfully uploaded an image file
+
+# This is how you can send ANY file as an attachment to your API request calls
+"""
+
+
+
