@@ -57,6 +57,15 @@ for line in file.readlines():
 
 file.close()
 """
+
+
+
+
+
+
+
+
+
 """
 # Section 21: Writing Data into File using Python
 
@@ -105,6 +114,15 @@ with open("test.txt", "w") as writer:
      # The reason for this is because when the with statement that opens the file has run it is exited, the file is automatically closed which means the variable we called r stil exists
      # Because of the fact that the with statement runs and exits our file in one line we have to open it again in order to write to it
 """
+
+
+
+
+
+
+
+
+
 """
 # Section 25: Parse Content on Json File into Dictionary
 # Most of the time we will have the Json content in another file
@@ -145,6 +163,13 @@ print(data["dashboard"]["website"]) # Remember we don't say something like data[
 # When doing this understand what the keys are so it makes it easy to index and find the values
 """
 
+
+
+
+
+
+
+
 """
 # Section 26: Parsing Complex JSON with nested structure and extract values - See section 27 for more on the assert statement
 # Practice Problem - Lets get the price of the course RPA, we just want the price, for this assume we don't know the order
@@ -166,6 +191,13 @@ with open("C:\\Users\\aksha\\Downloads\\JSON_file.txt") as f:
 # To get the value we want we need to check if our key title has a value RPA in each iteration, thus we say course["title"] to access the value in the dictionary
 # The code we have is dynamic so even is we changed the order of the contents we will still get the same result - THIS IS HOW WE SHOULD WRITE OUR CODE
 """
+
+
+
+
+
+
+
 
 """
 # Section 27: Compare two JSON Schemas using Python Dictionaries - With Example
@@ -240,6 +272,11 @@ print(data["test1"][0]["other"][1], ": This is ata[test1][0][other][1]") # Answe
 #print(data["test1"]["other"][1])
 """
 
+
+
+
+
+
 """
 # Section 28: Install Python Requests Library for API automation
 
@@ -249,6 +286,12 @@ import requests
 
 # BaseURI: http://216.10.245.166 - This is the base URL, meaning this is the server where the API is hosted
 """
+
+
+
+
+
+
 
 """
 # Section 29: Understanding Get http request calls and get response using JSON method
@@ -294,6 +337,12 @@ print(type(json_response)) # We will get a list
 # The GET method accepts parameters as a dictionary (remember kwargs)
 """
 
+
+
+
+
+
+
 # Section 30: Validating response status code and headers using response object
 import requests
 import json
@@ -336,6 +385,14 @@ for actualBook in json_response:
         print(expectedBook, "This is the expectedBook")
         break
 """
+
+
+
+
+
+
+
+
 
 """
 # Section 31: Undersanding automating POST http request with Payload and headers
@@ -381,6 +438,16 @@ print(bookID, "This is our ID")
 
 # Visit reqests.readthedox.io to see the documentaion on the requests libarary
 """
+
+
+
+
+
+
+
+
+
+
 
 """
 # Section 32: End to end automation flow of API calls using Python
@@ -438,6 +505,16 @@ assert res_json["msg"] == "book is successfully deleted"# This key will be given
     # Form parameters vs query parameters
     # What exactly are headers
 """
+
+
+
+
+
+
+
+
+
+
 
 
 """
@@ -542,6 +619,16 @@ print(res_json, "This is our res_json")
 assert res_json["msg"] == "book is successfully deleted"# This key will be given by the developer
 """
 
+
+
+
+
+
+
+
+
+
+
 # Section 34 Optimizing resources and payload from externally as reusable data
 
 import requests
@@ -594,6 +681,16 @@ res_json = response_deleteBook.json() # This will hold a JSON formate, we will g
 print(res_json, "This is our res_json")
 assert res_json["msg"] == "book is successfully deleted"# This key will be given by the developer
 """
+
+
+
+
+
+
+
+
+
+
 
 # Section 35: Authenticating APIs using Python Automation auth method
 
