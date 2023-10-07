@@ -930,7 +930,11 @@ print(time_out.status_code, "This is our timeout delay")
 
 
 """
+
+
+"""
 # Section 40: Sending Attachments through POST request call using Files Dictionary Object
+import requests
 
 # You can check the POST Multiple Multipart_Encoded Files on the site requests.readthedocs.io
 # Also look at petstore.swagger.io/?displayOperationId=false
@@ -942,7 +946,7 @@ print(time_out.status_code, "This is our timeout delay")
 
 url = "https://petstore.swagger.io/v2/pet/9843217/uploadImage" # The valid petID is 9843217. Put this where it says {petID}
 
-# Here the file that we want to give as an attachment is in dict format. The key is file and the value is the file name (C:\Users\aksha\OneDrive\Pictures).
+# Here the file that we want to give as an attachment is in dict format. The key is file and the value is the file name (C:\\Users\\aksha\\OneDrive\\Pictures).
 # We want to open with in what permission (rb which is read)
 files = {"file" : open("FinalTree.png", "rb")}
 
@@ -955,7 +959,284 @@ print(attachment_response.text)
 # Basically for the petID of 9843217 we successfully uploaded an image file
 
 # This is how you can send ANY file as an attachment to your API request calls
+
+
+# Section 41 is just a code snippet download, there are no lessons there
+
+# Section 42: Setting up MYSQL Instance to drive the date from Python Code - This is a video on the installation process
 """
+
+"""
+# Section 43: Setup Database with the Example Table Data and start Connection
+
+import mysql.connector
+
+connection_object = mysql.connector.connect(host= 'localhost', database= 'PythonAutomation',
+                        user= 'root', password= 'root')
+
+print(connection_object.is_connected(), "This is TRUE, connection was successful.")
+# The .is_connected method will tell us if the connection to the server and database was successful or not
+
+# The .connect is a method which expects four parameters. The parameters are host, database name, user, password
+# Since our database is stored in our local server (aka our computer we can give the host as 'localhost')
+# This method will return a CONNECTION OBJECT
+"""
+
+"""
+# Section 45: Executing Queries on to the Database from Python Code
+import mysql.connector
+connection_object = mysql.connector.connect(host= 'localhost', database= 'PythonAutomation',
+                        user= 'root', password= 'root')
+
+print(connection_object.is_connected(), "This is TRUE, connection was successful.")
+
+cursor = connection_object.cursor() # This is like a pointer to each row. This is needed to execute/run and work with queries. This communicates with MYSQL database
+cursor.execute('SELECT * FROM CustomerInfo') # The execute method ONLY runs the query. Inside the parenthessis we can put our queries inside single quotations
+row = cursor.fetchone() # This will give the first row
+print(row) # This prints a tuple. SQL results come in the form of tuples
+
+
+row_all = cursor.fetchall() # This prints all the REMAINING row since the fetchone method printed the previous row. The cursor/pointer is now moving on to the next rows and printing them all
+print(row_all)
+# For ex: If the cursor/pointer is pointed at the 3rd row and there are five rows. The fetchall method will give the remaining rows
+
+
+# Fetchall will return a LIST while fetchone returns a TUPLE
+# Everytime you call fetchone the cursor will move to the next row
+# Calling on fetchall AFTER using fetchone will print that come after the last printed row
+
+
+
+# Section 45 Practice Problem: Fetch all the records of the customer and the sum of the Amount(column name in the CustomerInfo Table)
+
+# Import the mysql.connector library
+import mysql.connector
+
+# Create a connection object
+connection = mysql.connector.connect(host= 'localhost', database= 'PythonAutomation',
+                        user= 'root', password= 'root')
+
+# Validate the connection is successful
+print(connection.is_connected(), "Connection was successful")
+
+# Create a cursor method that will communicate to the MYSQL server
+table_rows = connection.cursor()
+# The variable name (here called table_rows) is set to the cursor method and has to be used to execute and fetch the queries, otherwise no connection occurs between python and the MYSQL server
+    # Since table_rows is set equal to the connection.cursor (which communicates to MYSQL server) therefore only that variable can communicate with the MSQL server
+    # Therefore only table_rows variable can execute and fetch the queries since that variable has the .cursor method set to it
+
+# Write the SQL query in the parenthesis of the execute method - this will run the query
+table_rows.execute('SELECT Amount FROM CustomerInfo')
+
+# Fetch all the from the query
+amount = table_rows.fetchall()
+
+# Save the date to a variable and print - Remember it will return a LIST
+print(amount) # Here we get tuples inside of a list. Our elements are tuple data types NOT integer datatypes
+
+# Create/Instantiate a variable for the sum and set it to 0
+sum = 0
+
+# Iterate through the list
+for i in amount:
+
+# Iterate through the tuple datatype(which is variable called i) to get to the integer datetype(which is the variable called j) - Otherwise we can't add any numbers
+    for j in i:
+
+# Add the values (variable called j) to our sum which we initialized as 0
+        sum = sum + j
+
+# Print the final sum
+print(sum)
+
+connection.close() # Close the connection after otherwise execution of the queries will be slow
+"""
+
+"""
+# Section 46: Iterate Over Database Table Results Set From Python and Parse The Results
+import mysql.connector
+
+conn = mysql.connector.connect(host='localhost', database='PythonAutomation',
+                               user='root', password='root')
+cursor = conn.cursor()
+print(conn.is_connected(), "Connection Successful")
+
+
+new_query = "update customerInfo set Location = %s where CourseName = %s"  # This is our query but we can put it as a string
+
+# The actual query is (update customerInfo set Location = 'US' where CourseName = 'Jmeter') but we can't have strings inside string
+# Since we can't have strings inside strings we change the part our values from '' to %s
+
+data = ("Denmark", "Jmeter")
+# The data variable holds the actual values of what we have to provide in the %s portion, we give this as a tuple
+
+cursor.execute(new_query, data)
+# Once this runs, the updates will be seen in MYSQL workbench NOT in Pycharm, to see the new updates we have to execute another query that will return the updated results
+
+conn.commit()
+# Since we are updating we need to commit our changes, we have to use the variable attached to the mysql.connecor.connect (which is called conn) since that is what makes the connection
+
+
+cursor.execute("SELECT Location FROM CustomerInfo")
+# Here we are running the query again to see the updated values
+
+updated_query = cursor.fetchall() # Fetches all the values
+print(updated_query)
+print(updated_query[4])
+# Now we can see Denmark in Pycharm
+
+# For the line that says cursor.execute(new_query, data) see explanation below
+    # Instead of hardcoding a query inside the execute method, we wrote the entire query as a string and stored it to a variable called new_query
+    # Since we are updating the values in our query, we stored those in the data variable as a tuple
+    # When we execute the actual query, our variable (called new_query) will run the SQL query we gave along with the values we want to update (since our query is about updating)
+    # Order matters, so UK will go for the first %s and Jmeter will go for the %s
+
+"""
+
+# Section 46 Practice Problem: Like we did for update, try delete
+
+"""
+# Section 47: Create Connection Utility and Pass the SQL Connection Externally Into Test
+# View the configurations.py file for reference
+
+from utilities.configurations import *
+conn = getConnection()
+print(conn.is_connected())
+cursor = conn.cursor()
+cursor.execute('SELECT * FROM CustomerInfo')
+result = cursor.fetchall()
+print(result)
+
+# Imported everything from the utilities.configuarions file we created
+# Called on the getConnection() function
+# All the code in the getConnection() function ran and was saved in the variable called conn which we returned (in this case establishing a connection to the MYSQL server)
+    # Now we can use the conn variable for other things
+# Validate the information saved conn variable has a successful connection
+# Add a cursor method to the conn object (essentially adding a line of communication to an a connected server - in this case the MYSQL server)
+# Run a query
+# Fetch the results and save to a variable
+# Print the results
+
+########################################################################################################
+
+# We have global properties in the mysql connector (host, user, password, database)
+# This should come from the .ini file
+# Even the code related to establishing a database connection (aka the mysql connector code) should not be in a test file
+# Instead, the code related to the connection should come from a utility file
+"""
+
+
+# Section 48: Integrate Database Results into API Test Data to Build a Functional Flow
+
+
+"""
+# Section 61: Parsing and Reading the CSV files using Pythin CSV Package
+import csv
+
+with open("utilities/loanapp.csv") as file: # We opened the file and saved it in a variable called csv_file using the as word
+    csv_read = csv.reader(file, delimiter=",") # Using the reader method to read the contents of the csv_file
+    print(csv_read)
+    # Running the csv_read will give a reader object
+
+    L = list(csv_read)
+    print(L,"This is L")
+
+    names = []
+    status = []
+
+    for row in L:
+        names.append(row[0])
+        status.append(row[1])
+
+    print(names)
+    print(status)
+"""
+
+
+"""
+# Section 62: Building a Logic to get the Data from CSV Based on Conditional Query
+
+import csv
+
+with open("utilities/loanapp.csv") as file: # We opened the file and saved it in a variable called csv_file using the as word
+    csv_read = csv.reader(file, delimiter=",") # Using the reader method to read the contents of the csv_file
+    print(csv_read)
+    # Running the csv_read will give a reader object
+
+    L = list(csv_read)
+    print(L)
+
+    name_header = L[0][0]
+    status_header = L[0][1]
+
+    print(name_header)
+    print(status_header)
+
+    names = []
+    status = []
+
+    for row in L:
+        names.append(row[0])
+        status.append(row[1])
+
+    print(names)
+    print(status)
+
+index = names.index('Sam') # This will give the index of the element name
+loan_status = status[index]
+
+print("Sam's loan status is" + loan_status)
+
+# We used the index method to find the position of the element (called Sam) in the list called names
+# We then saved that information in a variable called index
+
+# To see what Sam's loan status was, we can take the position of the element (which turns of to be 2 and is saved in index variabe)
+# Since status is a list, instead of putting 2 we can put the variable called index for our list called status
+# Now we can see if Sam was approved or rejected
+
+# Sam's position is number 2 in the list called names from this code index = names.index('Sam')
+# Sam's status will therefore be rejected since in the status list position 2 is a rejection
+# The elements in the name list correspond to the elements in the status list
+"""
+
+
+
+# Section 63: Parsing and writing back to CSV files using Python CSV package
+import csv
+
+with open("utilities/loanapp.csv") as file: # We opened the file and saved it in a variable called csv_file using the as word
+    csv_read = csv.reader(file, delimiter=",") # Using the reader method to read the contents of the csv_file
+    print(csv_read)
+    # Running the csv_read will give a reader object
+
+    L = list(csv_read)
+    print(L)
+    print("##########################################")
+
+    names = []
+    status = []
+
+    for row in L:
+        names.append(row[0])
+        status.append(row[1])
+
+    print(names)
+    print(status)
+
+index = names.index('Sam')  # This will give the index of the element name
+loan_status = status[index]
+
+print("Sam's loan status is " + loan_status)
+
+print("###############################################")
+
+with(open("utilities/loanapp.csv", "a")) as wFile:
+    writer = csv.writer(wFile)
+    writer.writerow(["James","Approved"])
+
+
+
+# After running the code multiple times, even if the printed output is giving an extra list without anything inside of it. The date should be saved in the CSV file
 
 
 
