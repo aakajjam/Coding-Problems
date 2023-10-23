@@ -17,7 +17,7 @@ print(conn.is_connected(), "Connection Successful")
 cursor = conn.cursor()
 
 # Read the contents of CSV file and save it to a variable
-with open('bquxjob_6ddfd0be_1889d8a79a8.csv') as file_obj:
+with open('Enter your file name here.csv') as file_obj:
     # Create reader object by passing the file
     # object to reader method
     reader_obj = csv.reader(file_obj)
