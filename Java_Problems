@@ -1,0 +1,1185 @@
+// Java Problems
+// When typing on the java-excersises website code editor, change class name to Main
+
+/*
+public class Java_Fundamentals {
+    public static void main(String[] args) {
+        System.out.println("Hello World"); // Printing out Hello World on first line
+        System.out.print("Alexandra Abramov"); // Printing out Alexandra Abramov on the second line
+    }
+}
+*/
+
+/*
+// Mad Libs
+import java.util.Scanner;
+
+public class Java_Fundamentals {
+    public static void main(String[] args) {
+
+        // import scanner to ask for input
+        Scanner input = new Scanner(System.in); // Created a Scanner Object
+
+        // Ask for season of the year
+        System.out.print("Enter a season of the year: ");
+        String season = input.nextLine();
+
+        // Ask for a whole number
+        System.out.print("Enter a whole number: ");
+        int number = input.nextInt();
+        input.nextLine(); // Consume the newline character
+
+        // Ask for an adjective
+        System.out.print("Enter an adjective: ");
+        String adjective = input.nextLine();
+
+        // Print out the statement
+        System.out.print("On a " + adjective + season + " day, I drank a minimum of " +
+                number + " cups of coffee");
+    }
+}
+*/
+
+/*
+// Write a Java program to print the sum of two numbers.
+public class Java_Fundamentals {
+    public static void main(String[] args){
+        // Define a two integer variables
+        int a = 74;
+        int b = 36;
+
+        // Print the result by adding the sum
+        System.out.print(a+b);
+    }
+}
+*/
+
+
+/*
+// Write a Java program to divide two numbers and print them on the screen.
+public class Java_Fundamentals {
+    public static void main(String[] args) {
+        // Define a two integer variables
+        int a = 50;
+        int b = 3;
+
+        // Print the result by dividing the sum
+        System.out.print(a/b); // This will give us a whole number since its integer division
+    }
+}
+ */
+
+/*
+// Write a Java program to print the results of the following operations.
+public class Java_Fundamentals {
+    public static void main(String[] args) {
+        // Display the result by using the print statement, no need to declare variables
+        System.out.println(-5 + 8 * 6);
+        System.out.println((55+9) % 9);
+        System.out.println(20 + -3*5 / 8);
+        System.out.println(5 + 15 / 3 * 2 - 8 % 3);
+
+    }
+}
+*/
+
+
+/*
+// Write a Java program that takes two numbers as input and displays the product of two numbers.
+
+import java.util.Scanner;
+
+public class Java_Fundamentals {
+    public static void main(String[] args) {
+        // Import scanner
+
+        // Create a scanner object
+        Scanner input = new Scanner(System.in);
+
+        // Create a variable to take input of first number
+        System.out.print("Enter the first number: ");
+        int first = input.nextInt();
+
+        // Consume the newline character
+        input.nextLine();
+
+        // Create a variable to take the input of the second number
+        System.out.print("Enter the second number: ");
+        int second = input.nextInt();
+
+        // Again consume the newline character
+        input.nextLine();
+
+        // Multiply the two numbers saved to the variables
+        System.out.print("The product is: " + first * second);
+    }
+}
+*/
+
+/*
+// Write a Java program that takes a number as input and prints its multiplication table up to 10.
+
+import java.util.Scanner;
+
+public class Java_Fundamentals {
+    public static void main(String[]args) {
+        // Import scanner class
+
+        // Create a scanner class
+        Scanner input = new Scanner(System.in);
+
+        // Create a variable to take input
+        System.out.print("Enter a number: ");
+        int number = input.nextInt();
+
+        // Consume the newline character
+        input.nextLine();
+
+        // Create a for loop up to 10
+        for (int i = 0; i < 11; i++){
+            System.out.println("8 * " + i + " = " + i * number);
+        }
+    }
+}
+*/
+
+/*
+// Write a Java program to print the sum (addition), multiply, subtract, divide and remainder of two numbers.
+import java.util.Scanner;
+
+public class Java_Fundamentals {
+    public static void main(String[]args){
+        // Import scanner class
+
+        // Create a scanner instance to take input
+        Scanner input = new Scanner(System.in);
+
+        // Create a variable to take input
+        System.out.print("Enter the first number: ");
+        int first = input.nextInt();
+
+        // Consume the newline character
+        input.nextLine();
+
+        // Create another variable to take input
+        System.out.print("Enter the second number: ");
+        int second = input.nextInt();
+
+        // Again consume the newline character
+        input.nextLine();
+
+        // Print out the arithmatic operations
+        System.out.println("Sum: " + (first + second));
+        System.out.println("Difference: " + (first - second));
+        System.out.println("Product: " + (first * second));
+        System.out.println("Quotient: " + (first / second));
+        System.out.println("Mod: " + (first % second));
+
+    }
+}
+ */
+
+/*
+// Write a Java program to compute the specified expressions and print the output.
+public class Java_Fundamentals {
+    public static void main(String[]args){
+        // Display the result
+        System.out.print(((25.5 * 3.5 - 3.5 * 3.5) / (40.5 - 4.5)));
+
+    }
+}
+*/
+
+
+/*
+// Change for a Dollar Game - TAU
+import java.util.Scanner;
+
+public class Java_Fundamentals {
+    public static void main(String[] args) {
+        // Import scanner class
+
+        // Create a scanner instance to take input
+        Scanner input = new Scanner(System.in);
+
+        // Ask how many pennies would you like - Take input as well
+        System.out.print("How many pennies would you like: ");
+        int pennies = input.nextInt();
+        input.nextLine(); // Consume the newline character
+        // Get the total of pennies
+        double pen_total = pennies * 0.01;
+
+        // How many nickels would you like - Take input as well
+        System.out.print("How many nickels would you like: ");
+        int nickels = input.nextInt();
+        input.nextLine(); // Consume the newline character
+        // Get the total of nickels
+        double nic_total = nickels * 0.05;
+
+        // How many dimes would you like - Take input as well
+        System.out.print("How many dimes would you like: ");
+        int dimes = input.nextInt();
+        input.nextLine(); // Consume the newline character
+        // Get the total of dimes
+        double dime_total = dimes * 0.10;
+
+        // How many quarters would you like - Take input as well
+        System.out.print("How many quarters would you like: ");
+        int quarters = input.nextInt();
+        input.nextLine(); // Consume the newline character
+        // Get the total of quarters
+        double quart_total = quarters * 0.25;
+
+        input.close(); // Close the scanner
+
+        // Add up all the quantities of coins
+        double cumulative_total = pen_total + nic_total + dime_total + quart_total;
+
+        if (cumulative_total == 1) {
+            System.out.print("You win");
+        }
+
+        else if (cumulative_total < 1) {
+            System.out.print("You fell short by: " + (1-cumulative_total));
+            }
+
+        else{
+            System.out.print("You went over by:" + (cumulative_total - 1));
+        }
+
+        }
+
+    }
+*/
+
+
+/*
+// Chapter 4a: While Loop Problem
+import java.util.Scanner;
+
+
+ // WHILE LOOP:
+ //Each store employee makes $15 an hour. Write a program that allows the employee
+ //to enter the number of hours worked for the week. Do not allow overtime.
+
+public class Java_Fundamentals {
+
+    public static void main(String args[]){
+
+        //Initialize known variables
+        int rate = 15;
+        int maxHours = 40;
+
+
+        //Get input for unknown variables
+        System.out.println("How many hours did you work this week?");
+        Scanner scanner = new Scanner(System.in);
+        double hoursWorked = scanner.nextDouble();
+
+        //Validate input
+        while(hoursWorked > maxHours || hoursWorked < 1){
+            System.out.println("Invalid entry. Your hours must be between 1 and 40. Try again.");
+            hoursWorked = scanner.nextDouble(); // Once this is met, we break out of our loop - This is the sentinnal
+        }
+
+        scanner.close();
+
+        //Calculate gross
+        double gross = rate * hoursWorked;
+        System.out.println("Gross pay: $" + gross);
+
+    }
+}
+*/
+
+/*
+// Chapter 4b: Do While Loop - TAU
+import java.util.Scanner;
+
+ // DO WHILE LOOP:
+ // Write a program that allows a user to enter two numbers,
+ // and then sums up the two numbers. The user should be able to
+ // repeat this action until they indicate they are done.
+
+public class Java_Fundamentals {
+
+    public static void main(String args[]){
+
+        Scanner scanner = new Scanner(System.in);
+
+        boolean again;
+
+        do{
+            System.out.println("Enter the first number");
+            double num1 = scanner.nextDouble();
+
+            System.out.println("Enter the second number");
+            double num2 = scanner.nextDouble();
+
+            double sum = num1 + num2;
+
+            System.out.println("The sum is " + sum);
+
+            System.out.println("Would you like to start over? True or False");
+            again = scanner.nextBoolean(); // Asking the user to input true or false
+
+        } while(again);
+
+        scanner.close();
+
+        // The do statement will run once first
+        // Then the while will allow us to run the code in the do condition if we say true
+        // If we say false, we are breaking out of the loop
+    }
+}
+*/
+
+// Chapter 4c- For Loop TAU
+
+/*
+// Chapter 4c - For Loops TAU
+// LOOP BREAK
+// Search a String to determine if it contains the letter ‘A’.
+
+import java.util.Scanner;
+
+public class Java_Fundamentals {
+
+    public static void main(String args[]){
+
+        //Get text
+        System.out.println("Enter some text:");
+        Scanner scanner = new Scanner(System.in);
+        String text = scanner.next();
+        scanner.close();
+
+        boolean letterFound = false;
+
+        //Search text for letter A
+        for(int i=0; i<text.length(); i++){ // We say text length because 0 can iterate over a lenght of numbers not a string
+            char currentLetter = text.charAt(i); // At each index i is being matched with a letter so at index 0, i would be the first letter of the work
+            if(currentLetter == 'A' || currentLetter == 'a'){
+                letterFound = true;
+                break;
+            }
+        }
+
+        if(letterFound){
+            System.out.println("This text contains the letter 'A'");
+        }
+        else{
+            System.out.println("This text does not contain the letter 'A'");
+        }
+    }
+}
+*/
+
+
+/*
+// Chapter 4ad - Nester Loops
+// NESTED LOOPS:
+// Find the average of each student's test scores
+
+import java.util.Scanner;
+
+public class Java_Fundamentals {
+
+    public static void main(String args[]){
+
+        //Initialize what we know
+        int numberOfStudents = 24;
+        int numberOfTests = 4;
+
+        Scanner scanner = new Scanner(System.in);
+
+        //Process all students
+        for(int i=0; i< numberOfStudents; i++){
+
+            double total = 0;
+            for(int j=0; j<numberOfTests; j++){
+                System.out.println("Enter the score for Test #" + (j+1));
+                double score = scanner.nextDouble();
+                total = total + score;
+            }
+
+            double average = total/numberOfTests;
+            System.out.println("The test average for student #" + (i+1) + " is " + average);
+        }
+
+        scanner.close();
+    }
+}
+*/
+
+/*
+// Roll the Dice Game - Mad Libs
+class Java_Fundamentals{
+    public static void main(String args[]){
+        int hi = 44;
+    }
+}
+*/
+
+
+
+
+// Methods - Chapter 5a Test Automation University
+/* OUR FIRST METHOD
+Write a method that asks a suer for their name, then greets them by name
+ */
+/*
+import java.util.Scanner;
+
+public class Java_Fundamentals {
+    public static void main(String args[]){
+        System.out.println("Enter your name: ");
+        Scanner scanner = new Scanner(System.in);
+        String name = scanner.next();
+
+        greetUser(name); // Calling on our function
+    }
+// All methods have to be contained within the scope of the class - That is why we are creating our new method outside the public staic void main(String args[]) method
+    // Created our function here - it can be done at the top or here. The order does not matter
+    public static void greetUser(String name){
+        System.out.print("Hi there" + name);
+    }
+}
+*/
+
+
+/*
+// Variable Scope Chapter 5b - Variable Scope
+import java.util.Scanner;
+
+
+ // VARIABLE SCOPE
+ // Write an ‘instant credit check’ program that approves
+ // anyone who makes more than $25,000 and has a credit score
+ // of 700 or better. Reject all others.
+
+public class Java_Fundamentals {
+
+    static int requiredSalary = 25000;
+    static int requiredCreditScore = 700;
+    static Scanner scanner = new Scanner(System.in);
+
+    public static void main(String args[]){
+
+        double salary = getSalary();
+        int creditScore = getCreditScore();
+        scanner.close();
+
+        //Check if the user is qualified
+        boolean qualified = isUserQualified(creditScore, salary);
+
+        //Notify the user
+        notifyUser(qualified);
+
+    }
+
+    public static double getSalary(){
+        System.out.println("Enter your salary:");
+
+        double salary = scanner.nextDouble();
+        return salary;
+    }
+
+    public static int getCreditScore(){
+        System.out.println("Enter your credit score:");
+        int creditScore = scanner.nextInt();
+        return creditScore;
+    }
+
+    public static boolean isUserQualified(int creditScore, double salary){
+        if(creditScore >= requiredCreditScore && salary >= requiredSalary){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public static void notifyUser(boolean isQualified){
+        if(isQualified){
+            System.out.println("Congrats! You've been approved.");
+        }
+        else{
+            System.out.println("Sorry. You've been declined");
+        }
+
+
+    }
+}
+*/
+
+
+// Phone Bill Calculator
+
+/*
+import java.util.Scanner;
+
+public class Java_Fundamentals{
+
+    static Scanner scanner = new Scanner(System.in);
+    static double baseCost;
+    static int minutes;
+
+    public static void main (String args[]){
+
+        System.out.print("Enter the base cost ");
+        baseCost = scanner.nextDouble();
+        scanner.nextLine();
+
+        System.out.print("Enter the number of minutes gone over ");
+        minutes = scanner.nextInt();
+        scanner.nextLine();
+
+        double extraMinutes = overageMinutes();
+        double taxes = phoneTax();
+        double fullTotal = total();
+
+        scanner.close();
+
+        System.out.println("You went over by " + extraMinutes);
+        System.out.println("Your tax is " + taxes);
+        System.out.println("Your total is " + fullTotal);
+    }
+
+    // Create a function for the minutes gone over
+    public static double overageMinutes(){
+        double overageFee = (minutes * 0.25);
+        return overageFee;
+    }
+
+    // Create a function for the tax
+    public static double phoneTax(){
+        double tax = (baseCost + (minutes * 0.25)) * 0.15;
+        return tax;
+
+    }
+
+    // Final Total
+    public static double total(){
+        double total = ((minutes * 0.25) + baseCost) + ((baseCost + (minutes * 0.25)) * 0.15);
+        return total;
+    }
+
+}
+*/
+
+
+
+
+
+/*
+// Write a Java program to display the following pattern.
+x: *****
+y: *********
+z: **************
+ */
+
+
+
+/*
+        * * * * * * ==================================
+         * * * * *  ==================================
+        * * * * * * ==================================
+         * * * * *  ==================================
+        * * * * * * ==================================
+         * * * * *  ==================================
+        * * * * * * ==================================
+         * * * * *  ==================================
+        * * * * * * ==================================
+        ==============================================
+        ==============================================
+        ==============================================
+        ==============================================
+        ==============================================
+        ==============================================
+
+ */
+
+
+/*// Print the American Flag
+public class Java_Fundamentals{
+    public static void main(String args[]){
+
+        // Write a for loop to print stars
+        for(int a = 0; a<9; a++){
+            System.out.println(); // Iteration over each row
+            if (a % 2 == 0) { // If the row is an even number, the row starts from 0
+                for (int b = 0; b < 6; b++) { // Printing out the 6 stars in each even row
+                    System.out.print("* ");
+                }
+            }
+
+            else{ // Else if the row is odd
+                for(int e = 0; e<5; e++){ // Printing out the 5 stars in
+                    System.out.print(" *");
+                }
+                System.out.print("  "); // Give a space for the stars and equal signs
+
+                    }
+
+            for(int c = 14; c<50; c++){ // Printing the stripes after all of the stars
+                System.out.print("=");
+            }
+        }
+
+        // Print out the stripes only
+        for(int i=0; i<6; i++){ // Iterate over each line
+            System.out.println();
+            for(int j=0; j<48; j++){// Print out the stars on each line
+                System.out.print("=");
+            }
+        }
+    }
+}*/
+
+
+/*
+// Swapping two variables
+ */
+
+/*
+public class Java_Fundamentals {
+    public static void main(String[] args) {
+        // Define two variables and a third as a placeholder
+        int a = 10;
+        int b = 20;
+        int c = 0;
+
+        // Output
+        // a = 20
+        // b = 10
+
+        c = b; // c = 20, b = 20, a = 10
+        b = a; // c = 20, b = 10, a = 10
+        a = c; // c = 20, b = 10, a = 20
+
+        System.out.println("This is a" + a);
+        System.out.println("This is b" + b);
+
+        }
+    }
+*/
+
+
+
+/*// Print out this face
+public class Java_Fundamentals {
+    public static void main(String args[]){
+        System.out.println(" +\"\"\"\"\"+");
+        System.out.println("[| o o |]");
+        System.out.println(" |  ^  |");
+        System.out.println(" | '-' |");
+        System.out.println(" +-----+");
+    }
+}*/
+
+
+
+/*
+// Write a Java program to add two binary numbers.
+
+public class Java_Fundamentals {
+
+    public static void main(String args[]){
+
+
+        // Give the binary numbers
+        int firstNumber = 0b10;
+        int secondNumber = 0b11;
+
+        // Add the binary numbers to get a whole number sum
+        int sum = firstNumber + secondNumber;
+
+        System.out.println(sum);
+
+        while (sum != 0){ // While the sum of the binary numbers does not equal 0
+            if (sum % 2 == 0){ // Divide the sum by two and check if it equals 0
+                System.out.print(0);
+
+            }
+            else */
+/*if (sum % 2 == 1)*//*
+{// Divide the sum by two and check if it equals 1
+                System.out.print(1);
+
+            }
+
+            sum = sum / 2; // Then divide the sum by two and repeat the process
+
+        }
+            System.out.print(arrayList); // Need to reverse the arrayList
+
+    }
+
+}
+*/
+
+
+
+
+// Write a Java program to convert a decimal number to a hexadecimal number
+
+/*
+public class Java_Fundamentals {
+    public static void main(String args[]){
+
+        // Define a decimal number
+        double number = 15.0;
+    }
+}*/
+
+
+
+///*
+//// Write a Java program to compute the area of a polygon.
+//import java.util.Scanner;
+//
+//public class Java_Fundamentals{
+//    public static void main(String args[]){
+//
+//        // Ask user to give the number of sides on the polygon
+//        System.out.print("Enter the number of sides on the polygon: ");
+//        Scanner scanner = new Scanner(System.in);
+//        int n = scanner.nextInt();
+//        scanner.nextLine();
+//
+//
+//        // Ask user to give the length of one side
+//        System.out.print("Enter the length of one side: ");
+//        int s = scanner.nextInt();
+//        scanner.nextLine();
+//
+//        // Area of a polygon
+//        double area = (n*Math.pow(s,2))/(4*(Math.tan(3.14/n)));
+//        System.out.print(area);
+//    }
+//}
+//*/
+
+
+
+
+
+
+// 23,35,36,37,38,43,49,51
+
+
+/*// Write a Java program to compute the distance between two points on the earth's surface
+import java.util.Scanner;
+
+public class Java_Fundamentals {
+    public static void main(String args[]){
+
+        // Give input of x1
+        System.out.print("Enter the latitude of x1: ");
+        Scanner scanner = new Scanner(System.in);
+        double x1 = scanner.nextDouble();
+        scanner.nextLine();
+
+        // Give input of y1
+        System.out.print("Enter the longitude of y1: ");
+        double y1 = scanner.nextDouble();
+        scanner.nextLine();
+
+        // Give input of x2
+        System.out.print("Enter the latitude of x2: ");
+        double x2 = scanner.nextDouble();
+        scanner.nextLine();
+
+        // Give input of y2
+        System.out.print("Enter the longitude of y2: ");
+        double y2 = scanner.nextDouble();
+        scanner.nextLine();
+
+        double radius = 6371.01;
+
+        double distance = radius * Math.acos((Math.sin(x1) * Math.sin(x2)) +
+                (Math.cos(x1) * Math.cos(x2) * Math.cos(y1 - y2)));
+
+        System.out.print(distance);
+    }
+}*/
+
+
+/*// Write a Java program to reverse a string.
+public class Java_Fundamentals {
+    public static void main(String args[]){
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("The Quick Brown Fox Jumped Over The Lazy Dogs");
+        System.out.println(stringBuilder);
+        System.out.println(stringBuilder.reverse());
+    }
+}*/
+
+
+
+/*
+// Write a Java program to count letters, spaces, numbers and other characters in an input string.
+public class Java_Fundamentals {
+    public static void main(String args[]) {
+
+        String sentence = "Aa kiu, I swd skieo 236587. GH kiu: sieo?? 25.33";
+        char[] ch = sentence.toCharArray();
+        int digits = 0;
+        int alphabets = 0;
+        int spaces = 0;
+        int symbols = 0;
+
+
+        // Count the number of whitespace
+        for (int i = 0; i < ch.length; i++){
+            System.out.print(ch[i]);
+            if(Character.isDigit(ch[i])){
+                digits = digits + 1;
+            }
+
+            else if(Character.isLetter(ch[i])){
+                alphabets = alphabets + 1;
+            }
+
+            else if(Character.isSpaceChar(ch[i])){
+                spaces = spaces + 1;
+            }
+
+            else{
+                symbols = symbols + 1;
+            }
+
+        }
+        System.out.println("The number of digits is: " + digits);
+        System.out.println("The number of alphabets is: " + alphabets);
+        System.out.println("The number of spaces is: " + spaces);
+        System.out.println(" The number of sumbols is: " + symbols);
+
+    }
+    }
+*/
+
+
+/*// Problem 51: Convert a string to an integer
+public class Java_Fundamentals {
+    public static void main(String args[]){
+
+        // Give a number in the form of a string
+        String number = "25";
+
+        // Converting string to an integer
+        //int numericValue = Integer.valueOf(number); // Another way of converting string to an integer
+        int numericValue = Integer.parseInt(number);
+
+        System.out.print("The integer value is: " + numericValue);
+
+    }
+}*/
+
+
+/*// Problem 43: Write a Java program to print the following string in a specific format (see output)
+public class Java_Fundamentals {
+    public static void main(String args[]){
+        System.out.println("Twinkle, twinkle, little star,");
+        System.out.println("\t\tHow I wonder what you are");
+        System.out.println("\t\t\t\tUp above the world so high");
+        System.out.println("\t\t\t\tLike a Diamond in the sky");
+        System.out.println("Twinkle, twinkle, little star,");
+        System.out.println("\t\tHow I wonder what you are");
+
+    }
+}*/
+
+/*//Problem 49: Write a Java program to accept a number and check whether the number is even or not. Prints 1 if the number is even or 0 if odd.
+
+public class Java_Fundamentals {
+    public static void main(String args[]){
+
+        // Input a number
+        System.out.print("Input a number: ");
+        Scanner scanner = new Scanner(System.in);
+        int number = scanner.nextInt();
+        scanner.nextLine(); // Consume the newline character
+
+        if(number % 2 ==0){ // If number is even
+            System.out.print(1);
+        }
+        else{ // If number is odd
+            System.out.print(0);
+        }
+    }
+}*/
+
+/*
+// Problem 59: Convert string to lowercase
+public class Java_Fundamentals {
+    public static void main(String args[]){
+        String sentence = "THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG";
+        System.out.print(sentence.toLowerCase());
+
+    }
+}*/
+
+// Problem 71: Write a Java program to create the concatenation of the two strings except removing the first character of each string.
+// The length of the strings must be 1 and above.
+
+/*
+public class Java_Fundamentals{
+    public static void main(String args[]){
+        String language = "Python";
+        String lesson = "Tutorial";
+
+        // Specifying at 1 because it will print from the first character onwards dropping the 0th element
+        language = language.substring(1);
+        lesson = lesson.substring(1);
+
+        System.out.print(language+lesson);
+    }
+
+    }
+*/
+
+/*// Chapter 7a and 7b Test Automation University
+import java.util.Arrays;
+import java.util.Random;
+
+public class Java_Fundamentals {
+
+    private static final int LENGTH = 6;
+    private static final int MAX_TICKET_NUMBER = 69;
+
+    public static void main(String[] args){
+
+        int[] ticket = generateNumbers();
+        Arrays.sort(ticket);
+        printTicket(ticket);
+    }
+
+    public static int[] generateNumbers(){
+
+        int[] ticket = new int[LENGTH];
+
+        Random random = new Random();
+
+        for(int i=0; i< LENGTH; i++){
+            int randomNumber;
+
+            *//*
+            Generate random number then search to make sure it doesn't
+            already exist in the array. If it does, regenerate and search again.
+             *//*
+            do{
+                randomNumber = random.nextInt(MAX_TICKET_NUMBER) + 1;
+            }while(search(ticket, randomNumber));
+
+            //Number is unique if we get here. Add it to the array.
+            ticket[i] = randomNumber;
+        }
+
+        return ticket;
+    }
+
+    /**
+     * Does a sequential search on the array to find a value
+     * @param array Array to search through
+     * @param numberToSearchFor Value to search for
+     * @return true if found, false if not
+     /*
+    public static boolean search(int[] array, int numberToSearchFor){
+
+        *//*This is called an enhanced loop.
+          It iterates through 'array' and
+          each time assigns the current element to 'value'
+         *//*
+        for(int value : array){
+            if(value == numberToSearchFor){
+                return true;
+            }
+        }
+
+        *//*If we've reached this point, then the entire array was searched
+          and the value was not found
+         *//*
+        return false;
+    }
+
+    public static boolean binarySearch(int[] array, int numberToSearchFor){
+
+        //Array must be sorted first
+        Arrays.sort(array);
+
+        int index = Arrays.binarySearch(array, numberToSearchFor);
+        if(index >= 0){
+            return true;
+        }
+        else return false;
+
+    }
+
+    public static void printTicket(int ticket[]){
+        for(int i=0; i<LENGTH; i++){
+            System.out.print(ticket[i] + " | ");
+        }
+    }
+}*/
+
+
+
+/*// Chapter 7c - Test Automation University
+import java.util.Scanner;
+*//*
+ * Create a program that allows a user to enter any
+ * number of grades and provides them with their
+ * average score, as well as the highest and lowest scores.
+ *//*
+public class Java_Fundamentals {
+
+    private static int grades[];
+    private static Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args){
+
+        System.out.println("How many grades would you like to enter?");
+        grades = new int[scanner.nextInt()];
+
+        getGrades();
+
+        System.out.println("Average: " + String.format("%.2f", calculateAverage()));
+        System.out.println("Highest: " + getHighest());
+        System.out.println("Lowest: " + getLowest());
+
+    }
+
+    public static void getGrades(){
+        for(int i=0; i<grades.length; i++){
+            System.out.println("Enter grade #" + (i+1));
+            grades[i] = scanner.nextInt();
+        }
+    }
+
+    public static int calculateSum(){
+        int sum = 0;
+        for(int grade : grades){
+            sum = sum + grade;
+        }
+        return sum;
+    }
+
+    public static double calculateAverage(){
+        return calculateSum()/grades.length;
+    }
+
+    public static int getHighest(){
+        int highest = grades[0];
+        for(int grade: grades){
+            if(grade > highest){
+                highest = grade;
+            }
+        }
+        return highest;
+    }
+
+    public static int getLowest(){
+        int lowest = grades[0];
+        for(int grade: grades){
+            if(grade < lowest){
+                lowest = grade;
+            }
+        }
+        return lowest;
+    }
+
+}*/
+
+
+/*// Day of the Week Mad Libs TAU
+import java.util.Scanner;
+
+public class Java_Fundamentals {
+    public static void main(String args[]){
+        //Make an array that holds the textual values of the days of the week
+        //Have the user input a number corresponding to the day of the week. Assume the week starts on Monday
+        //Your program should output the String that represents the day of the week
+        //Example: User inputs the number 1, your program should print "Monday"
+
+        // Declare a string array with all seven days
+        String[] week = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+        //Elements index{    0,         1,          2,          3,         4,         5,         6    }
+
+        // Ask user to enter numbers corresponding with days of the week
+        System.out.print("Enter a number");
+        Scanner scanner = new Scanner(System.in);
+        int day = scanner.nextInt();
+        if (day > 7){
+            System.out.print("Try Again");
+        }
+
+        System.out.print("The corresponding day of the week is: " + week[day - 1]);
+        // Putting day-1 matches the input with the index element
+        // The index starts at 0 so Monday is 0
+        // By inputting 1 as the day, we get 1-1 which is zero and we can print out Monday
+
+    }
+}*/
+
+
+
+/*// Validate the complexity of a proposed password - Mad Libs TAU
+
+// Validate the complexity of a proposed password by assuring it meets these rules
+
+// At least 8 characters long - Done
+// Contain an uppercase letter - Done
+// Contain a special character - Done
+// Not contain the user name - Done
+// Not the same as the old password - Done
+
+public class Java_Fundamentals {
+    public static void main(String args[]) {
+        String username = "myqakshay+PROD@gmail.com";
+        String password = "Test123!*";
+        String oldPassword = "MYQTest2019$";
+        char[] chars = password.toCharArray();
+
+        for (int i = 0; i < chars.length; i++) {
+            if (Character.isUpperCase(chars[i])) {
+                System.out.println("You have an uppercase letter");
+
+            } else if (!Character.isLetterOrDigit(chars[i])) {
+                System.out.println("You have a special character");
+
+            }
+
+
+        }
+        if (password.contains(username) && password.contains(oldPassword) && password.length() < 8) {
+            System.out.print("Invalid password");
+        }
+        else {
+            System.out.print("Nothing");
+        }
+
+    }
+}*/
+
+
+/*
+// Problem 74: Write a Java program to test if 10 appears as the first or last element of an array of integers.
+// The array length must be broader than or equal to 2.
+public class Java_Fundamentals{
+    public static void main(String args[]){
+
+        // Define the array
+        int numbers [] = {10, -20, 0, 30, 40, 60, 100};
+
+        // Create a condition to check the 0th as well as the last element for the number 10
+        if(numbers[0] == 10 || numbers[numbers.length - 1] == 10 ){ // If the first OR last element has the number 10
+            System.out.print(true + "10 is the first or last element"); // Print true and the message if the condition is met
+            }
+        else{
+            System.out.print("10 is not the first or last element");
+        }
+
+            }
+        }
+*/
