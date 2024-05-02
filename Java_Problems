@@ -606,7 +606,7 @@ public class Java_Fundamentals{
         // Write a for loop to print stars
         for(int a = 0; a<9; a++){
             System.out.println(); // Iteration over each row
-            if (a % 2 == 0) { // If the row is an even number, the row starts from 0
+            if (a % 2 == 0) { // If the row is an even number, remember the row starts from 0
                 for (int b = 0; b < 6; b++) { // Printing out the 6 stars in each even row
                     System.out.print("* ");
                 }
@@ -836,14 +836,17 @@ public class Java_Fundamentals {
                 digits = digits + 1;
             }
 
+        // Count the number of alphabets
             else if(Character.isLetter(ch[i])){
                 alphabets = alphabets + 1;
             }
 
+        // Count the number of whitespaces
             else if(Character.isSpaceChar(ch[i])){
                 spaces = spaces + 1;
             }
 
+        // Count the number of symbols
             else{
                 symbols = symbols + 1;
             }
@@ -1560,7 +1563,7 @@ public class Java_Fundamentals {
             System.out.println(sourceArray[i]);
         }
 
-        // Check the first element for duplicates separately
+        // Check the first element for duplicates separately to avoid out of bounds error
         if(sourceArray[0] == sourceArray[1]){
             System.out.println("Duplicates found: " + sourceArray[0] + " " + sourceArray[1]);
         }
@@ -1582,7 +1585,6 @@ public class Java_Fundamentals {
         }
     }
 }*/
-
 
 
 /*// Ascending order of arrays
@@ -1844,3 +1846,594 @@ public class Java_Fundamentals {
 
     }
 }*/
+
+/*// Problem 114: Write a Java program that rotates a string by an offset (rotate from left to right).
+public class Java_Fundamentals {
+    public static void main(String args[]){
+        String[] dreamCarsArray = {"Lamborghini", "Rolls-Royce", "Aston Martin", "Buggati", "Porsche", "Ferrari", "Maserati", "Bently"};
+        // Output {"Porche","Lamborgini", "Rolls Royce", "Aston Martin", "Buggati"}
+
+        // Keep the last element in a variable
+        String placeHolder = dreamCarsArray[dreamCarsArray.length - 1];
+
+        // Iterate over the array
+        for (int i = dreamCarsArray.length - 1; i>0; i--){
+            dreamCarsArray[i] = dreamCarsArray[i-1]; // Swap the elements
+        }
+
+        // Put the value stored in placeHolder to dreamCarsArray[0]
+        dreamCarsArray[0] = placeHolder;
+
+        // Print out the rotated array
+        for (int i = 0; i< dreamCarsArray.length; i++){
+            System.out.println(dreamCarsArray[i]);
+        }
+    }
+}*/
+
+
+/*// Problem 152: Write a Java program that accepts four integers from the user and prints equal if all four are equal,
+// and not equal otherwise.
+import java.util.Scanner;
+public class Java_Fundamentals {
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the first number: ");
+        int first = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.print("Enter the second number: ");
+        int second = scanner.nextInt();;
+        scanner.nextLine();
+
+        System.out.print("Enter the third number: ");
+        int third = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.print("Enter the fourth number: ");
+        int fourth = scanner.nextInt();
+        scanner.nextLine();
+
+        if(fourth == third && fourth == second && fourth == first){
+            System.out.print("Equal");
+        }
+        else{
+            System.out.print("Not Equal");
+        }
+    }
+}*/
+
+
+/*// Problem 154: Write a Java program to print the contents of a two-dimensional Boolean array
+// where t represents true and f represents false.
+public class Java_Fundamentals {
+    public static void main(String args[]){
+        boolean [][] array = {{true, false, true},
+                              {false, true, false}};
+
+        // Print array row by row
+        for (int row = 0; row < array.length; row++){
+            for (int column = 0; column < array[row].length; column++){
+                if(array[row][column] == true){ // Check if the value is true, then print t
+                    System.out.print("t" + " ");
+                }
+                else{
+                    System.out.print("f" + " " );
+                }
+            }
+            System.out.println();
+        }
+    }
+}*/
+
+
+/*// Problem 118: Write a Java program to get the first occurrence (Position starts from 0.) of a string within a given string.
+public class Java_Fundamentals {
+    public static void main(String args[]){
+        String word = "Harlequin Shrimp";
+
+        String occurence = word.substring(0,2);
+        System.out.print(occurence);
+        }
+    }*/
+
+/*// Problem 155: Write a Java program to print an array after changing the rows and columns of a two-dimensional array.
+// Input {{10,20,30},
+//        {40,50,60}}
+
+// Output {{10,40},
+//         {20,50},
+//         {30,60}}
+public class Java_Fundamentals{
+    public static void main(String[] args) {
+        int[][] oldArray = {{10,20,30},{40,50,60}};
+        // {{10,20,30}
+        //  {40,50,60}}
+
+        // Print out the array row by row
+        for (int row = 0; row < oldArray.length; row++){ // Iteration over the rows
+            for (int column = 0; column < oldArray[row].length; column++){ // Iteration over the columns
+                System.out.print(oldArray[row][column] + " ");
+
+            }
+            System.out.println();
+        }
+        System.out.println("================================");
+
+        // Print out the array column by column
+        for (int column = 0; column < oldArray[0].length; column++){ // Iteration over the columns
+            for (int row = 0; row < oldArray.length; row++){ // Iteration over the rows
+                System.out.print(oldArray[row][column] + " ");
+            }
+            System.out.println();
+        }
+    }
+}*/
+
+/*// Problem 155: Try to move the elements from the 2-D array into another 2-D array
+public class Java_Fundamentals {
+    public static void main(String args[]) {
+        int oldArray[][] = {{10, 20, 30},
+                            {40, 50, 60}};
+
+        int newArray[][] = new int[3][2];
+        // Output should be {{10,40},
+        //                   {20,50},
+        //                   {30,60}}
+
+
+        for (int column = 0; column < oldArray[0].length; column++) { // Iteration over the columns
+            for (int row = 0; row < oldArray.length; row++) { // Iteration over the rows
+                newArray[column][row] = oldArray[row][column];
+                //oldArray[1][0] = newArray[0][1]
+                System.out.print(newArray[column][row] + " ");
+
+            }
+            System.out.println();
+        }
+    }
+}*/
+
+/*
+// Try this but with a string array - Problem 154
+public class Java_Fundamentals {
+    public static void main(String args[]){
+        boolean [][] array = {{true, false, true},
+                {false, true, false}};
+
+        // Print array row by row
+        for (int row = 0; row < array.length; row++){
+            for (int column = 0; column < array[row].length; column++){
+                if(array[row][column] == true){ // Check if the value is true, then print t
+                    System.out.print("t" + " ");
+                }
+                else{
+                    System.out.print("f" + " " );
+                }
+            }
+            System.out.println();
+        }
+    }
+}*/
+
+/*// Problem 161: Write a Java program to find the kth smallest and largest element in a given array.
+// Elements in the array can be in any order.
+public class Java_Fundamentals{
+    public static void main(String args[]){
+        int [] numbers = {1, 4, 17, 7, 25, 3, 100};
+        int a = 0;
+        int b = 0;
+        int c = 0;
+
+        for (int i = 0; i< numbers.length; i++){
+            for (int j = 0; j < numbers.length - 1; j++){
+                if (numbers[j] > numbers[j+1]){
+                    a = numbers[j]; // 17
+                    b = numbers[j+1]; // 1
+
+                    c = a; // a = 17, b = 1, c = 17
+                    a = b; // a = 1, b = 1, c = 17
+                    b = c; // a = 1, b = 17, c = 17
+
+                    numbers[j] = a; // 1
+                    numbers[j+1] = b; // 17
+                }
+            }
+        }
+        System.out.println("The smallest element is: " + numbers[0]);
+        System.out.println("The largest element is: " + numbers[numbers.length - 1]);
+    }
+}*/
+
+
+
+/*// Problem 165: Write a Java program to move every positive number to the right and
+// every negative number to the left of a given array of integers.
+import java.util.Arrays;
+public class Java_Fundamentals {
+    public static void main(String args[]){
+        int [] originalArray = {-2, 3, 4, -1, -3, 1, 2, -4, 0};
+
+       Arrays.sort(originalArray);
+
+       for (int i = 0; i < originalArray.length; i++){
+           System.out.print(originalArray[i] + " ");
+       }
+
+    }
+}*/
+
+/*// Problem 158: Write a Java program to create a two-dimensional array (m x m) A[][] such that A[i][j] is false
+// if I and j are prime otherwise A[i][j] becomes true.
+// print false if prime, print true if composite
+public class Java_Fundamentals {
+    public static void main(String args[]){
+        int numbers[][] = {{2,34,86},
+                           {87,13,82},
+                           {18,58,77}};
+
+        for (int rows = 0; rows < numbers.length; rows++){ // Iterate over the rows
+            for (int columns = 0; columns < numbers[rows].length; columns++){ // Iterate over the columns
+                if(numbers[rows][columns] == 1 || numbers[rows][columns] == 0){
+                    System.out.print("Neither");
+                }
+                else if(numbers[rows][columns] == 3 || numbers[rows][columns] == 5){ // In the case of 3 or 5 which are both prime
+                    System.out.print(false);
+                }
+                else if(numbers[rows][columns] == 2){ // In the case of two which is prime
+                    System.out.print(false + " ");
+                }
+                else if(numbers[rows][columns] % 2 == 0){ // Even numbers that are composite
+                    System.out.print(true + " ");
+                }
+                else if(numbers[rows][columns] % 3 == 0 || numbers[rows][columns] % 5 == 0 || numbers[rows][columns] % 7 == 0 ||
+                numbers[rows][columns] % 9 == 0 || numbers[rows][columns] % 11 == 0){
+                    // Odd numbers that are composite
+                    System.out.print(true + " ");
+                }
+                else{ // All numbers are prime
+                    System.out.print(false + " ");
+                }
+                //System.out.print(numbers[rows][columns] + " ");
+            }
+            System.out.println();
+        }
+    }
+}*/
+
+
+/*// Problem 169: Write a Java program to reverse a sentence (assume a single space between two words) without reverse every word.
+import java.util.Scanner;
+public class Java_Fundamentals {
+    public static void main(String args[]) {
+
+        // Ask user to input a sentence
+        System.out.print("Write a sentence: ");
+        Scanner scanner = new Scanner(System.in);
+        String sentence = scanner.nextLine();
+
+        // Convert the string to a string array and save it to the variable senetenceArray
+        String[] sentenceArray = sentence.split(" ");
+
+        // Print the array backwards
+        for (int i = sentenceArray.length - 1; i >= 0; i--) {
+            System.out.print(sentenceArray[i] + " ");
+        }
+
+        // Call on the method
+        //reversedSentence(sentence);
+    }
+
+    // This method will reverse all the characters in the strong
+    public static void reversedSentence(String sentence) {
+        StringBuilder words = new StringBuilder();
+        words.append(sentence);
+        words.toString();
+        StringBuilder reversedWord = words.reverse();
+        System.out.print(reversedWord);
+    }
+
+}*/
+
+
+/*// Problem 133: Write a Java program to find a path from top left to bottom in the right direction
+//which minimizes the sum of all numbers along its path.
+public class Java_Fundamentals {
+    public static void main(String args[]){
+        // Create an array
+        int array[][] = {{7,4,2},
+                         {0,5,6},
+                         {3,1,2}};
+
+        int rowSum = 0;
+        int columnSum = 0;
+
+        // Iterate over the first column up until the last value
+        for (int column = 0; column < 1; column++){
+            for (int row = 0; row < array.length - 1; row++){
+                columnSum = columnSum + array[row][column];
+            }
+        }
+
+        // Iterate over the values in the last row
+        for (int row = array.length - 1; row < array.length; row++){
+            for (int column = 0; column < array[row].length; column++){
+                rowSum = rowSum + array[row][column];
+            }
+        }
+        System.out.print(rowSum + columnSum);
+    }
+}*/
+
+
+/*// Problem 154 with strings: Write a Java program to print the contents of a two-dimensional string array
+// where t represents true and f represents false
+public class Java_Fundamentals {
+    public static void main(String args[]) {
+        String[][] strArray = {{"true", "false", "true"},
+                {"false", "true", "false"}};
+
+        for (int rows = 0; rows < strArray.length; rows++) {
+            for (int columns = 0; columns < strArray[rows].length; columns++) {
+                if (strArray[rows][columns].equals("true")) {
+                // Use the .equals() method to compare your input (which we put as "true") to the value at strArray[rows][columns]
+                    System.out.print("t" + " ");
+                }
+                else {
+                    System.out.print("f" + " ");
+                }
+            }
+            System.out.println();
+        }
+    }
+}*/
+
+
+/*// Problem 173: Write a Java program to find the median of the numbers inside the window (size k) at each step in a given
+// Come back to this problem
+// array of integers with duplicate numbers. Move the window to the array start.
+public class Java_Fundamentals {
+    public static void main(String args[]){
+       int[] numbers = {0, 1, 2, 3, 4, 5, 6, 7, 8};
+
+       for (int i = 0; i < numbers[i+3];){ // Start from the 0th position and iterate until the second position
+           //System.out.println(numbers[i+1]); // Print the value at numbers[i+1] which is the middle value
+           if(numbers[i] < 6){
+               System.out.println(numbers[i+1]);
+               i = i + 1;
+           }
+           else if (i == numbers.length - 1){
+               System.out.println(numbers[i]);
+               System.out.println(numbers.length - 2);
+
+           }
+       }
+    }
+}
+// {|1, 2, 3|, 4, 5, 6, 7, 8, 8} -> Return median 2
+// {1, |2, 3, 4|, 5, 6, 7, 8, 8} -> Return median 3
+// {1, 2, |3, 4, 5|, 6, 7, 8, 8} -> Return median 4
+// {1, 2, 3, |4, 5, 6|, 7, 8, 8} -> Return median 5
+// {1, 2, 3, 4, |5, 6, 7|, 8, 8} -> Return median 6
+// {1, 2, 3, 4, 5, |6, 7, 8|, 8} -> Return median 7
+// {1, 2, 3, 4, 5, 6, |7, 8, 8|} -> Return median 8*/
+
+/*// Problem 55: Write a Java program to convert seconds to hours, minutes and seconds.
+import java.util.Scanner;
+public class Java_Fundamentals {
+    public static void main(String args[]){
+
+        // Ask user to input the number of seconds
+        System.out.print("Input the number of seconds: ");
+        Scanner scanner = new Scanner(System.in);
+        int secondsInput = scanner.nextInt();
+
+        // Get the whole number of hours
+        int hours = secondsInput / 3600; // Divide the secondsInput by 3600 to get the whole number of hours
+        int remainingSeconds = secondsInput % 3600; // Get the remaining seconds after converting to hours
+
+        // Get the minutes
+        int minutes = remainingSeconds / 60; // Take the leftover seconds and divide by 60 to get the number of minutes
+
+        // Get the remaining seconds
+        int seconds = remainingSeconds % 60; // Take the leftover seconds and do the modules to get the remaining seconds
+
+        // Print the hours:minutes:seconds
+        System.out.print(hours + ":" + minutes + ":" + seconds);
+    }
+}*/
+
+
+/*// Problem 196: Write a Java program to create a spiral array of n * n sizes from a given integer n
+public class Java_Fundamentals {
+    public static void main(String args[]){
+
+
+       int spiralArray [][] = {{1, 2, 3, 4, 5},
+                               {16, 17, 18, 19, 6},
+                               {15, 24, 25, 20, 7},
+                               {14, 23, 22, 21, 8},
+                               {13, 12, 11, 10, 9}};
+
+       // Iterate over the first row and print
+        for(int firstRow = 0; firstRow < 1; firstRow++){
+            for(int column = 0; column < spiralArray[firstRow].length; column++){
+               System.out.print(spiralArray[firstRow][column] + " ");
+            }
+        }
+
+       // Iterate over the last column and print
+        System.out.println();
+        for (int lastColumn = spiralArray.length - 1; lastColumn > spiralArray.length - 2; lastColumn--){
+            for(int row = 1; row < spiralArray[lastColumn].length; row++){
+                System.out.println("          " + spiralArray[row][lastColumn]);
+            }
+        }
+
+        // Iterate over the last row and print
+        for (int lastRow = spiralArray.length - 1; lastRow > spiralArray.length - 2; lastRow--){
+            for (int column = 0; column < spiralArray[lastRow].length - 1; column++){
+                System.out.print(spiralArray[lastRow][column] + " ");
+            }
+        }
+
+        // Iterate over the first column and print
+        System.out.println();
+        for (int firstColumn = 0; firstColumn < 1; firstColumn++){
+            for (int row = 3; row >= 1; row--){
+                System.out.print("This is the row: " + row);
+                System.out.println("This is the firstColumn: " + firstColumn);
+                System.out.println("This is the spiralArray: " + spiralArray[row][firstColumn]);
+                System.out.println();
+            }
+        }
+    }
+}*/
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Data Types
+
+
+/*// Data Types Problem 1: Write a Java program to convert temperature from Fahrenheit to Celsius in degrees
+import java.util.Scanner;
+public class Java_Fundamentals {
+    public static void main(String args[]){
+
+        // Enter the temperature in Fahrenheit
+        System.out.print("Enter the temperature in Fahrenheit: ");
+        Scanner scanner = new Scanner(System.in);
+        double fahrenheit = scanner.nextDouble();
+
+        // Convert the fahrenheit to celsius
+        double celsius = (fahrenheit - 32) * (5.0/9.0); // Must convert (5/9) to (5.0/9.0) since it (5/9) will return zero because 5 and 9 are integers
+
+        // Print out the temperature in celsius
+        System.out.print("This is the temperature in Celsius: " + celsius);
+
+    }
+}*/
+
+
+/*// Data Types Problem 2: Write a Java program that reads a number in inches and converts it to meters
+import java.util.Scanner;
+public class Java_Fundamentals {
+    public static void main(String args[]){
+
+        // Ask user to input the number of inches
+        System.out.print("Enter the number of inches: ");
+        Scanner scanner = new Scanner(System.in);
+        double inches = scanner.nextDouble();
+
+        // Convert inches to meters
+        double meters = (inches * 0.0254);
+
+        // Print out the number of meters - by rounding
+        System.out.printf("in meters %.3f %n", meters);
+    }
+}*/
+
+
+/*// Data Types Problem 3: Write a Java program that reads an integer between 0 and 1000 and adds all the digits in the integer.
+import java.util.Scanner;
+public class Java_Fundamentals {
+    public static void main(String args[]){
+
+        // Ask for a number
+        System.out.print("Enter a number between 1 and 1000: ");
+        Scanner scanner = new Scanner(System.in);
+        int number = scanner.nextInt();
+
+        if(number >= 10) { // If we have a double digit number or more
+
+            // Convert the integer to a string
+            String convertedString = Integer.toString(number);
+
+            // Convert the string to char array
+            char[] ch = convertedString.toCharArray();
+
+            // Convert the char array to an integer array
+            int[] nums = new int[ch.length]; // Define an int array
+            for (int i = 0; i < ch.length; i++) { // Iterate over the ch array
+                nums[i] = Character.getNumericValue(ch[i]); // Get the numeric value character digit and store in the nums array at index i
+            }
+
+            // Add all the digits in the nums array
+            int sum = 0;
+            for (int j = 0; j < nums.length; j++) {
+                sum = sum + nums[j];
+            }
+            // Print out the sum
+            System.out.print("The sum of the digits is: " + sum);
+        }
+        else{ // Else the number is a single digit
+            System.out.print(number);
+        }
+    }
+
+}*/
+
+
+/*// Data Types Problem 4: Write a Java program to convert minutes into years and days.
+import java.util.Scanner;
+public class Java_Fundamentals {
+    public static void main(String args[]){
+
+        // Ask user for the number of minutes
+        System.out.print("Enter the number of minutes: ");
+        Scanner scanner = new Scanner(System.in);
+        int minutes = scanner.nextInt();
+
+        // Get the number of years by dividing minutes with 525600
+        int years = minutes / 525600;
+
+        // Capture the remaining minutes
+        int remainingMinutes = minutes % 525600;
+
+        // Divide the remaining minutes by 1440 to get the number of days
+        int days = remainingMinutes / 1440;
+
+        System.out.print(minutes + " minutes is approximately " + years + " years and " + days + " days ");
+
+    }
+}*/
+
+
+/*// Data Types Problem 9: Write a Java program that accepts two integers from the user and prints the sum,
+// the difference, the product, the average, the distance (the difference between the integers),
+// the maximum (the largest of the two integers), and the minimum (the smallest of the two integers).
+import java.util.Scanner;
+public class Java_Fundamentals {
+    public static void main(String args[]){
+
+        // Ask for the first number
+        System.out.print("Enter the first number: ");
+        Scanner scanner = new Scanner(System.in);
+        int first = scanner.nextInt();
+        scanner.nextLine(); // Consume the newline character
+
+        // Ask for the second number
+        System.out.print("Enter the second number");
+        int second = scanner.nextInt();
+
+        System.out.println("The sum is: " + (first + second)); // Print the sum
+
+        System.out.println("The difference is: " + (first - second)); // Print the difference
+
+        System.out.println("The product is: " + (first * second)); // Print the product
+
+        System.out.println("The average is: " + ((first + second) / 2)); // Print the average
+
+        if(first > second){
+            System.out.println(first + " is greater than " + second); // Print the maximum
+            System.out.println(second + " is smaller than " + first); // Print the minimum
+        }
+        else {
+            System.out.println(second + " is greater than " + first); // Print the maximum
+            System.out.println(first + " is smaller than " + second); // Print the minimum
+        }
+    }
+}*/
+
+
