@@ -2437,3 +2437,51 @@ public class Java_Fundamentals {
 }*/
 
 
+/*// ArrayList
+import java.util.ArrayList;
+public class Java_Fundamentals {
+    public static void main(String args[]){
+
+        // Create an ArrayList
+        ArrayList<String> cars = new ArrayList<String>();
+
+        // Add items into an ArrayList
+        cars.add("Aston Martin");
+        cars.add("Lamborghini");
+        cars.add("Rolls-Royce");
+        cars.add("Bugatti");
+
+        // Print out the ArrayList of cars
+        System.out.println(cars);
+
+        // Access the value Bugatti
+        cars.get(3);
+        System.out.println("This is the getting the value at index 3: " + cars.get(3));
+
+        // Change an item
+        cars.set(2, "Maserati");
+        System.out.println("This is the new ArrayList with Rolls-Royce being changed to Maserati: " + cars);
+
+        // Remove an item from an ArrayList
+        cars.remove(0);
+        System.out.println("Removed one element from the cars ArrayList: " + cars);
+
+        // Remove all the items from an ArrayList
+        cars.clear();
+        System.out.println("Removed all the elements of the ArrayList: " + cars);
+
+        // Get the size of the ListArray motorcycles
+        ArrayList<String> motorcycles = new ArrayList<String>();
+        motorcycles.add("Kawasaki");
+        motorcycles.add("Suzuki");
+        motorcycles.add("Ducati");
+        motorcycles.add("Yamaha");
+
+        System.out.println("This is the size of the ArrayList: " + motorcycles.size());
+
+        // Loop over the ListArray motorcycles
+        for (int i = 0; i < motorcycles.size(); i++){
+            System.out.println(motorcycles.get(i));
+        }
+    }
+}*/
