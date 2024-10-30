@@ -5,6 +5,7 @@ b = 200
 c = 0
 d = 20
 
+# Comparing two numbers
 def compare(arg1, arg2):
     if(arg1 < arg2):
         print(" arg1 is less than arg2 " + str(arg1))
@@ -21,6 +22,7 @@ print(a)
 compare(c,d)
 print(c)
 
+# Looping over a number and adding 100 until 100
 def looping(arg3):
     while(arg3 < 1000):
         arg3 = arg3 + 100
@@ -29,6 +31,7 @@ def looping(arg3):
 looping(a)
 print(a)
 
+# Looping over every other number until 20
 def forlooping(arg4):
     for arg4 in range (0,20,2):
         print(arg4)
