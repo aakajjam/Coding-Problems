@@ -16,7 +16,7 @@ smtpObj.starttls() # TLS encryption to the server
 
 # Login to your account
 email = 'akshaymusic101@gmail.com'
-app_password = 'mjqt pigm pydw uzck' # Need to create this for security reasons
+app_password = 'Put app password string here' # Need to create this for security reasons
 smtpObj.login(email, app_password)
 
 # Create the multipart email content
