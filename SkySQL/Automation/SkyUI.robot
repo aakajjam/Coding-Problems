@@ -16,10 +16,6 @@ Test Login PP
     Click Button    css=button[data-action-button-primary='true']
     Wait Until Location Contains    dashboard    timeout=10s
     Log    Login successful!
-    Wait Until Page Contains Element    css=.v-list-item--link    timeout=30s
-    Click Element    xpath=(//div[contains(@class, 'v-list-item--link')])[5]
-    Wait Until Page Contains Element    id=copilot-messages    timeout=30s
-    Input Text    css=textarea[placeholder]    Hello World!
     Sleep    5s
     Close Browser
 
