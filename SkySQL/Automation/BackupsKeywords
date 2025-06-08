@@ -1,0 +1,46 @@
+*** Settings ***
+Library           SeleniumLibrary
+Resource          ../../../../Resources/TestData/VerificationStrings.robot
+
+*** Variables ***
+${BACKUPS_SECTION}                    xpath=//span[contains(text(), "Backups")]
+${BACKUPS_SECTION_TITLE}              css=.mb-2
+${DATA_TABLE}                         css=.v-data-table
+${BACKUP_NOW}                         xpath=//button[.//span[normalize-space(text())="Backup Now"]]
+${NEW_SCHEDULE}                       xpath=//button[.//span[normalize-space(text())="New Schedule"]]
+${RESTORE_FROM_EXTERNAL_STORAGE}      xpath=//button[.//span[normalize-space(text())="Restore from external storage"]]
+${POINT_IN_TIME_RESTORE}              xpath=//button[.//span[normalize-space(text())="Point-in-time Restore"]]
+${BACKUPS_SCHEDULES_RESTORES_TABS}    css=.route-tabs
+
+*** Keywords ***
+Click on 'Backups' section and verify elements
+    wait until element is visible    ${BACKUPS_SECTION}    timeout=10s    error=Backups section is not visible
+    click element    ${BACKUPS_SECTION}
+    wait until location contains    service-backups    timeout=10s 
+    wait until element is enabled    ${BACKUPS_SCHEDULES_RESTORES_TABS}   timeout=10s   
+    wait until element is visible    ${BACKUPS_SECTION_TITLE}    timeout=10s
+    wait until element is visible    ${DATA_TABLE}   timeout=10s       
+    wait until element is visible    ${BACKUP_NOW}   timeout=10s
+
+Click on 'Schedules' tab and verify elements
+    wait until element is visible    ${BACKUPS_SECTION}    timeout=10s    error=Backups section is not visible
+    click element    ${BACKUPS_SECTION}
+    wait until location contains    service-backups    timeout=10s 
+    wait until element is enabled    ${BACKUPS_SCHEDULES_RESTORES_TABS}   timeout=10s   
+    wait until element is visible    ${BACKUPS_SECTION_TITLE}    timeout=10s
+    wait until element is visible   link=${BACKUPS_SCHEDULES_TAB}    timeout=10s
+    click link    ${BACKUPS_SCHEDULES_TAB} 
+    wait until element is visible    ${DATA_TABLE}    timeout=10s 
+    wait until element is visible    ${NEW_SCHEDULE}   timeout=10s
+
+Click on 'Restores' tab and verify elements
+    wait until element is visible    ${BACKUPS_SECTION}    timeout=10s    error=Backups section is not visible
+    click element    ${BACKUPS_SECTION}
+    wait until location contains    service-backups    timeout=10s 
+    wait until element is enabled    ${BACKUPS_SCHEDULES_RESTORES_TABS}   timeout=10s   
+    wait until element is visible    ${BACKUPS_SECTION_TITLE}    timeout=10s
+    wait until element is visible   link=${BACKUPS_RESTORES_TAB}    timeout=10s
+    click link    ${BACKUPS_RESTORES_TAB}
+    wait until element is visible    ${RESTORE_FROM_EXTERNAL_STORAGE}    timeout=10s
+    wait until element is visible    ${POINT_IN_TIME_RESTORE}    timeout=10s
+    wait until element is visible    ${DATA_TABLE}   timeout=10s
