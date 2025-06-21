@@ -1,0 +1,37 @@
+# This file is for creating RAG for Providence work
+
+# Step 1: Setup Environment by importing the necessary libraries
+from llama_index.core import SampleDirectoryReader, VectorStoreIndex, PromptTemplate, Settings
+from llama_index.llms.ollama import Ollama
+from llama_index.embeddings.huggingface import HuggingFaceEmbedding
+# Need to have Embeddings added in here such as HuggingFace
+
+# Step 2: Setup your LLM
+llm = Ollama(model="llama3", request_timeout=120.0)  # Make sure 'llama3' is available in your Ollama environment
+Settings.llm = llm
+
+# Step 3: Load your custom or domain-specific data
+reader = SampleDirectoryReader(input_files=["data/HC_1.PDF", "data/HC_2.PDF", "data/HC_3.PDF", "data/HC_4.PDF", "data/HC_5.PDF", "data/HC_6.PDF"])
+providence_docs = reader.load_data()
+
+# Step 4: Index your data with llama-index
+index = VectorStoreIndex.from_documents(providence_docs)
+
+# Step 5: Create a query engine and ask a question
+query_engine = index.as_query_engine()
+
+# Example query
+response = query_engine.query("What is the Consent for Service in HC_1?")
+print(response)
+
+# Step 6: Enhance the Bot with Memory or Tools (Optional)
+
+# Step 7: Fine-Tune or Extend Vocabulary (Optional)
+
+# TIPS:
+    # Feed the bot manuals, reports, glossaries, and emails, you work with
+    # Chunck documents intelligently
+    # Use metadata filtering to categorize documents (ex: by department or topic)
+
+# Prompt entered into ChatGPT: 
+#I want to build a RAG chatbot using ollama and llamaindex that also understands the terminology related to my job. What are the steps and give me the documentation to find this
