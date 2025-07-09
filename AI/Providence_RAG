@@ -1,37 +1,118 @@
 # This file is for creating RAG for Providence work
+# Source code from video: A gentle introduction to RAG (using open-source models) Underfitted
+# Link to the source code github repo https://github.com/svpino/gentle-intro-to-rag
 
-# Step 1: Setup Environment by importing the necessary libraries
-from llama_index.core import SampleDirectoryReader, VectorStoreIndex, PromptTemplate, Settings
-from llama_index.llms.ollama import Ollama
-from llama_index.embeddings.huggingface import HuggingFaceEmbedding
-# Need to have Embeddings added in here such as HuggingFace
+PDF_FILE = "IMM.pdf"
+MODEL = "llama3.2"
 
-# Step 2: Setup your LLM
-llm = Ollama(model="llama3", request_timeout=120.0)  # Make sure 'llama3' is available in your Ollama environment
-Settings.llm = llm
+from langchain_community.document_loaders import PyPDFLoader
 
-# Step 3: Load your custom or domain-specific data
-reader = SampleDirectoryReader(input_files=["data/HC_1.PDF", "data/HC_2.PDF", "data/HC_3.PDF", "data/HC_4.PDF", "data/HC_5.PDF", "data/HC_6.PDF"])
-providence_docs = reader.load_data()
+loader = PyPDFLoader(PDF_FILE)
+pages = loader.load()
 
-# Step 4: Index your data with llama-index
-index = VectorStoreIndex.from_documents(providence_docs)
+print(f"Number of pages: {len(pages)}")
+print(f"Length of pages: {len(pages[1].page_content)}")
+print("Content of pages:", pages[0].page_content)
 
-# Step 5: Create a query engine and ask a question
-query_engine = index.as_query_engine()
+# Chunking
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-# Example query
-response = query_engine.query("What is the Consent for Service in HC_1?")
-print(response)
+splitter = RecursiveCharacterTextSplitter(chunk_size=1500, chunk_overlap=100)
 
-# Step 6: Enhance the Bot with Memory or Tools (Optional)
+chunks = splitter.split_documents(pages)
+print(f"Number of chunks: {len(chunks)}")
+print(f"Length of a chunk: {len(chunks[1].page_content)}")
+print(f"Content of a chunk:", chunks[1].page_content)
 
-# Step 7: Fine-Tune or Extend Vocabulary (Optional)
+# Storing the chunks in vector store
 
-# TIPS:
-    # Feed the bot manuals, reports, glossaries, and emails, you work with
-    # Chunck documents intelligently
-    # Use metadata filtering to categorize documents (ex: by department or topic)
+from langchain_community.vectorstores import FAISS
+from langchain_ollama import OllamaEmbeddings
 
-# Prompt entered into ChatGPT: 
-#I want to build a RAG chatbot using ollama and llamaindex that also understands the terminology related to my job. What are the steps and give me the documentation to find this
+embeddings = OllamaEmbeddings(model=MODEL)
+vectorstore = FAISS.from_documents(chunks, embeddings)
+
+# Setting up a retriever 
+# We can use a retriever to find chunks in the vectore store that are similar to a supplied question
+
+retriever = vectorstore.as_retriever()
+retriever.invoke("What if I miss the deadline?")
+
+# Configuring the Model
+# We will use Ollama to load the local model in memory. After creating the model, we can invoke the model with a question and get the response back
+
+from langchain_ollama import ChatOllama
+
+model = ChatOllama(model=MODEL, temperature=0)
+model.invoke("Who is the president of the United States?")
+
+# Parsing the model's response
+# The response from the model is an AIMesssage instance containing the answer. We can extract the text answer by using the appropriate output parser.
+# We can connect the model and a parser using a chain
+
+from langchain_core.output_parsers import StrOutputParser
+
+parser = StrOutputParser()
+chain = model | parser
+print(chain.invoke("Who is the president of the United States?"))
+
+# Setting up a prompt
+# In addition to the questions we want to ask, we also want to provide the model with the context of the PDF file. 
+# We can use a prompt template to define and reuse the prompt we will use with the model
+
+from langchain.prompts import PromptTemplate
+
+template = """
+You are an assistant that provides answers to questions based on a given context.
+
+Answer the question based on the context. If you can't answer the question, reply "I don't know".
+
+Be as concise as possible and go straight to the point.
+
+Context: {context}
+
+Question: {question}
+"""
+
+prompt = PromptTemplate.from_template(template)
+print(prompt.format(context="Here is some context", question="Here is a question"))
+
+# Adding the prompt to the chain
+# We can now chain the prompt with the model and the parser
+
+chain = prompt | model | parser
+chain.invoke(
+    {"context": "If you have original Medicare call 1-888-305-6759",
+     "question": "What number do ypu call if you have original medicare?"
+    })
+
+
+# Adding the retriver to the chain
+# Finally we can connect the retriever to the chain and get the context from the vector store
+
+from operator import itemgetter
+
+chain = (
+    {
+        "context": itemgetter("question") | retriever,
+        "question": itemgetter("question"),
+    }
+    | prompt
+    | model
+    | parser
+)
+
+questions = [
+    #"What happens if I do not appeal?",
+    #"What number do I call, if I have concerns about the quality of my care",
+    #"Who do I call if I have providence medicare"
+    #"Tell me Providence hospital address"
+    #"What is Acentra Health"
+    "Who do I report to with concerns about my quality of care",
+    "Tell me Providence hospital address from my PDF"
+]
+
+for question in questions:
+    print(f"Question: {question}")
+    print(f"Answer: {chain.invoke({'question':question})}")
+    print("************************")
