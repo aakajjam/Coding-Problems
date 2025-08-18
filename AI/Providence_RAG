@@ -3,6 +3,7 @@
 # Link to the source code github repo https://github.com/svpino/gentle-intro-to-rag
 
 PDF_FILE = "IMM.pdf"
+
 MODEL = "llama3.2"
 
 from langchain_community.document_loaders import PyPDFLoader
@@ -16,7 +17,6 @@ print("Content of pages:", pages[0].page_content)
 
 # Chunking
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-
 splitter = RecursiveCharacterTextSplitter(chunk_size=1500, chunk_overlap=100)
 
 chunks = splitter.split_documents(pages)
@@ -24,37 +24,36 @@ print(f"Number of chunks: {len(chunks)}")
 print(f"Length of a chunk: {len(chunks[1].page_content)}")
 print(f"Content of a chunk:", chunks[1].page_content)
 
+
 # Storing the chunks in vector store
-
-#from langchain_community.vectorstores import FAISS
-#from langchain_ollama import OllamaEmbeddings
-
-#embeddings = OllamaEmbeddings(model=MODEL)
-#vectorstore = FAISS.from_documents(chunks, embeddings)
-
-import os
 from langchain_community.vectorstores import FAISS
 from langchain_ollama import OllamaEmbeddings
+embeddings = OllamaEmbeddings(model=MODEL)
+#vectorstore = FAISS.from_documents(chunks, embeddings)
+import os
 
 VECTOR_DB_PATH = "faiss_index"
-embeddings = OllamaEmbeddings(model=MODEL)
+
+print("Starting the vectorstore creation/loading process")
 
 if os.path.exists(VECTOR_DB_PATH):
+    print("Loading FAISS index from the disk")
     vectorstore = FAISS.load_local(VECTOR_DB_PATH, embeddings)
 else:
+    print("Creating FAISS index and saving to the disk")
     chunks = splitter.split_documents(pages)
     vectorstore = FAISS.from_documents(chunks, embeddings)
     vectorstore.save_local(VECTOR_DB_PATH)
 
+
 # Setting up a retriever 
-# We can use a retriever to find chunks in the vectore store that are similar to a supplied question
+# We can use a retriever to find chunks in the vector store that are similar to a supplied question
 
 retriever = vectorstore.as_retriever()
 retriever.invoke("What if I miss the deadline?")
 
 # Configuring the Model
 # We will use Ollama to load the local model in memory. After creating the model, we can invoke the model with a question and get the response back
-
 from langchain_ollama import ChatOllama
 
 model = ChatOllama(model=MODEL, temperature=0)
