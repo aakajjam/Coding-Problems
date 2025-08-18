@@ -26,11 +26,25 @@ print(f"Content of a chunk:", chunks[1].page_content)
 
 # Storing the chunks in vector store
 
+#from langchain_community.vectorstores import FAISS
+#from langchain_ollama import OllamaEmbeddings
+
+#embeddings = OllamaEmbeddings(model=MODEL)
+#vectorstore = FAISS.from_documents(chunks, embeddings)
+
+import os
 from langchain_community.vectorstores import FAISS
 from langchain_ollama import OllamaEmbeddings
 
+VECTOR_DB_PATH = "faiss_index"
 embeddings = OllamaEmbeddings(model=MODEL)
-vectorstore = FAISS.from_documents(chunks, embeddings)
+
+if os.path.exists(VECTOR_DB_PATH):
+    vectorstore = FAISS.load_local(VECTOR_DB_PATH, embeddings)
+else:
+    chunks = splitter.split_documents(pages)
+    vectorstore = FAISS.from_documents(chunks, embeddings)
+    vectorstore.save_local(VECTOR_DB_PATH)
 
 # Setting up a retriever 
 # We can use a retriever to find chunks in the vectore store that are similar to a supplied question
