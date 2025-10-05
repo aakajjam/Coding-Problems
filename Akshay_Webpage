@@ -10,11 +10,10 @@
       <h1 class="header-title">DigiHealth Inc.</h1>
     </header>
 
-    <!-- Conditional Page Content -->
+    <!-- Main Scrollable Content -->
     <main class="page-content">
-      <!-- Home Page -->
       <div v-if="!showForm">
-        <!-- About Us -->
+        <!-- About Us Section -->
         <div class="title-section">
           <h1>About Us</h1>
           <p class="about-paragraph">
@@ -23,34 +22,95 @@
           </p>
         </div>
 
-        <!-- Our Services -->
+        <!-- Our Services Section -->
         <div class="title-section">
           <h1>Our Services</h1>
         </div>
 
         <!-- Image Row Section -->
         <section class="info-row">
-          <div class="info-card" v-for="service in services" :key="service.title">
-            <img :src="service.image" :alt="service.title" />
-            <h3>{{ service.title }}</h3>
-            <p>{{ service.description }}</p>
+          <div class="info-card">
+            <img
+              src="https://cdn.prod.website-files.com/619e15d781b21202de206fb5/63d3c2972ba46635ffa0ff2d_Automation-testing-trends-worth-looking-out-for-in-2023-during-the-economic-recession-Main.webp"
+              alt="QA Automation"
+              class="info-image"
+            />
+            <h3>QA</h3>
+            <p>Automation testing for healthcare</p>
+          </div>
+          <div class="info-card">
+            <img
+              src="https://media.istockphoto.com/id/1628553826/photo/ai-or-artificial-intelligence-concept-businessman-using-computer-use-ai-to-help-business-and.jpg?s=612x612&w=0&k=20&c=Ii4XvGWruTsPHcFBofrHRGUHTA4lI-Oe06V4Q_gBeQY="
+              alt="AI for Healthcare"
+            />
+            <h3>AI</h3>
+            <p>AI for healthcare</p>
+          </div>
+          <div class="info-card">
+            <img
+              src="https://www.shutterstock.com/image-photo/medical-conceptword-health-policy-signage-260nw-498210550.jpg"
+              alt="Policies"
+            />
+            <h3>Policies</h3>
+            <p>Policies for healthcare</p>
+          </div>
+          <div class="info-card">
+            <img
+              src="https://media.istockphoto.com/id/1496103633/photo/doctor-woman-and-tablet-in-hospital-with-holographic-ux-for-telehealth-medical-innovation-and.jpg?s=612x612&w=0&k=20&c=6r_4uAbzJ73NZS3pH9MqxZjJ_L_zRVO7g0Wdn6iv5i0="
+              alt="IT Services"
+            />
+            <h3>IT</h3>
+            <p>IT for healthcare</p>
           </div>
         </section>
 
         <!-- Consultation Button -->
         <div class="button-container">
-          <button class="consultation-button" @click="showForm = true">Request A Consultation</button>
+          <button class="consultation-button" @click="showForm = true">
+            Request A Consultation
+          </button>
         </div>
       </div>
 
-      <!-- Consultation Form Page -->
-      <div v-else class="form-page">
-        <h2 class="form-title">Request a Consultation</h2>
-        <form @submit.prevent="submitForm" class="consultation-form">
-          <input v-model="form.name" type="text" placeholder="Your Name" required />
-          <input v-model="form.email" type="email" placeholder="Your Email" required />
-          <input v-model="form.service" type="text" placeholder="Service Wanted" required />
-          <button type="submit" class="submit-button">Submit</button>
+      <!-- Consultation Form -->
+      <div v-else class="form-container">
+        <div class="form-header">
+          <button class="back-button" @click="showForm = false">← Back</button>
+          <h2 class="form-title">Request A Consultation</h2>
+        </div>
+
+        <form class="consultation-form" @submit.prevent="submitForm">
+          <input type="text" v-model="form.name" placeholder="Your Name" required />
+          <input type="email" v-model="form.email" placeholder="Your Email" required />
+
+          <!-- Service Dropdown -->
+          <select v-model="form.service" required>
+            <option disabled value="">Select a Service</option>
+            <option>AI</option>
+            <option>IT</option>
+            <option>QA</option>
+            <option>Policies</option>
+          </select>
+
+          <!-- Description -->
+          <textarea
+            v-model="form.description"
+            placeholder="Describe what you need..."
+            rows="5"
+            required
+          ></textarea>
+
+          <!-- Date & Time Picker -->
+          <label class="datetime-label">Preferred Date & Time:</label>
+          <input
+            type="datetime-local"
+            v-model="form.datetime"
+            :min="minDateTime"
+            required
+          />
+
+          <!-- Submit Button -->
+          <button class="submit-button" type="submit">Submit</button>
         </form>
       </div>
     </main>
@@ -64,87 +124,73 @@
 </template>
 
 <script setup>
-import { reactive, ref } from 'vue'
+import { ref, computed } from 'vue'
 
 const showForm = ref(false)
 
-const form = reactive({
+const form = ref({
   name: '',
   email: '',
-  service: ''
+  service: '',
+  description: '',
+  datetime: '',
 })
 
-const submitForm = () => {
-  alert(`Thank you, ${form.name}! We’ll contact you about "${form.service}" at ${form.email}.`)
-  // Optionally reset form
-  form.name = ''
-  form.email = ''
-  form.service = ''
-  showForm.value = false
+const getCurrentDateTimeLocal = () => {
+  const now = new Date()
+  now.setMinutes(now.getMinutes() - now.getTimezoneOffset())
+  return now.toISOString().slice(0, 16)
 }
 
-const services = [
-  {
-    title: 'QA',
-    description: 'Automation testing for healthcare',
-    image:
-      'https://cdn.prod.website-files.com/619e15d781b21202de206fb5/63d3c2972ba46635ffa0ff2d_Automation-testing-trends-worth-looking-out-for-in-2023-during-the-economic-recession-Main.webp'
-  },
-  {
-    title: 'AI',
-    description: 'AI for healthcare',
-    image:
-      'https://media.istockphoto.com/id/1628553826/photo/ai-or-artificial-intelligence-concept-businessman-using-computer-use-ai-to-help-business-and.jpg?s=612x612&w=0&k=20&c=Ii4XvGWruTsPHcFBofrHRGUHTA4lI-Oe06V4Q_gBeQY='
-  },
-  {
-    title: 'Policies',
-    description: 'Policies for healthcare',
-    image:
-      'https://www.shutterstock.com/image-photo/medical-conceptword-health-policy-signage-260nw-498210550.jpg'
-  },
-  {
-    title: 'IT',
-    description: 'IT for healthcare',
-    image:
-      'https://media.istockphoto.com/id/1496103633/photo/doctor-woman-and-tablet-in-hospital-with-holographic-ux-for-telehealth-medical-innovation-and.jpg?s=612x612&w=0&k=20&c=6r_4uAbzJ73NZS3pH9MqxZjJ_L_zRVO7g0Wdn6iv5i0='
+const minDateTime = computed(() => getCurrentDateTimeLocal())
+
+function submitForm() {
+  alert(`Thank you, ${form.value.name}! Your ${form.value.service} consultation request was submitted.`)
+  showForm.value = false
+  form.value = {
+    name: '',
+    email: '',
+    service: '',
+    description: '',
+    datetime: '',
   }
-]
+}
 </script>
 
 <style scoped>
-/* General Layout */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-html,
-body {
+html, body {
   height: 100%;
-  overflow: hidden;
 }
 .container {
   height: 100vh;
+  display: flex;
+  flex-direction: column;
   font-family: Arial, sans-serif;
-  position: relative;
 }
 
-/* Header */
+/* Fixed Header */
 .page-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
   height: 20vh;
   background-color: #1e1e1e;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   padding-left: 20px;
-  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
 }
 .logo {
   max-height: 80%;
+  z-index: 2;
 }
 .header-title {
   position: absolute;
@@ -154,23 +200,41 @@ body {
   font-size: 2.5em;
   font-weight: bold;
   user-select: none;
-  pointer-events: none;
   white-space: nowrap;
 }
 
 /* Scrollable Main Content */
 .page-content {
-  position: absolute;
-  top: 20vh;
-  bottom: 10vh;
-  left: 0;
-  right: 0;
+  flex: 1;
+  margin-top: 20vh;
+  margin-bottom: 10vh;
   overflow-y: auto;
   padding: 20px;
   background-color: #f9f9f9;
 }
 
-/* Titles and Paragraphs */
+/* Fixed Footer */
+.page-footer {
+  height: 10vh;
+  background-color: #1e1e1e;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.footer-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+/* Section Titles */
 .title-section {
   text-align: center;
   margin: 20px 0;
@@ -217,14 +281,14 @@ body {
   color: #555;
 }
 
-/* Consultation Button */
+/* Button */
 .button-container {
   display: flex;
   justify-content: center;
   margin-top: 30px;
 }
 .consultation-button {
-  background-color: #007bff;
+  background-color: #007BFF;
   color: white;
   border: none;
   padding: 12px 30px;
@@ -240,53 +304,47 @@ body {
   box-shadow: 0 6px 12px rgba(0, 86, 179, 0.5);
 }
 
-/* Footer */
-.page-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 10vh;
-  background-color: #1e1e1e;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  z-index: 10;
-}
-.footer-link {
-  color: white;
-  text-decoration: none;
-  font-size: 1.2em;
-}
-.footer-link:hover {
-  text-decoration: underline;
-}
-
-/* Form Page */
-.form-page {
-  max-width: 500px;
+/* Form Styling */
+.form-container {
+  max-width: 600px;
   margin: 0 auto;
-  padding: 30px;
+  padding: 20px;
+}
+.form-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.back-button {
+  background: none;
+  border: none;
+  color: #007BFF;
+  font-size: 1em;
+  cursor: pointer;
+  padding: 0;
 }
 .form-title {
-  text-align: center;
-  margin-bottom: 20px;
+  font-size: 1.5em;
+  font-weight: bold;
 }
 .consultation-form {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  margin-top: 20px;
 }
-.consultation-form input {
+.consultation-form input,
+.consultation-form select,
+.consultation-form textarea {
   padding: 10px;
   font-size: 1em;
-  border-radius: 8px;
   border: 1px solid #ccc;
+  border-radius: 6px;
 }
 .submit-button {
-  padding: 12px;
-  background-color: #007bff;
+  background-color: #28a745;
   color: white;
+  padding: 12px;
   border: none;
   font-size: 1.1em;
   border-radius: 25px;
@@ -294,8 +352,11 @@ body {
   transition: background-color 0.3s ease;
 }
 .submit-button:hover {
-  background-color: #0056b3;
+  background-color: #218838;
+}
+
+.datetime-label {
+  font-weight: 500;
+  margin-top: 10px;
 }
 </style>
-
-
