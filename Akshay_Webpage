@@ -1,0 +1,236 @@
+<template>
+  <div class="container">
+    <!-- Header -->
+    <header class="page-header">
+      <img
+        src="https://cdn.vectorstock.com/i/1000v/20/56/digital-health-healthcare-logo-vector-21302056.jpg"
+        alt="Digital Healthcare Logo"
+        class="logo"
+      />
+      <h1 class="header-title">DigiHealth Inc.</h1>
+    </header>
+
+    <!-- About Us Title + Paragraph -->
+    <div class="title-section">
+      <h1>About Us</h1>
+      <p class="about-paragraph">
+        We are a team of passionate developers and designers focused on building immersive digital experiences.
+        Our mission is to blend creativity and technology to deliver innovative web solutions that engage and inspire.
+      </p>
+    </div>
+
+    <!-- Main Content -->
+    <main class="page-content">
+      <!-- Our Services Title -->
+      <div class="title-section">
+        <h1>Our Services</h1>
+      </div>
+
+      <!-- Image Row Section -->
+      <section class="info-row">
+        <div class="info-card">
+          <img
+            src="https://cdn.prod.website-files.com/619e15d781b21202de206fb5/63d3c2972ba46635ffa0ff2d_Automation-testing-trends-worth-looking-out-for-in-2023-during-the-economic-recession-Main.webp"
+            alt="QA Automation"
+            class="info-image"
+          />
+          <h3>QA</h3>
+          <p>Automation testing for healthcare</p>
+        </div>
+        <div class="info-card">
+          <img
+            src="https://media.istockphoto.com/id/1628553826/photo/ai-or-artificial-intelligence-concept-businessman-using-computer-use-ai-to-help-business-and.jpg?s=612x612&w=0&k=20&c=Ii4XvGWruTsPHcFBofrHRGUHTA4lI-Oe06V4Q_gBeQY="
+            alt="AI for Healthcare"
+          />
+          <h3>AI</h3>
+          <p>AI for healthcare</p>
+        </div>
+        <div class="info-card">
+          <img
+            src="https://www.shutterstock.com/image-photo/medical-conceptword-health-policy-signage-260nw-498210550.jpg"
+            alt="Policies"
+          />
+          <h3>Policies</h3>
+          <p>Policies for healthcare</p>
+        </div>
+        <div class="info-card">
+          <img
+            src="https://media.istockphoto.com/id/1496103633/photo/doctor-woman-and-tablet-in-hospital-with-holographic-ux-for-telehealth-medical-innovation-and.jpg?s=612x612&w=0&k=20&c=6r_4uAbzJ73NZS3pH9MqxZjJ_L_zRVO7g0Wdn6iv5i0="
+            alt="IT Services"
+          />
+          <h3>IT</h3>
+          <p>IT for healthcare</p>
+        </div>
+      </section>
+
+      <!-- Consultation Button -->
+      <div class="button-container">
+        <button class="consultation-button">Request A Consultation</button>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+      <a href="#articles" class="footer-link">Articles</a>
+      <a href="https://www.linkedin.com" class="footer-link" target="_blank">LinkedIn</a>
+    </footer>
+  </div>
+</template>
+
+<script setup>
+// No JavaScript needed yet
+</script>
+
+<style scoped>
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+/* Header */
+.page-header {
+  height: 20vh;
+  background-color: #1e1e1e;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 20px;
+  position: relative;
+}
+
+.logo {
+  max-height: 80%;
+  z-index: 2;
+}
+
+.header-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 2.5em;
+  font-weight: bold;
+  user-select: none;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+/* Title Section */
+.title-section {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.title-section h1 {
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.about-paragraph {
+  max-width: 600px;
+  margin: 10px auto 0 auto;
+  text-align: left;
+  font-size: 1.1em;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Main Content */
+.page-content {
+  flex: 1;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+/* Info Row Section */
+.info-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 40px;
+  overflow-x: auto;
+  padding-bottom: 20px;
+}
+
+.info-card {
+  min-width: 180px;
+  flex: 1;
+  text-align: center;
+}
+
+.info-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.info-card h3 {
+  margin: 10px 0 5px;
+  font-size: 1.2em;
+}
+
+.info-card p {
+  font-size: 0.95em;
+  color: #555;
+}
+
+/* Consultation Button */
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.consultation-button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1.1em;
+  font-weight: 600;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.consultation-button:hover {
+  background-color: #0056b3;
+  box-shadow: 0 6px 12px rgba(0, 86, 179, 0.5);
+}
+
+/* Footer */
+.page-footer {
+  height: 10vh;
+  background-color: #1e1e1e;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.footer-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+</style>
+
