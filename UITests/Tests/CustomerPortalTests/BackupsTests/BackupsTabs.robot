@@ -1,0 +1,19 @@
+
+*** Settings ***
+Library         SeleniumLibrary
+Resource         ../../../Resources/Keywords/Utils/CommonKeywords.robot
+Resource         ../../../Resources/Keywords/CustomerPortalKeywords/Pages/BackupsKeywords.robot
+Resource         ../../../Resources/TestData/VerificationStrings.robot
+
+
+Test Setup       Begin Test
+Test Teardown    Closing browser
+
+*** Variables ***
+
+*** Test Cases ***
+Test Backups
+    CommonKeywords.User Sign In  ${ENV}  ${USERNAME}  ${PASSWORD}
+    BackupsKeywords.Click on 'Backups' section and verify elements
+    BackupsKeywords.Click on 'Schedules' tab and verify elements
+    BackupsKeywords.Click on 'Restores' tab and verify elements
