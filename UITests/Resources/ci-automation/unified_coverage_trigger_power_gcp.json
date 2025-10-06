@@ -1,0 +1,210 @@
+[
+{
+    "index": 1,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "DisabledSSL",
+    "args_file": "GCP_Standalone_default.args",
+    "custom_args": "--variable SIZE:2x8 --variable STORAGE:300 --variable SERVER:10.6.14-9",
+    "disabled": false
+},
+{
+    "index": 2,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "ApplyPreviouslyCreatedCustomConfigToService",
+    "args_file": "GCP_Standalone_default_configuration.args",
+    "custom_args": "--variable SIZE:2x8 --variable STORAGE:300 --variable SERVER:10.5.21-15",
+    "disabled": false
+},
+{
+    "index": 3,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "AddIPbeforeLaunch",
+    "args_file": "GCP_Standalone_default.args",
+    "custom_args": "--variable SIZE:2x8 --variable STORAGE:300 --variable SERVER:10.4.30-20 --variable MAINTENANCE_WINDOW:Tues 12:00 PM UTC --variable MAINTENANCE_WINDOW_CHANGED:Thurs 10:00 PM UTC",
+    "disabled": false
+},
+{
+    "index": 4,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "MaxScaleRedundancy",
+    "args_file": "GCP_PrimaryReplica_default.args",
+    "custom_args": "--variable SIZE:2x8 --variable REPLICAS:4 --variable STORAGE:300 --variable SERVER:10.6.14-9",
+    "disabled": false
+},
+{
+    "index": 5,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "StartStop",
+    "args_file": "GCP_PrimaryReplica_default.args",
+    "custom_args": "--variable SIZE:2x8 --variable REPLICAS:1 --variable STORAGE:300 --variable SERVER:10.4.30-20",
+    "disabled": false
+},
+{
+    "index": 6,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "MaxScaleRedundancy",
+    "args_file": "GCP_Xpand_default.args",
+    "custom_args": "--variable SIZE:4x16 --variable REPLICAS:3 --variable STORAGE:300 --variable SERVER:6.1.1",
+    "disabled": false
+},
+{
+    "index": 7,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "XpandReplication",
+    "args_file": "GCP_Xpand_default.args",
+    "custom_args": "--variable SIZE:4x16 --variable REPLICAS:3 --variable  REPLICATION_DIRECTION:Both ways --variable SERVER:6.1.1",
+    "disabled": false
+},
+{
+    "index": 8,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "ApplyPreviouslyCreatedCustomConfigToService",
+    "args_file": "GCP_Xpand_default_configuration.args",
+    "custom_args": "--variable SIZE:4x16 --variable REPLICAS:1 --variable SERVER:6.1.1",
+    "disabled": false
+},
+{
+    "index": 9,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "StartStop",
+    "args_file": "GCP_ColumnStore_default.args",
+    "custom_args": "",
+    "disabled": false
+},
+{
+    "index": 10,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "ServerlessStartStop",
+    "args_file": "GCP_Serverless_default.args",
+    "custom_args": "",
+    "disabled": true
+},
+{
+    "index": 11,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "ChangeMWExistingServicePower",
+    "args_file": "GCP_ColumnStore_default.args",
+    "custom_args": "--variable SIZE:4x16 --variable REPLICAS:1 --variable SERVER:23.02.3",
+    "disabled": false
+},
+{
+    "index": 12,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "ChangeMWExistingServicePower",
+    "args_file": "GCP_Xpand_default.args",
+    "custom_args": "--variable SIZE:4x16 --variable REPLICAS:1 --variable STORAGE:300 --variable SERVER:6.1.1",
+    "disabled": false
+},
+{
+    "index": 13,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "ChangeMWExistingServicePower",
+    "args_file": "GCP_PrimaryReplica_default.args",
+    "custom_args": "--variable SIZE:2x8 --variable REPLICAS:1 --variable STORAGE:300 --variable SERVER:10.5.21-15",
+    "disabled": false
+},
+{
+    "index": 14,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "LaunchServiceWithPSCorPLDualEndpointsAndTryConnectDB",
+    "args_file": "GCP_Standalone_default.args",
+    "custom_args": "--variable SIZE:2x8 --variable STORAGE:300 --variable SERVER:10.4.30-20",
+    "disabled": false
+},
+{
+    "index": 15,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "RemoveSecondaryEndpointFromDetailsPage",
+    "args_file": "GCP_ColumnStore_default.args",
+    "custom_args": "",
+    "disabled": false
+},
+{
+    "index": 16,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "ScaleNodesInOut",
+    "args_file": "GCP_Xpand_default.args",
+    "custom_args": "--variable REPLICAS:1",
+    "disabled": false
+},
+{
+    "index": 17,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "ScaleNodesUpDown",
+    "args_file": "GCP_PrimaryReplica_default.args",
+    "custom_args": "--variable REPLICAS:3 --variable SERVER:10.6.14-9",
+    "disabled": false
+},
+{
+    "index": 18,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "Scale_Storage",
+    "args_file": "GCP_Standalone_default.args",
+    "custom_args": "--variable SERVER:10.5.21-15",
+    "disabled": false
+},
+{
+    "index": 19,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "SingleZone",
+    "args_file": "GCP_ColumnStore_default.args",
+    "custom_args": "",
+    "disabled": false
+},
+{
+    "index": 20,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "WorkspaceQueryEditor",
+    "args_file": "GCP_PrimaryReplica_default.args",
+    "custom_args": "--variable REPLICAS:1 --variable SERVER:10.4.30-20",
+    "disabled": false
+},
+{
+    "index": 21,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "StandaloneNoQueryEditorTab",
+    "args_file": "GCP_Standalone_default.args",
+    "custom_args": "--variable SERVER:10.6.14-9",
+    "disabled": false
+},
+{
+    "index": 22,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "ApplyCustomConfigWhenDBisStopped",
+    "args_file": "GCP_ColumnStore_default_configuration.args",
+    "custom_args": "",
+    "disabled": false
+},
+{
+    "index": 23,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "SetPLorPSCWhenDBisStopped",
+    "args_file": "GCP_Xpand_default.args",
+    "custom_args": "--variable SIZE:4x16 --variable REPLICAS:1 --variable STORAGE:300 --variable SERVER:6.1.1",
+    "disabled": false
+},
+{
+    "index": 24,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "ScaleUpDownWhenDBisStopped",
+    "args_file": "GCP_Standalone_default.args",
+    "custom_args": "--variable SERVER:10.6.14-9",
+    "disabled": false
+},
+{
+    "index": 25,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "ScaleStorageWhenDBisStopped",
+    "args_file": "GCP_ColumnStore_default_configuration.args",
+    "custom_args": "",
+    "disabled": false
+},
+{
+    "index": 26,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "ScaleInOutWhenDBisStopped",
+    "args_file": "GCP_Xpand_default.args",
+    "custom_args": "--variable SIZE:4x16 --variable REPLICAS:1 --variable STORAGE:300 --variable SERVER:6.1.1",
+    "disabled": false
+}
+]

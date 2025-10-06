@@ -1,0 +1,44 @@
+--test LaunchTopology_CRUD
+--test DisabledSSL
+--test MaxScaleRedundancy_CRUD
+--test SetMWNewServicePower
+--test ChangeMWExistingServicePower
+--test AddIPbeforeLaunch
+--test StartStop_CRUD
+--test ScaleIOPS_CRUD
+--test ScaleStorage_CRUD
+--test ScaleNodesInOut_CRUD
+--test ScaleNodesUpDown_CRUD
+--test SingleZone_CRUD
+--test XpandReplication
+--test LaunchServiceWithPSCorPLDualEndpointsAndTryConnectDB
+--test LaunchServiceWithPSCorPLandTryConnectDB
+--test RemoveSecondaryEndpointFromDetailsPage
+--test QueryEditorTab
+--test WorkspaceQueryEditor
+--test SetPLorPSCWhenDBisStopped
+--test ScaleInOutWhenDBisStopped
+--test ScaleUpDownWhenDBisStopped
+--test ScaleStorageWhenDBisStopped
+--variable TYPE:Xpand Distributed SQL
+--variable TOPOLOGY:Distributed
+--variable PROVIDER:aws
+--variable PROVIDER_2:aws
+--variable REGION:eu-north-1
+--variable REGION_2:eu-north-1
+--variable SIZE:4x16
+--variable SIZE_ALTERED:4x32
+--variable REPLICAS:3
+--variable STORAGE:300
+--variable STORAGE_ALTERED:800
+--variable IOPS_INITIAL:9
+--variable IOPS_ALTERED:7
+--variable MAXSCALE_NODES:3
+--variable MAXSCALE_SIZE:4x16
+--variable SERVER:Xpand 6.1.1
+--variable MAINTENANCE_WINDOW:Tues 12:00 PM UTC
+--variable MAINTENANCE_WINDOW_CHANGED:1st and 3rd Sat 12:00 AM UTC
+--variable NODES_ALTERED:3
+--variable AWS_GCP_PRIMARY_ENDPOINT:AWS PrivateLink
+--variable PROJECT_OR_ACCOUNT_ID:invalidID
+--variable REPLICATION_DIRECTION:To

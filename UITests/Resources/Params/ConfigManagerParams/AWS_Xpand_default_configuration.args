@@ -1,0 +1,26 @@
+--test CompareDefaultConfigVariablesWithThePredefined
+--test CreateNewConfiguration
+--test ResetToDefaultsVariableValuesNewCustomConfig
+--test ApplyNewCustomConfigToService
+--test AccessConfigurationManagerUI
+--test ApplyPreviouslyCreatedCustomConfigToService
+--test SearchVariableInNewCustomConfig
+--test EditCustomConfig
+--test DuplicateCustomConfig
+--test ApplyCustomConfigWhenDBisStopped
+# Config variables
+--variable CONFIG_TOPOLOGY_TYPE:Distributed
+--variable CONFIG_SERVER_VERSION:6.1.1
+--variable CONFIG_NAME:SkySQL Default - Xpand Distributed SQL
+--variable CONFIG_VARIABLE_1:simple_password_check_digits
+--variable CONFIG_VARIABLE_1_VALUE:5
+--variable CONFIG_VARIABLE_2:simple_password_check_minimal_length
+--variable CONFIG_VARIABLE_2_VALUE:16
+# Topology variables
+--variable TYPE:Xpand Distributed SQL
+--variable TOPOLOGY:Distributed
+--variable PROVIDER:aws
+--variable REGION:eu-north-1
+--variable SIZE:4x16
+--variable STORAGE:300
+--variable SERVER:Xpand 6.1.1

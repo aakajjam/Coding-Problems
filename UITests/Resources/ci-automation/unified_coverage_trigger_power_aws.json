@@ -1,0 +1,218 @@
+[
+{
+    "index": 1,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+    "test": "StartStop",
+    "args_file": "AWS_Standalone_default.args",
+    "custom_args": "--variable SIZE:2x8 --variable STORAGE:300 --variable SERVER:10.6.14-9",
+    "disabled": false
+},
+{
+    "index": 2,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+    "test": "ApplyPreviouslyCreatedCustomConfigToService",
+    "args_file": "AWS_PrimaryReplica_default_configuration.args",
+    "custom_args": "--variable SIZE:2x8 --variable STORAGE:300 --variable SERVER:10.6.14-9",
+    "disabled": false
+},
+{
+    "index": 3,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+    "test": "AddIPbeforeLaunch",
+    "args_file": "AWS_PrimaryReplica_default.args",
+    "custom_args": "--variable SIZE:2x8 --variable REPLICAS:1 --variable STORAGE:300 --variable SERVER:10.5.21-15",
+    "disabled": false
+},
+{
+    "index": 4,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+    "test": "DisabledSSL",
+    "args_file": "AWS_PrimaryReplica_default.args",
+    "custom_args": "--variable SIZE:2x8 --variable REPLICAS:3 --variable STORAGE:300 --variable SERVER:10.4.30-20",
+    "disabled": false
+},
+{
+    "index": 5,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+    "test": "DisabledSSL",
+    "args_file": "AWS_Xpand_default.args",
+    "custom_args": "--variable SIZE:4x16 --variable REPLICAS:1 --variable SERVER:6.1.1 ",
+    "disabled": false
+},
+{
+    "index": 6,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+    "test": "AddIPbeforeLaunch",
+    "args_file": "AWS_Xpand_default.args",
+    "custom_args": "--variable SIZE:4x16 --variable REPLICAS:3 --variable SERVER:6.1.1",
+    "disabled": false
+},
+{
+    "index": 7,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+    "test": "XpandReplicationBothWays",
+    "args_file": "AWS_Xpand_default.args",
+    "custom_args": "--variable SIZE:4x16 --variable REPLICAS:1 --variable SERVER:6.1.1",
+    "disabled": true
+},
+{
+    "index": 8,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+    "test": "MaxScaleRedundancy",
+    "args_file": "AWS_ColumnStore_default.args",
+    "custom_args": "--variable SIZE:4x16 --variable REPLICAS:1 --variable SERVER:23.02.3",
+    "disabled": false
+},
+{
+    "index": 9,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+    "test": "AddIPbeforeLaunch",
+    "args_file": "AWS_ColumnStore_default.args",
+    "custom_args": "--variable SIZE:4x16 --variable REPLICAS:1 --variable SERVER:23.02.3",
+    "disabled": false
+},
+{
+    "index": 10,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+    "test": "ApplyPreviouslyCreatedCustomConfigToService",
+    "args_file": "AWS_ColumnStore_default_configuration.args",
+    "custom_args": "",
+    "disabled": false
+},
+{
+    "index": 11,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+    "test": "ServerlessChangeMWExistingServicePower",
+    "args_file": "AWS_Serverless_default.args",
+    "custom_args": "",
+    "disabled": true
+},
+{
+    "index": 12,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+    "test": "ServerlessAddIPbeforeLaunch",
+    "args_file": "AWS_Serverless_default.args",
+    "custom_args": "",
+    "disabled": true
+},
+{
+    "index": 13,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+    "test": "ChangeMWExistingServicePower",
+    "args_file": "AWS_Standalone_default.args",
+    "custom_args": "--variable SIZE:2x8 --variable STORAGE:300 --variable SERVER:10.5.21-15",
+    "disabled": false
+},
+{
+    "index": 14,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+    "test": "LaunchServiceWithPSCorPLandTryConnectDB",
+    "args_file": "AWS_PrimaryReplica_default.args",
+    "custom_args": "--variable SIZE:2x8 --variable SERVER:10.6.14-9",
+    "disabled": false
+},
+{
+    "index": 15,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+    "test": "ScaleNodesInOut",
+    "args_file": "AWS_Xpand_default.args",
+    "custom_args": "--variable REPLICAS:1 --variable NODES_ALTERED:3",
+    "disabled": false
+},
+{
+    "index": 16,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+    "test": "RemoveSecondaryEndpointFromDetailsPage",
+    "args_file": "AWS_ColumnStore_default.args",
+    "custom_args": "",
+    "disabled": false
+},
+{
+    "index": 17,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+    "test": "ScaleNodesUpDown",
+    "args_file": "AWS_Standalone_default.args",
+    "custom_args": "--variable SERVER:10.5.21-15",
+    "disabled": false
+},
+{
+    "index": 18,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+    "test": "Scale_Storage",
+    "args_file": "AWS_PrimaryReplica_default.args",
+    "custom_args": "--variable REPLICAS:3 --variable SERVER:10.4.30-20",
+    "disabled": false
+},
+{
+    "index": 19,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+    "test": "SingleZone",
+    "args_file": "AWS_Xpand_default.args",
+    "custom_args": "",
+    "disabled": false
+},
+{
+    "index": 20,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+    "test": "WorkspaceQueryEditor",
+    "args_file": "AWS_ColumnStore_default.args",
+    "custom_args": "",
+    "disabled": false
+},
+{
+    "index": 21,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+    "test": "StandaloneNoQueryEditorTab",
+    "args_file": "AWS_Standalone_default.args",
+    "custom_args": "--variable SERVER:10.6.14-9",
+    "disabled": false
+},
+{
+    "index": 22,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+    "test": "Scale_IOPS",
+    "args_file": "AWS_PrimaryReplica_default.args",
+    "custom_args": "--variable REPLICAS:1 --variable SERVER:10.5.21-15",
+    "disabled": false
+},
+{
+    "index": 23,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+    "test": "ApplyCustomConfigWhenDBisStopped",
+    "args_file": "AWS_Standalone_default_configuration.args",
+    "custom_args": "--variable SIZE:2x8 --variable STORAGE:300 --variable SERVER:10.6.14-9",
+    "disabled": false
+},
+{
+    "index": 24,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+    "test": "SetPLorPSCWhenDBisStopped",
+    "args_file": "AWS_PrimaryReplica_default.args",
+    "custom_args": "--variable SIZE:2x8 --variable STORAGE:300 --variable SERVER:10.6.14-9",
+    "disabled": false
+},
+{
+    "index": 25,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+    "test": "ScaleStorageWhenDBisStopped",
+    "args_file": "AWS_Standalone_default_configuration.args",
+    "custom_args": "--variable SIZE:2x8 --variable STORAGE:200 --variable SERVER:10.5.21-15",
+    "disabled": false
+},
+{
+    "index": 26,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+    "test": "ScaleInOutWhenDBisStopped",
+    "args_file": "AWS_PrimaryReplica_default.args",
+    "custom_args": "--variable REPLICAS:2 --variable SERVER:10.5.21-15",
+    "disabled": false
+},
+{
+    "index": 27,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+    "test": "ScaleUpDownWhenDBisStopped",
+    "args_file": "AWS_ColumnStore_default.args",
+    "custom_args": "",
+    "disabled": false
+}
+]

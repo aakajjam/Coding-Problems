@@ -1,0 +1,14 @@
+--test ServerlessCRUD
+--test ServerlessSetMWNewServicePower
+--test ServerlessChangeMWExistingServicePower
+--test ServerlessAddIPbeforeLaunch
+--test ServerlessCRUDStartStop
+--test SingleZone_CRUD
+--test AddSecondaryEndpointToIPAllowlist
+--test RemoveSecondaryEndpointFromDetailsPage
+--variable TYPE:Serverless Analytics Powered by Apache Spark
+--variable TOPOLOGY:Serverless
+--variable PROVIDER:gcp
+--variable REGION:europe-west1
+--variable MAINTENANCE_WINDOW:Thurs 10:00 PM UTC
+--variable MAINTENANCE_WINDOW_CHANGED:Mon 8:00 PM UTC

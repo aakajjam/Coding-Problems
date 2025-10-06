@@ -1,0 +1,42 @@
+[
+{
+    "index": 1,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+    "test": "LaunchServiceWithPSCorPLandTryConnectDB",
+    "args_file": "AWS_Standalone_default.args",
+    "custom_args": "--variable REGION:eu-north-1 --variable SIZE:2x8 --variable STORAGE:300 --variable SERVER:10.6.14-9",
+    "disabled": false
+},
+{
+    "index": 2,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+    "test": "LaunchServiceWithPSCorPLDualEndpointsAndTryConnectDB",
+    "args_file": "`AWS_PrimaryReplica_default_configuration.args",
+    "custom_args": "--variable REGION:eu-north-1 --variable SIZE:2x8 --variable REPLICAS:3 --variable STORAGE:300 --variable SERVER:10.5.21-15",
+    "disabled": false
+},
+{
+    "index": 3,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+    "test": "RemoveSecondaryEndpointFromDetailsPage",
+    "args_file": "AWS_ColumnStore_default.args",
+    "custom_args": "--variable REGION:ap-southeast-1 --variable SIZE:4x16 --variable REPLICAS:1 --variable SERVER:23.02.3",
+    "disabled": false
+},
+{
+    "index": 4,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+    "test": "LaunchServiceWithPSCorPLDualEndpointsAndTryConnectDB",
+    "args_file": "AWS_Xpand_default.args",
+    "custom_args": "--variable REGION:eu-north-1 --variable SIZE:4x16 --variable REPLICAS:3 --variable STORAGE:300 --variable SERVER:6.1.1",
+    "disabled": false
+},
+{
+    "index": 5,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+    "test": "AddSecondaryEndpointToIPAllowlist",
+    "args_file": "AWS_Serverless_default.args",
+    "custom_args": "--variable REGION:eu-north-1",
+    "disabled": true
+}
+]

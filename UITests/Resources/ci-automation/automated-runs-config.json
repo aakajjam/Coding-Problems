@@ -1,0 +1,302 @@
+[
+    {
+        "Index": 0,
+        "CLOUD_ENV": "GCP",
+        "TEST_PLAN": "CustomerPortalTests",
+        "TEST_SUITE": "CRUDTopologiesTests",
+        "TEST": "StandaloneCRUD",
+        "ARGS_FILE": "GCP_Standalone_default.args",
+        "CUSTOM_ARGS": "--variable REGION:europe-west1",
+        "DISABLED": false
+    },
+    {
+        "Index": 1,
+        "CLOUD_ENV": "AWS",
+        "TEST_PLAN": "CustomerPortalTests",
+        "TEST_SUITE": "CRUDTopologiesTests",
+        "TEST": "PrimaryReplicaCRUD",
+        "ARGS_FILE": "AWS_PrimaryReplica_default.args",
+        "CUSTOM_ARGS": "--variable REGION:eu-north-1",
+        "DISABLED": false
+    },
+    {
+        "Index": 2,
+        "CLOUD_ENV": "GCP",
+        "TEST_PLAN": "CustomerPortalTests",
+        "TEST_SUITE": "CRUDTopologiesTests",
+        "TEST": "XpandCRUD",
+        "ARGS_FILE": "GCP_Xpand_default.args",
+        "CUSTOM_ARGS": "--variable REGION:europe-west1",
+        "DISABLED": false
+    },
+    {
+        "Index": 3,
+        "CLOUD_ENV": "AWS",
+        "TEST_PLAN": "CustomerPortalTests",
+        "TEST_SUITE": "CRUDTopologiesTests",
+        "TEST": "ColumnStoreWarehouseCRUD",
+        "ARGS_FILE": "AWS_ColumnStore_Warehouse.args",
+        "CUSTOM_ARGS": "--variable REGION:eu-north-1",
+        "DISABLED": false
+    },
+    {
+        "Index": 4,
+        "CLOUD_ENV": "GCP",
+        "TEST_PLAN": "CustomerPortalTests",
+        "TEST_SUITE": "CRUDTopologiesTests",
+        "TEST": "ServerlessAnalyticsCRUD",
+        "ARGS_FILE": "GCP_ServerlessAnalytics.args",
+        "CUSTOM_ARGS": "--variable REGION:europe-west1",
+        "DISABLED": true
+    },
+    {
+        "Index": 5,
+        "CLOUD_ENV": "AWS",
+        "TEST_PLAN": "CustomerPortalTests",
+        "TEST_SUITE": "DisabledSSLTopologiesTests",
+        "TEST": "DisabledSSL",
+        "ARGS_FILE": "AWS_Standalone_default.args",
+        "CUSTOM_ARGS": "--variable REGION:eu-north-1",
+        "DISABLED": false
+    },
+    {
+        "Index": 6,
+        "CLOUD_ENV": "GCP",
+        "TEST_PLAN": "CustomerPortalTests",
+        "TEST_SUITE": "CRUDTopologiesTests",
+        "TEST": "PrimaryReplicaCRUD",
+        "ARGS_FILE": "GCP_PrimaryReplica_default.args",
+        "CUSTOM_ARGS": "--variable REGION:europe-west1",
+        "DISABLED": false
+    },
+    {
+        "Index": 7,
+        "CLOUD_ENV": "AWS",
+        "TEST_PLAN": "CustomerPortalTests",
+        "TEST_SUITE": "CRUDTopologiesTests",
+        "TEST": "XpandCRUD",
+        "ARGS_FILE": "AWS_Xpand_default.args",
+        "CUSTOM_ARGS": "--variable REGION:eu-north-1",
+        "DISABLED": false
+    },
+    {
+        "Index": 8,
+        "CLOUD_ENV": "GCP",
+        "TEST_PLAN": "CustomerPortalTests",
+        "TEST_SUITE": "CRUDTopologiesTests",
+        "TEST": "ColumnStoreWarehouseCRUD",
+        "ARGS_FILE": "GCP_ColumnStore_Warehouse.args",
+        "CUSTOM_ARGS": "--variable REGION:europe-west1",
+        "DISABLED": false
+    },
+    {
+        "Index": 9,
+        "CLOUD_ENV": "AWS",
+        "TEST_PLAN": "CustomerPortalTests",
+        "TEST_SUITE": "CRUDTopologiesTests",
+        "TEST": "ServerlessAnalyticsCRUD",
+        "ARGS_FILE": "AWS_ServerlessAnalytics.args",
+        "CUSTOM_ARGS": "--variable REGION:eu-north-1",
+        "DISABLED": false
+    },
+    {
+        "Index": 10,
+        "CLOUD_ENV": "GCP",
+        "TEST_PLAN": "CustomerPortalTests",
+        "TEST_SUITE": "CRUDTopologiesTests",
+        "TEST": "StandaloneCRUD",
+        "ARGS_FILE": "GCP_Standalone_default.args",
+        "CUSTOM_ARGS": "--variable REGION:europe-west1",
+        "DISABLED": false
+    },
+    {
+        "Index": 11,
+        "CLOUD_ENV": "AWS",
+        "TEST_PLAN": "CustomerPortalTests",
+        "TEST_SUITE": "CRUDTopologiesTests",
+        "TEST": "PrimaryReplicaCRUD",
+        "ARGS_FILE": "AWS_PrimaryReplica_default.args",
+        "CUSTOM_ARGS": "--variable REGION:eu-north-1",
+        "DISABLED": false
+    },
+    {
+        "Index": 12,
+        "CLOUD_ENV": "GCP",
+        "TEST_PLAN": "CustomerPortalTests",
+        "TEST_SUITE": "CRUDTopologiesTests",
+        "TEST": "XpandCRUD",
+        "ARGS_FILE": "GCP_Xpand_default.args",
+        "CUSTOM_ARGS": "--variable REGION:europe-west1",
+        "DISABLED": false
+    },
+    {
+        "Index": 13,
+        "CLOUD_ENV": "AWS",
+        "TEST_PLAN": "CustomerPortalTests",
+        "TEST_SUITE": "CRUDTopologiesTests",
+        "TEST": "ColumnStoreWarehouseCRUD",
+        "ARGS_FILE": "AWS_ColumnStore_Warehouse.args",
+        "CUSTOM_ARGS": "--variable REGION:eu-north-1",
+        "DISABLED": false
+    },
+    {
+        "Index": 14,
+        "CLOUD_ENV": "GCP",
+        "TEST_PLAN": "CustomerPortalTests",
+        "TEST_SUITE": "CRUDTopologiesTests",
+        "TEST": "ServerlessAnalyticsCRUD",
+        "ARGS_FILE": "GCP_ServerlessAnalytics.args",
+        "CUSTOM_ARGS": "--variable REGION:europe-west1",
+        "DISABLED": true
+    },
+    {
+        "Index": 15,
+        "CLOUD_ENV": "AWS",
+        "TEST_PLAN": "CustomerPortalTests",
+        "TEST_SUITE": "CRUDTopologiesTests",
+        "TEST": "StandaloneCRUD",
+        "ARGS_FILE": "AWS_Standalone_default.args",
+        "CUSTOM_ARGS": "--variable REGION:eu-north-1",
+        "DISABLED": false
+    },
+    {
+        "Index": 16,
+        "CLOUD_ENV": "GCP",
+        "TEST_PLAN": "CustomerPortalTests",
+        "TEST_SUITE": "DisabledSSLTopologiesTests",
+        "TEST": "DisabledSSL",
+        "ARGS_FILE": "GCP_PrimaryReplica_default.args",
+        "CUSTOM_ARGS": "--variable REGION:europe-west1",
+        "DISABLED": false
+    },
+    {
+        "Index": 17,
+        "CLOUD_ENV": "AWS",
+        "TEST_PLAN": "CustomerPortalTests",
+        "TEST_SUITE": "CRUDTopologiesTests",
+        "TEST": "XpandCRUD",
+        "ARGS_FILE": "AWS_Xpand_default.args",
+        "CUSTOM_ARGS": "--variable REGION:eu-north-1",
+        "DISABLED": false
+    },
+    {
+        "Index": 18,
+        "CLOUD_ENV": "GCP",
+        "TEST_PLAN": "CustomerPortalTests",
+        "TEST_SUITE": "CRUDTopologiesTests",
+        "TEST": "ColumnStoreWarehouseCRUD",
+        "ARGS_FILE": "GCP_ColumnStore_Warehouse.args",
+        "CUSTOM_ARGS": "--variable REGION:europe-west1",
+        "DISABLED": false
+    },
+    {
+        "Index": 19,
+        "CLOUD_ENV": "AWS",
+        "TEST_PLAN": "CustomerPortalTests",
+        "TEST_SUITE": "CRUDTopologiesTests",
+        "TEST": "ServerlessAnalyticsCRUD",
+        "ARGS_FILE": "AWS_ServerlessAnalytics.args",
+        "CUSTOM_ARGS": "--variable REGION:eu-north-1",
+        "DISABLED": false
+    },
+    {
+        "Index": 20,
+        "CLOUD_ENV": "GCP",
+        "TEST_PLAN": "CustomerPortalTests",
+        "TEST_SUITE": "CRUDTopologiesTests",
+        "TEST": "StandaloneCRUD",
+        "ARGS_FILE": "GCP_Standalone_default.args",
+        "CUSTOM_ARGS": "--variable REGION:europe-west1",
+        "DISABLED": false
+    },
+    {
+        "Index": 21,
+        "CLOUD_ENV": "AWS",
+        "TEST_PLAN": "CustomerPortalTests",
+        "TEST_SUITE": "CRUDTopologiesTests",
+        "TEST": "PrimaryReplicaCRUD",
+        "ARGS_FILE": "AWS_PrimaryReplica_default.args",
+        "CUSTOM_ARGS": "--variable REGION:eu-north-1",
+        "DISABLED": false
+    },
+    {
+        "Index": 22,
+        "CLOUD_ENV": "GCP",
+        "TEST_PLAN": "CustomerPortalTests",
+        "TEST_SUITE": "CRUDTopologiesTests",
+        "TEST": "XpandCRUD",
+        "ARGS_FILE": "GCP_Xpand_default.args",
+        "CUSTOM_ARGS": "--variable REGION:europe-west1",
+        "DISABLED": false
+    },
+    {
+        "Index": 23,
+        "CLOUD_ENV": "AWS",
+        "TEST_PLAN": "CustomerPortalTests",
+        "TEST_SUITE": "CRUDTopologiesTests",
+        "TEST": "ColumnStoreWarehouseCRUD",
+        "ARGS_FILE": "AWS_ColumnStore_Warehouse.args",
+        "CUSTOM_ARGS": "--variable REGION:eu-north-1",
+        "DISABLED": false
+    },
+    {
+        "Index": 24,
+        "CLOUD_ENV": "GCP",
+        "TEST_PLAN": "CustomerPortalTests",
+        "TEST_SUITE": "CRUDTopologiesTests",
+        "TEST": "ServerlessAnalyticsCRUD",
+        "ARGS_FILE": "GCP_ServerlessAnalytics.args",
+        "CUSTOM_ARGS": "--variable REGION:europe-west1",
+        "DISABLED": true
+    },
+    {
+        "Index": 25,
+        "CLOUD_ENV": "AWS",
+        "TEST_PLAN": "CustomerPortalTests",
+        "TEST_SUITE": "CRUDTopologiesTests",
+        "TEST": "StandaloneCRUD",
+        "ARGS_FILE": "AWS_Standalone_default.args",
+        "CUSTOM_ARGS": "--variable REGION:eu-north-1",
+        "DISABLED": false
+    },
+    {
+        "Index": 26,
+        "CLOUD_ENV": "GCP",
+        "TEST_PLAN": "CustomerPortalTests",
+        "TEST_SUITE": "CRUDTopologiesTests",
+        "TEST": "PrimaryReplicaCRUD",
+        "ARGS_FILE": "GCP_PrimaryReplica_default.args",
+        "CUSTOM_ARGS": "--variable REGION:europe-west1",
+        "DISABLED": false
+    },
+    {
+        "Index": 27,
+        "CLOUD_ENV": "AWS",
+        "TEST_PLAN": "CustomerPortalTests",
+        "TEST_SUITE": "DisabledSSLTopologiesTests",
+        "TEST": "DisabledSSL",
+        "ARGS_FILE": "AWS_Xpand_default.args",
+        "CUSTOM_ARGS": "--variable REGION:eu-north-1",
+        "DISABLED": false
+    },
+    {
+        "Index": 28,
+        "CLOUD_ENV": "GCP",
+        "TEST_PLAN": "CustomerPortalTests",
+        "TEST_SUITE": "CRUDTopologiesTests",
+        "TEST": "ColumnStoreWarehouseCRUD",
+        "ARGS_FILE": "GCP_ColumnStore_Warehouse.args",
+        "CUSTOM_ARGS": "--variable REGION:europe-west1",
+        "DISABLED": false
+    },
+    {
+        "Index": 29,
+        "CLOUD_ENV": "AWS",
+        "TEST_PLAN": "CustomerPortalTests",
+        "TEST_SUITE": "CRUDTopologiesTests",
+        "TEST": "ServerlessAnalyticsCRUD",
+        "ARGS_FILE": "AWS_ServerlessAnalytics.args",
+        "CUSTOM_ARGS": "--variable REGION:eu-north-1",
+        "DISABLED": false
+    }
+]

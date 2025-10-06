@@ -1,0 +1,485 @@
+[
+    {
+        "index": 1,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "AccessConfigurationManagerUI",
+        "args_file": "AWS_Standalone_default_configuration.args",
+        "disabled": false
+    },
+    {
+        "index": 2,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "CreateNewConfiguration",
+        "args_file": "AWS_Standalone_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.6.14-9",
+        "disabled": true
+    },
+    {
+        "index": 3,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "CreateNewConfiguration",
+        "args_file": "AWS_Standalone_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.5.21-15",
+        "disabled": false
+    },
+    {
+        "index": 4,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "CreateNewConfiguration",
+        "args_file": "AWS_Standalone_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.4.30-20",
+        "disabled": false
+    },
+    {
+        "index": 5,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "CreateNewConfiguration",
+        "args_file": "AWS_PrimaryReplica_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.6.14-9",
+        "disabled": false
+    },
+    {
+        "index": 6,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "CreateNewConfiguration",
+        "args_file": "AWS_PrimaryReplica_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.5.21-15",
+        "disabled": true
+    },
+    {
+        "index": 7,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "CreateNewConfiguration",
+        "args_file": "AWS_PrimaryReplica_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.4.30-20",
+        "disabled": true
+    },
+    {
+        "index": 8,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "CreateNewConfiguration",
+        "args_file": "AWS_ColumnStore_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:23.02.3",
+        "disabled": false
+    },
+{
+    "index": 40,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "CreateNewConfiguration",
+    "args_file": "GCP_Xpand_default_configuration.args",
+    "custom_args": "--variable CONFIG_SERVER_VERSION:6.1.1",
+    "disabled": true
+},
+    {
+        "index": 9,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "ResetToDefaultsVariableValuesNewCustomConfig",
+        "args_file": "AWS_Standalone_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.6.14-9",
+        "disabled": false
+    },
+    {
+        "index": 10,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "ResetToDefaultsVariableValuesNewCustomConfig",
+        "args_file": "AWS_Standalone_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.5.21-15",
+        "disabled": true
+    },
+    {
+        "index": 11,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "ResetToDefaultsVariableValuesNewCustomConfig",
+        "args_file": "AWS_Standalone_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.4.30-20",
+        "disabled": false
+    },
+    {
+        "index": 12,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "ResetToDefaultsVariableValuesNewCustomConfig",
+        "args_file": "AWS_PrimaryReplica_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.6.14-9",
+        "disabled": true
+    },
+    {
+        "index": 13,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "ResetToDefaultsVariableValuesNewCustomConfig",
+        "args_file": "AWS_PrimaryReplica_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.5.21-15",
+        "disabled": false
+    },
+    {
+        "index": 14,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "ResetToDefaultsVariableValuesNewCustomConfig",
+        "args_file": "AWS_PrimaryReplica_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.4.30-20",
+        "disabled": true
+    },
+    {
+        "index": 15,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "ResetToDefaultsVariableValuesNewCustomConfig",
+        "args_file": "AWS_ColumnStore_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:23.02.3",
+        "disabled": false
+    },
+{
+    "index": 41,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "ResetToDefaultsVariableValuesNewCustomConfig",
+    "args_file": "GCP_Xpand_default_configuration.args",
+    "custom_args": "--variable CONFIG_SERVER_VERSION:6.1.1",
+    "disabled": false
+},
+    {
+        "index": 16,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "SearchVariableInNewCustomConfig",
+        "args_file": "AWS_Standalone_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.6.14-9",
+        "disabled": false
+    },
+    {
+        "index": 17,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "SearchVariableInNewCustomConfig",
+        "args_file": "AWS_Standalone_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.5.21-15",
+        "disabled": false
+    },
+    {
+        "index": 18,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "SearchVariableInNewCustomConfig",
+        "args_file": "AWS_Standalone_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.4.30-20",
+        "disabled": true
+    },
+    {
+        "index": 19,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "SearchVariableInNewCustomConfig",
+        "args_file": "AWS_PrimaryReplica_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.6.14-9",
+        "disabled": true
+    },
+    {
+        "index": 20,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "SearchVariableInNewCustomConfig",
+        "args_file": "AWS_PrimaryReplica_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.5.21-15",
+        "disabled": true
+    },
+    {
+        "index": 21,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "SearchVariableInNewCustomConfig",
+        "args_file": "AWS_PrimaryReplica_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.4.30-20",
+        "disabled": false
+    },
+    {
+        "index": 22,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "SearchVariableInNewCustomConfig",
+        "args_file": "AWS_ColumnStore_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:23.02.3",
+        "disabled": false
+    },
+{
+    "index": 42,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "SearchVariableInNewCustomConfig",
+    "args_file": "GCP_Xpand_default_configuration.args",
+    "custom_args": "--variable CONFIG_SERVER_VERSION:6.1.1",
+    "disabled": true
+},
+    {
+        "index": 23,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "CompareDefaultConfigVariablesWithThePredefined",
+        "args_file": "AWS_Standalone_default_configuration.args",
+        "disabled": false
+    },
+    {
+        "index": 24,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "CompareDefaultConfigVariablesWithThePredefined",
+        "args_file": "AWS_PrimaryReplica_default_configuration.args",
+        "disabled": false
+    },
+    {
+        "index": 25,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "CompareDefaultConfigVariablesWithThePredefined",
+        "args_file": "AWS_ColumnStore_default_configuration.args",
+        "disabled": false
+    },
+{
+    "index": 43,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "CompareDefaultConfigVariablesWithThePredefined",
+    "args_file": "GCP_Xpand_default_configuration.args",
+    "disabled": false
+},
+    {
+        "index": 26,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "ApplyNewCustomConfigToService",
+        "args_file": "AWS_Standalone_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.6.14-9 --variable SERVER:10.6.14-9",
+        "disabled": true
+    },
+    {
+        "index": 27,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "ApplyNewCustomConfigToService",
+        "args_file": "AWS_Standalone_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.5.21-15 --variable SERVER:10.5.21-15",
+        "disabled": false
+    },
+    {
+        "index": 28,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "ApplyNewCustomConfigToService",
+        "args_file": "AWS_Standalone_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.4.30-20 --variable SERVER:10.4.30-20",
+        "disabled": false
+    },
+    {
+        "index": 29,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "ApplyNewCustomConfigToService",
+        "args_file": "AWS_PrimaryReplica_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.6.14-9 --variable SERVER:10.6.14-9",
+        "disabled": false
+    },
+    {
+        "index": 30,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "ApplyNewCustomConfigToService",
+        "args_file": "AWS_PrimaryReplica_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.5.21-15 --variable SERVER:10.5.21-15",
+        "disabled": true
+    },
+    {
+        "index": 31,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "ApplyNewCustomConfigToService",
+        "args_file": "AWS_PrimaryReplica_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.4.30-20 --variable SERVER:10.4.30-20",
+        "disabled": true
+    },
+    {
+        "index": 32,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "ApplyNewCustomConfigToService",
+        "args_file": "AWS_ColumnStore_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:23.02.3 --variable SERVER:23.02.3",
+        "disabled": false
+    },
+{
+    "index": 44,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "ApplyNewCustomConfigToService",
+    "args_file": "GCP_Xpand_default_configuration.args",
+    "custom_args": "--variable CONFIG_SERVER_VERSION:6.1.1 --variable SERVER:6.1.1",
+    "disabled": false
+},
+    {
+        "index": 33,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "ApplyPreviouslyCreatedCustomConfigToService",
+        "args_file": "AWS_Standalone_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.6.14-9 --variable SERVER:10.6.14-9",
+        "disabled": false
+    },
+    {
+        "index": 34,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "ApplyPreviouslyCreatedCustomConfigToService",
+        "args_file": "AWS_Standalone_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.5.21-15 --variable SERVER:10.5.21-15",
+        "disabled": true
+    },
+    {
+        "index": 35,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "ApplyPreviouslyCreatedCustomConfigToService",
+        "args_file": "AWS_Standalone_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.4.30-20 --variable SERVER:10.4.30-20",
+        "disabled": true
+    },
+    {
+        "index": 36,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "ApplyPreviouslyCreatedCustomConfigToService",
+        "args_file": "AWS_PrimaryReplica_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.6.14-9 --variable SERVER:10.6.14-9",
+        "disabled": true
+    },
+    {
+        "index": 37,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "ApplyPreviouslyCreatedCustomConfigToService",
+        "args_file": "AWS_PrimaryReplica_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.5.21-15 --variable SERVER:10.5.21-15",
+        "disabled": false
+    },
+    {
+        "index": 38,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "ApplyPreviouslyCreatedCustomConfigToService",
+        "args_file": "AWS_PrimaryReplica_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.4.30-20 --variable SERVER:10.4.30-20",
+        "disabled": false
+    },
+    {
+        "index": 39,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "ApplyPreviouslyCreatedCustomConfigToService",
+        "args_file": "AWS_ColumnStore_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:23.02.3 --variable SERVER:23.02.3",
+        "disabled": false
+    },
+{
+    "index": 45,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "ApplyPreviouslyCreatedCustomConfigToService",
+    "args_file": "GCP_Xpand_default_configuration.args",
+    "custom_args": "--variable CONFIG_SERVER_VERSION:6.1.1 --variable SERVER:6.1.1",
+    "disabled": true
+},
+    {
+        "index": 46,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "EditCustomConfig",
+        "args_file": "AWS_Standalone_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.6.14-9",
+        "disabled": true
+    },
+    {
+        "index": 47,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "EditCustomConfig",
+        "args_file": "AWS_Standalone_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.5.21-15",
+        "disabled": false
+    },
+    {
+        "index": 48,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "EditCustomConfig",
+        "args_file": "AWS_Standalone_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.4.30-20",
+        "disabled": false
+    },
+    {
+        "index": 49,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "EditCustomConfig",
+        "args_file": "AWS_PrimaryReplica_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.6.14-9",
+        "disabled": false
+    },
+    {
+        "index": 50,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "EditCustomConfig",
+        "args_file": "AWS_PrimaryReplica_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.5.21-15",
+        "disabled": true
+    },
+    {
+        "index": 51,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "EditCustomConfig",
+        "args_file": "AWS_PrimaryReplica_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.4.30-20",
+        "disabled": true
+    },
+    {
+        "index": 52,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "EditCustomConfig",
+        "args_file": "AWS_ColumnStore_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:23.02.3",
+        "disabled": false
+    },
+{
+    "index": 53,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+    "test": "EditCustomConfig",
+    "args_file": "AWS_Xpand_default_configuration.args",
+    "custom_args": "--variable CONFIG_SERVER_VERSION:6.1.1",
+    "disabled": true
+},
+    {
+        "index": 54,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "DuplicateCustomConfig",
+        "args_file": "AWS_Standalone_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.6.14-9",
+        "disabled": false
+    },
+    {
+        "index": 55,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "DuplicateCustomConfig",
+        "args_file": "AWS_Standalone_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.5.21-15",
+        "disabled": true
+    },
+    {
+        "index": 56,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "DuplicateCustomConfig",
+        "args_file": "AWS_Standalone_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.4.30-20",
+        "disabled": true
+    },
+    {
+        "index": 57,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "DuplicateCustomConfig",
+        "args_file": "AWS_PrimaryReplica_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.6.14-9",
+        "disabled": true
+    },
+    {
+        "index": 58,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "DuplicateCustomConfig",
+        "args_file": "AWS_PrimaryReplica_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.5.21-15",
+        "disabled": false
+    },
+    {
+        "index": 59,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "DuplicateCustomConfig",
+        "args_file": "AWS_PrimaryReplica_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:10.4.30-20",
+        "disabled": false
+    },
+    {
+        "index": 60,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+        "test": "DuplicateCustomConfig",
+        "args_file": "AWS_ColumnStore_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:23.02.3",
+        "disabled": true
+    },
+{
+    "index": 61,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+    "test": "DuplicateCustomConfig",
+    "args_file": "AWS_Xpand_default_configuration.args",
+    "custom_args": "--variable CONFIG_SERVER_VERSION:6.1.1",
+    "disabled": false
+}
+]

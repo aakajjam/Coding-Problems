@@ -1,0 +1,26 @@
+--test CompareDefaultConfigVariablesWithThePredefined
+--test CreateNewConfiguration
+--test ResetToDefaultsVariableValuesNewCustomConfig
+--test ApplyNewCustomConfigToService
+--test AccessConfigurationManagerUI
+--test ApplyPreviouslyCreatedCustomConfigToService
+--test SearchVariableInNewCustomConfig
+--test EditCustomConfig
+--test DuplicateCustomConfig
+--test ApplyCustomConfigWhenDBisStopped
+# Config variables
+--variable CONFIG_TOPOLOGY_TYPE:ColumnStore
+--variable CONFIG_SERVER_VERSION:23.02.3
+--variable CONFIG_NAME:SkySQL Default - ColumnStore Data Warehouse
+--variable CONFIG_VARIABLE_1:simple_password_check_digits
+--variable CONFIG_VARIABLE_1_VALUE:5
+--variable CONFIG_VARIABLE_2:simple_password_check_minimal_length
+--variable CONFIG_VARIABLE_2_VALUE:16
+# Topology variables
+--variable TYPE:Enterprise Server
+--variable TOPOLOGY:ColumnStore
+--variable PROVIDER:aws
+--variable REGION:eu-north-1
+--variable SIZE:4x16
+--variable STORAGE:100
+--variable SERVER:ColumnStore 23.02.3

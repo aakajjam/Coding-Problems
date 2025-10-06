@@ -1,0 +1,36 @@
+--test LaunchTopology_CRUD
+--test DisabledSSL
+--test MaxScaleRedundancy_CRUD
+--test SetMWNewServicePower
+--test ChangeMWExistingServicePower
+--test AddIPbeforeLaunch
+--test StartStop_CRUD
+--test ScaleStorage_CRUD
+--test ScaleNodesInOut_CRUD
+--test ScaleNodesUpDown_CRUD
+--test SingleZone_CRUD
+--test LaunchServiceWithPSCorPLDualEndpointsAndTryConnectDB
+--test LaunchServiceWithPSCorPLandTryConnectDB
+--test RemoveSecondaryEndpointFromDetailsPage
+--test QueryEditorTab
+--test WorkspaceQueryEditor
+--test SetPLorPSCWhenDBisStopped
+--test ScaleInOutWhenDBisStopped
+--test ScaleUpDownWhenDBisStopped
+--test ScaleStorageWhenDBisStopped
+--variable TYPE:Enterprise Server
+--variable TOPOLOGY:Replica
+--variable PROVIDER:gcp
+--variable REGION:europe-west1
+--variable SIZE:2x8
+--variable SIZE_ALTERED:4x16
+--variable REPLICAS:1
+--variable STORAGE:200
+--variable STORAGE_ALTERED:800
+--variable MAXSCALE_SIZE:4x16
+--variable SERVER:Enterprise Server 10.6.14-9
+--variable MAINTENANCE_WINDOW:1st and 3rd Fri 2:00 PM UTC
+--variable MAINTENANCE_WINDOW_CHANGED:Weds 12:00 PM UTC
+--variable NODES_ALTERED:3
+--variable AWS_GCP_PRIMARY_ENDPOINT:Google Private Service Connect
+--variable PROJECT_OR_ACCOUNT_ID:invalidID

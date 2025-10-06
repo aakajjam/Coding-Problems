@@ -1,0 +1,47 @@
+SIZE:
+  - Sky-4x16
+  - Sky-4x32
+  - Sky-8x32
+  - Sky-8x64
+  - Sky-16x64
+  - Sky-16x128
+  - Sky-32x128
+  - Sky-32x256
+  - Sky-64x256
+  - Sky-64x512
+PROVIDER: Amazon AWS
+REGION:
+  - ca-central-1
+  - us-east-1
+  - eu-north-1
+  - us-west-2
+  - eu-central-1
+  - eu-north-1
+  - eu-west-2
+  - eu-west-3
+  - ap-northeast-2
+  - ap-southeast-1
+NODE:
+  - 3
+  - 6
+  - 9
+  - 12
+  - 15
+  - 18
+STORAGE:
+  - 100
+  - 200
+  - 300
+  - 400
+  - 500
+  - 600
+  - 700
+  - 800
+  - 900
+  - 1,000
+  - 2,000
+  - 3,000
+  - 4,000
+  - 5,000
+  - 6,000
+SERVER: MariaDB Xpand 6.0.2

@@ -1,0 +1,26 @@
+[
+{
+    "index": 1,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "MaxScaleRedundancy",
+    "args_file": "GCP_PrimaryReplica_default.args",
+    "custom_args": "--variable REGION:europe-west1",
+    "disabled": false
+},
+{
+    "index": 2,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "MaxScaleRedundancy",
+    "args_file": "GCP_ColumnStore_default.args",
+    "custom_args": "--variable REGION:europe-west1",
+    "disabled": false
+},
+{
+    "index": 3,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "XpandMaxScaleRedundancy",
+    "args_file": "GCP_Xpand_default.args",
+    "custom_args": "--variable REGION:asia-southeast1",
+    "disabled": false
+}
+]

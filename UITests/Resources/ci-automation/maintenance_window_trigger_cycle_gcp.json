@@ -1,0 +1,42 @@
+[
+{
+    "index": 1,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "ChangeMWExistingServicePower",
+    "args_file": "GCP_Standalone_default.args",
+    "custom_args": "--variable REGION:europe-west1 --variable MAINTENANCE_WINDOW:Weds 1:00 AM UTC --variable MAINTENANCE_WINDOW_CHANGED:1st and 3rd Fri 2:00 PM UTC",
+    "disabled": false
+},
+{
+    "index": 2,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "ChangeMWExistingServicePower",
+    "args_file": "GCP_PrimaryReplica_default.args",
+    "custom_args": "--variable REGION:asia-southeast1 --variable MAINTENANCE_WINDOW:Tues 12:00 PM UTC --variable MAINTENANCE_WINDOW_CHANGED:Thurs 10:00 PM UTC",
+    "disabled": false
+},
+{
+    "index": 3,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "ChangeMWExistingServicePower",
+    "args_file": "GCP_ColumnStore_default.args",
+    "custom_args": "--variable REGION:europe-west1 --variable MAINTENANCE_WINDOW:Weds 11:00 AM UTC --variable MAINTENANCE_WINDOW_CHANGED:1st and 3rd Sats 5:00 AM UTC",
+    "disabled": false
+},
+{
+    "index": 4,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "ChangeMWExistingServicePower",
+    "args_file": "GCP_Xpand_default.args",
+    "custom_args": "--variable REGION:asia-southeast1 --variable MAINTENANCE_WINDOW:Fri 3:00 AM UTC --variable MAINTENANCE_WINDOW_CHANGED:Weds 10:00 PM UTC",
+    "disabled": true
+},
+{
+    "index": 5,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "ServerlessChangeMWExistingServicePower",
+    "args_file": "GCP_Serverless_default.args",
+    "custom_args": "--variable REGION:europe-west1 --variable MAINTENANCE_WINDOW:Mon 3:00 PM UTC --variable MAINTENANCE_WINDOW_CHANGED:Thurs 12:00 PM UTC",
+    "disabled": true
+}
+]

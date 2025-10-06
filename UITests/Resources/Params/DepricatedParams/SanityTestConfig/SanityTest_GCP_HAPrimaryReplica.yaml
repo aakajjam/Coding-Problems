@@ -1,0 +1,52 @@
+PROVIDER: Google Cloud
+REGION:
+  - northamerica-northeast1
+  - asia-southeast2
+  - us-west2
+  - europe-west1
+  - us-east1
+  - us-east4
+  - us-west1
+  - europe-north1
+  - europe-west1
+  - europe-west2
+  - europe-west3
+  - asia-southeast1
+SIZE:
+  - Sky-2x8
+  - Sky-4x16
+  - Sky-4x32
+  - Sky-8x32
+#  - Sky-8x64
+  - Sky-16x64
+  - Sky-16x128
+  - Sky-32x128
+#  - Sky-32x256
+  - Sky-64x256
+  - Sky-64x512
+STORAGE:
+  - 100
+  - 200
+  - 300
+  - 400
+  - 500
+  - 600
+  - 700
+  - 800
+  - 900
+  - 1,000
+  - 2,000
+  - 3,000
+  - 4,000
+  - 5,000
+  - 6,000
+NODES:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+SERVER:
+  - MariaDB Enterprise Server 10.6.4-1
+  - MariaDB Enterprise Server 10.5.12-8
+  - MariaDB Enterprise Server 10.4.21-13

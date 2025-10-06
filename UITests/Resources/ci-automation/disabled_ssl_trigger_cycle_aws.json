@@ -1,0 +1,34 @@
+[
+{
+    "index": 1,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+    "test": "DisabledSSL",
+    "args_file": "AWS_Standalone_default.args",
+    "custom_args": "--variable REGION:eu-north-1",
+    "disabled": false
+},
+{
+    "index": 2,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+    "test": "DisabledSSL",
+    "args_file": "AWS_PrimaryReplica_default.args",
+    "custom_args": "--variable REGION:eu-north-1",
+    "disabled": false
+},
+{
+    "index": 3,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+    "test": "DisabledSSL",
+    "args_file": "AWS_Xpand_default.args",
+    "custom_args": "--variable REGION:ap-southeast-1",
+    "disabled": false
+},
+{
+    "index": 4,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_AWS",
+    "test": "DisabledSSL",
+    "args_file": "AWS_ColumnStore_default.args",
+    "custom_args": "--variable REGION:eu-north-1",
+    "disabled": false
+}
+]

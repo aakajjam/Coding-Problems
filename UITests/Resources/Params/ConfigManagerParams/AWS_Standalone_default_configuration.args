@@ -1,0 +1,26 @@
+--test CompareDefaultConfigVariablesWithThePredefined
+--test CreateNewConfiguration
+--test ResetToDefaultsVariableValuesNewCustomConfig
+--test ApplyNewCustomConfigToService
+--test AccessConfigurationManagerUI
+--test ApplyPreviouslyCreatedCustomConfigToService
+--test SearchVariableInNewCustomConfig
+--test EditCustomConfig
+--test DuplicateCustomConfig
+--test ApplyCustomConfigWhenDBisStopped
+# Config variables
+--variable CONFIG_TOPOLOGY_TYPE:Single
+--variable CONFIG_SERVER_VERSION:10.6.14-9
+--variable CONFIG_NAME:SkySQL Default - Enterprise Server Single Node
+--variable CONFIG_VARIABLE_1:simple_password_check_digits
+--variable CONFIG_VARIABLE_1_VALUE:5
+--variable CONFIG_VARIABLE_2:simple_password_check_minimal_length
+--variable CONFIG_VARIABLE_2_VALUE:16
+# Topology variables
+--variable TYPE:Enterprise Server
+--variable TOPOLOGY:Single
+--variable PROVIDER:aws
+--variable REGION:eu-north-1
+--variable SIZE:2x8
+--variable STORAGE:300
+--variable SERVER:Enterprise Server 10.6.14-9

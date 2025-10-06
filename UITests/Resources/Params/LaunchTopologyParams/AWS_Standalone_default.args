@@ -1,0 +1,32 @@
+--test LaunchTopology_CRUD
+--test DisabledSSL
+--test SetMWNewServicePower
+--test ChangeMWExistingServicePower
+--test AddIPbeforeLaunch
+--test StartStop_CRUD
+--test ScaleIOPS_CRUD
+--test ScaleStorage_CRUD
+--test ScaleNodesUpDown_CRUD
+--test SingleZone_CRUD
+--test LaunchServiceWithPSCorPLDualEndpointsAndTryConnectDB
+--test LaunchServiceWithPSCorPLandTryConnectDB
+--test RemoveSecondaryEndpointFromDetailsPage
+--test StandaloneNoQueryEditorTab
+--test SetPLorPSCWhenDBisStopped
+--test ScaleUpDownWhenDBisStopped
+--test ScaleStorageWhenDBisStopped
+--variable TYPE:Enterprise Server
+--variable TOPOLOGY:Single
+--variable PROVIDER:aws
+--variable REGION:eu-north-1
+--variable SIZE:2x8
+--variable SIZE_ALTERED:4x16
+--variable STORAGE:100
+--variable STORAGE_ALTERED:800
+--variable IOPS_INITIAL:9
+--variable IOPS_ALTERED:7
+--variable SERVER:Enterprise Server 10.6.14-9
+--variable MAINTENANCE_WINDOW:Thurs 8:00 PM UTC
+--variable MAINTENANCE_WINDOW_CHANGED:Weds 1:00 AM UTC
+--variable AWS_GCP_PRIMARY_ENDPOINT:AWS PrivateLink
+--variable PROJECT_OR_ACCOUNT_ID:invalidID

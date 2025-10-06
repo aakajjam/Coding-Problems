@@ -1,0 +1,170 @@
+[
+{
+    "index": 1,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "DisabledSSL",
+    "args_file": "GCP_Standalone_default.args",
+    "custom_args": "--variable REGION:europe-west1 --variable SERVER:23.08.00-00",
+    "disabled": false
+},
+{
+    "index": 2,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "PrimaryReplicaSetMWNewServicePower",
+    "args_file": "GCP_PrimaryReplica_default.args",
+    "custom_args": "--variable REGION:europe-west1 --variable SERVER:23.08.00-00",
+    "disabled": false
+},
+{
+    "index": 3,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "MaxScaleRedundancy",
+    "args_file": "GCP_PrimaryReplica_default.args",
+    "custom_args": "--variable REGION:asia-southeast1 --variable REPLICAS:3 --variable SERVER:23.08.00-00",
+    "disabled": false
+},
+{
+    "index": 4,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "ScaleNodesInOut",
+    "args_file": "GCP_PrimaryReplica_default.args",
+    "custom_args": "--variable REGION:europe-west1 --variable SERVER:23.08.00-00",
+    "disabled": false
+},
+{
+    "index": 5,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "ScaleNodesUpDown",
+    "args_file": "GCP_PrimaryReplica_default.args",
+    "custom_args": "--variable REGION:asia-southeast1 --variable SERVER:23.08.00-00",
+    "disabled": false
+},
+{
+    "index": 6,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "StartStop",
+    "args_file": "GCP_Standalone_default.args",
+    "custom_args": "--variable REGION:europe-west1 --variable SERVER:23.08.00-00",
+    "disabled": false
+},
+{
+    "index": 7,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "Scale_Storage",
+    "args_file": "GCP_PrimaryReplica_default.args",
+    "custom_args": "--variable REGION:europe-west1 --variable REPLICAS:3 --variable SERVER:23.08.00-00",
+    "disabled": false
+},
+{
+    "index": 8,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "SingleZone",
+    "args_file": "GCP_Standalone_default.args",
+    "custom_args": "--variable REGION:asia-southeast1 --variable SERVER:23.08.00-00",
+    "disabled": false
+},
+{
+    "index": 9,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "PrimaryReplicaAddIPbeforeLaunch",
+    "args_file": "GCP_PrimaryReplica_default.args",
+    "custom_args": "--variable REGION:europe-west1 --variable REPLICAS:4 --variable SERVER:23.08.00-00",
+    "disabled": false
+},
+{
+    "index": 10,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "LaunchServiceWithPSCorPLandTryConnectDB",
+    "args_file": "GCP_Standalone_default.args",
+    "custom_args": "--variable REGION:europe-west1 --variable SERVER:23.08.00-00",
+    "disabled": false
+},
+{
+    "index": 11,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "LaunchServiceWithPSCorPLDualEndpointsAndTryConnectDB",
+    "args_file": "GCP_PrimaryReplica_default.args",
+    "custom_args": "--variable REGION:asia-southeast1 --variable SERVER:23.08.00-00",
+    "disabled": false
+},
+{
+    "index": 12,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "RemoveSecondaryEndpointFromDetailsPage",
+    "args_file": "GCP_Standalone_default.args",
+    "custom_args": "--variable REGION:europe-west1 --variable SERVER:23.08.00-00",
+    "disabled": false
+},
+{
+    "index": 13,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "WorkspaceQueryEditor",
+    "args_file": "GCP_PrimaryReplica_default.args",
+    "custom_args": "--variable REGION:europe-west1 --variable SERVER:23.08.00-00",
+    "disabled": false
+},
+{
+        "index": 14,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+        "test": "CreateNewConfiguration",
+        "args_file": "GCP_Standalone_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:23.08.00-00 --variable SERVER:23.08.00-00",
+        "disabled": false
+},
+{
+        "index": 15,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+        "test": "EditCustomConfig",
+        "args_file": "GCP_PrimaryReplica_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:23.08.00-00 --variable SERVER:23.08.00-00",
+        "disabled": false
+},
+{
+        "index": 16,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+        "test": "ResetToDefaultsVariableValuesNewCustomConfig",
+        "args_file": "GCP_Standalone_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:23.08.00-00 --variable SERVER:23.08.00-00",
+        "disabled": false
+},
+{
+        "index": 17,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+        "test": "SearchVariableInNewCustomConfig",
+        "args_file": "GCP_PrimaryReplica_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:23.08.00-00 --variable SERVER:23.08.00-00",
+        "disabled": false
+},
+{
+        "index": 18,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+        "test": "DuplicateCustomConfig",
+        "args_file": "GCP_Standalone_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:23.08.00-00 --variable SERVER:23.08.00-00",
+        "disabled": false
+},
+{
+        "index": 19,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+        "test": "CompareDefaultConfigVariablesWithThePredefined",
+        "args_file": "GCP_PrimaryReplica_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:23.08.00-00 --variable SERVER:23.08.00-00",
+        "disabled": false
+},
+{
+        "index": 20,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+        "test": "ApplyNewCustomConfigToService",
+        "args_file": "GCP_Standalone_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:23.08.00-00 --variable SERVER:23.08.00-00",
+        "disabled": false
+},
+{
+        "index": 21,
+        "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+        "test": "ApplyPreviouslyCreatedCustomConfigToService",
+        "args_file": "GCP_PrimaryReplica_default_configuration.args",
+        "custom_args": "--variable CONFIG_SERVER_VERSION:23.08.00-00 --variable SERVER:23.08.00-00",
+        "disabled": false
+}
+]

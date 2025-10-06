@@ -1,0 +1,42 @@
+[
+{
+    "index": 1,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "LaunchServiceWithPSCorPLDualEndpointsAndTryConnectDB",
+    "args_file": "GCP_Standalone_default.args",
+    "custom_args": "--variable REGION:europe-west1 --variable SIZE:2x8 --variable STORAGE:300 --variable SERVER:10.5.21-15",
+    "disabled": false
+},
+{
+    "index": 2,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "LaunchServiceWithPSCorPLandTryConnectDB",
+    "args_file": "GCP_PrimaryReplica_default.args",
+    "custom_args": "--variable REGION:europe-west1 --variable SIZE:2x8 --variable REPLICAS:4 --variable STORAGE:300 --variable SERVER:10.6.14-9",
+    "disabled": false
+},
+{
+    "index": 3,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "LaunchServiceWithPSCorPLandTryConnectDB",
+    "args_file": "GCP_ColumnStore_default.args",
+    "custom_args": "--variable REGION:asia-southeast1 --variable SIZE:4x16 --variable REPLICAS:1 --variable SERVER:23.02.3",
+    "disabled": false
+},
+{
+    "index": 4,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "RemoveSecondaryEndpointFromDetailsPage",
+    "args_file": "GCP_Xpand_default.args",
+    "custom_args": "--variable REGION:europe-west1 --variable SIZE:4x16 --variable REPLICAS:1 --variable STORAGE:300 --variable SERVER:6.1.1",
+    "disabled": false
+},
+{
+    "index": 5,
+    "build_job": "QA/END_TO_END_TESTS/SKYSQL_END_TO_END_TEST_GCP",
+    "test": "AddSecondaryEndpointToIPAllowlist",
+    "args_file": "GCP_Serverless_default.args",
+    "custom_args": "--variable REGION:europe-west1",
+    "disabled": true
+}
+]
