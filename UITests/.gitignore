@@ -1,0 +1,16 @@
+.idea
+*/.html
+*/.png
+*/.xml
+./results
+results/
+*.png
+!Resources/**/*.png
+*.html
+*.xml
+*.debug
+*.log
+*.pyc
+__pycache__
+venv
+.DS_*
