@@ -80,8 +80,9 @@
         </div>
 
         <form class="consultation-form" @submit.prevent="submitForm">
-          <input type="text" v-model="form.name" placeholder="Your Name" required />
-          <input type="email" v-model="form.email" placeholder="Your Email" required />
+          <input type="text" v-model="form.name" placeholder="Your Name" required /> <br>
+        
+          <input type="email" v-model="form.email" placeholder="Your Email" required /> <br>
 
           <!-- Service Dropdown -->
           <select v-model="form.service" required>
@@ -90,7 +91,7 @@
             <option>IT</option>
             <option>QA</option>
             <option>Policies</option>
-          </select>
+          </select> <br>
 
           <!-- Description -->
           <textarea
