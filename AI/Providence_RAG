@@ -2,6 +2,10 @@
 # Source code from video: A gentle introduction to RAG (using open-source models) Underfitted
 # Link to the source code github repo https://github.com/svpino/gentle-intro-to-rag
 
+import os
+os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
+
+
 PDF_FILE = "IMM.pdf"
 
 MODEL = "llama3.2"
@@ -11,18 +15,18 @@ from langchain_community.document_loaders import PyPDFLoader
 loader = PyPDFLoader(PDF_FILE)
 pages = loader.load()
 
-print(f"Number of pages: {len(pages)}")
-print(f"Length of pages: {len(pages[1].page_content)}")
-print("Content of pages:", pages[0].page_content)
+#print(f"Number of pages: {len(pages)}")
+#print(f"Length of pages: {len(pages[1].page_content)}")
+#print("Content of pages:", pages[0].page_content)
 
 # Chunking
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-splitter = RecursiveCharacterTextSplitter(chunk_size=1500, chunk_overlap=100)
+splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
 
 chunks = splitter.split_documents(pages)
-print(f"Number of chunks: {len(chunks)}")
-print(f"Length of a chunk: {len(chunks[1].page_content)}")
-print(f"Content of a chunk:", chunks[1].page_content)
+#print(f"Number of chunks: {len(chunks)}")
+#print(f"Length of a chunk: {len(chunks[1].page_content)}")
+#print(f"Content of a chunk:", chunks[1].page_content)
 
 
 # Storing the chunks in vector store
@@ -38,7 +42,7 @@ print("Starting the vectorstore creation/loading process")
 
 if os.path.exists(VECTOR_DB_PATH):
     print("Loading FAISS index from the disk")
-    vectorstore = FAISS.load_local(VECTOR_DB_PATH, embeddings)
+    vectorstore = FAISS.load_local(VECTOR_DB_PATH, embeddings,  allow_dangerous_deserialization=True)
 else:
     print("Creating FAISS index and saving to the disk")
     chunks = splitter.split_documents(pages)
@@ -67,7 +71,7 @@ from langchain_core.output_parsers import StrOutputParser
 
 parser = StrOutputParser()
 chain = model | parser
-print(chain.invoke("Who is the president of the United States?"))
+#print(chain.invoke("Who is the president of the United States?"))
 
 # Setting up a prompt
 # In addition to the questions we want to ask, we also want to provide the model with the context of the PDF file. 
@@ -93,11 +97,11 @@ print(prompt.format(context="Here is some context", question="Here is a question
 # Adding the prompt to the chain
 # We can now chain the prompt with the model and the parser
 
-chain = prompt | model | parser
-chain.invoke(
-    {"context": "If you have original Medicare call 1-888-305-6759",
-     "question": "What number do ypu call if you have original medicare?"
-    })
+#chain = prompt | model | parser
+#chain.invoke(
+#    {"context": "If you have original Medicare call 1-888-305-6759",
+#     "question": "What number do ypu call if you have original medicare?"
+#    })
 
 
 # Adding the retriver to the chain
@@ -115,9 +119,14 @@ chain = (
     | parser
 )
 
+# Inspect retrieved chunks for a specific question
+docs = retriever.invoke("Who do I report to with concerns about my quality of care?")
+for i, doc in enumerate(docs):
+    print(f"\nChunk {i+1}:\n{doc.page_content}\n{'-'*40}")
+
 questions = [
-    #"What happens if I do not appeal?",
-    #"What number do I call, if I have concerns about the quality of my care",
+    "What happens if I do not appeal?",
+    "What number do I call, if I have concerns about the quality of my care",
     #"Who do I call if I have providence medicare"
     #"Tell me Providence hospital address"
     #"What is Acentra Health"
