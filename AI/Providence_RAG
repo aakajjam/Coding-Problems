@@ -2,14 +2,17 @@
 # Source code from video: A gentle introduction to RAG (using open-source models) Underfitted
 # Link to the source code github repo https://github.com/svpino/gentle-intro-to-rag
 
+# Avoid conflicts with certain libraries when running locally
 import os
 os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 
-
+# Document we want to query/work with
 PDF_FILE = "IMM.pdf"
 
+# Chosen LLM
 MODEL = "llama3.2"
 
+# Loading the PDF file
 from langchain_community.document_loaders import PyPDFLoader
 
 loader = PyPDFLoader(PDF_FILE)
@@ -38,7 +41,7 @@ import os
 
 VECTOR_DB_PATH = "faiss_index"
 
-print("Starting the vectorstore creation/loading process")
+#print("Starting the vectorstore creation/loading process")
 
 if os.path.exists(VECTOR_DB_PATH):
     print("Loading FAISS index from the disk")
@@ -52,9 +55,8 @@ else:
 
 # Setting up a retriever 
 # We can use a retriever to find chunks in the vector store that are similar to a supplied question
-
 retriever = vectorstore.as_retriever()
-retriever.invoke("What if I miss the deadline?")
+retriever.invoke("What if I miss the deadline?") # Invoke checks if retrieval is actually working
 
 # Configuring the Model
 # We will use Ollama to load the local model in memory. After creating the model, we can invoke the model with a question and get the response back
@@ -127,9 +129,6 @@ for i, doc in enumerate(docs):
 questions = [
     "What happens if I do not appeal?",
     "What number do I call, if I have concerns about the quality of my care",
-    #"Who do I call if I have providence medicare"
-    #"Tell me Providence hospital address"
-    #"What is Acentra Health"
     "Who do I report to with concerns about my quality of care",
     "Tell me Providence hospital address from my PDF"
 ]
