@@ -44,10 +44,10 @@ VECTOR_DB_PATH = "faiss_index"
 #print("Starting the vectorstore creation/loading process")
 
 if os.path.exists(VECTOR_DB_PATH):
-    print("Loading FAISS index from the disk")
+    #print("Loading FAISS index from the disk")
     vectorstore = FAISS.load_local(VECTOR_DB_PATH, embeddings,  allow_dangerous_deserialization=True)
 else:
-    print("Creating FAISS index and saving to the disk")
+    #print("Creating FAISS index and saving to the disk")
     chunks = splitter.split_documents(pages)
     vectorstore = FAISS.from_documents(chunks, embeddings)
     vectorstore.save_local(VECTOR_DB_PATH)
@@ -56,14 +56,14 @@ else:
 # Setting up a retriever 
 # We can use a retriever to find chunks in the vector store that are similar to a supplied question
 retriever = vectorstore.as_retriever()
-retriever.invoke("What if I miss the deadline?") # Invoke checks if retrieval is actually working
+#retriever.invoke("What if I miss the deadline?") # Invoke checks if retrieval is actually working
 
 # Configuring the Model
 # We will use Ollama to load the local model in memory. After creating the model, we can invoke the model with a question and get the response back
 from langchain_ollama import ChatOllama
 
 model = ChatOllama(model=MODEL, temperature=0)
-model.invoke("Who is the president of the United States?")
+#model.invoke("Who is the president of the United States?")
 
 # Parsing the model's response
 # The response from the model is an AIMesssage instance containing the answer. We can extract the text answer by using the appropriate output parser.
@@ -94,7 +94,7 @@ Question: {question}
 """
 
 prompt = PromptTemplate.from_template(template)
-print(prompt.format(context="Here is some context", question="Here is a question"))
+#print(prompt.format(context="Here is some context", question="Here is a question"))
 
 # Adding the prompt to the chain
 # We can now chain the prompt with the model and the parser
@@ -124,7 +124,8 @@ chain = (
 # Inspect retrieved chunks for a specific question
 docs = retriever.invoke("Who do I report to with concerns about my quality of care?")
 for i, doc in enumerate(docs):
-    print(f"\nChunk {i+1}:\n{doc.page_content}\n{'-'*40}")
+    #print(f"\nChunk {i+1}:\n{doc.page_content}\n{'-'*40}")
+    pass
 
 questions = [
     "What happens if I do not appeal?",
