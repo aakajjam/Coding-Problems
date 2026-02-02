@@ -1899,3 +1899,568 @@ print(stray1.breed)
 # stray1 can do the same things like bark because it is an instance of class dog. The way that we generated it was through the class method
 # If we want to use the class itself using a method we give the method name @classmethod and it automatically passes through the Dog class
 """
+
+"""
+# Have the sum of two numbers equal 9
+
+array_thing = [1,3,5,6,11,23]
+
+for i in range(0, len(array_thing)):
+    print(i, "This is i")
+    for j in range(i+1, len(array_thing)): # j starts at the second element since we have i+1, so j will equal 1
+        print(i+1, "This is i+1", "||||", j, "This is j")
+        if array_thing[i] + array_thing[j] == 9:
+            print("The two numbers that add up to the target sum are:", array_thing[i], "and", array_thing[j])
+            break
+"""
+
+"""
+# Minion Game HackerRank Problem
+import re
+
+def minion_game(given_string, kevin_sub, stuart_sub):
+    if kevin_sub[0] == "A" or kevin_sub[0] == "E" or kevin_sub[0] == "I" or kevin_sub[0] == "O" or kevin_sub[0] == "U":
+        kevin_count = 0
+        kev_inst = re.findall(kevin_sub,given_string)
+        print(kev_inst)
+        for i in kev_inst:
+            kevin_count = kevin_count + 1
+        print(kevin_count)
+
+    if stuart_sub[0] != "A" or stuart_sub[0] != "E" or stuart_sub[0] != "I" or stuart_sub[0] != "O" or stuart_sub[0] != "U":
+        stuart_count = 0
+        stuart_inst = re.findall(stuart_sub, given_string)
+        print(stuart_inst)
+        for i in stuart_inst:
+            stuart_count = stuart_count + 1
+        print(stuart_count)
+
+if __name__ == '__main__':
+    s = input()
+    minion_game(s, "ANA", "NA")
+"""
+
+
+"""
+# Valid Credit Cards - COME BACK TO THIS PROBLEM
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+
+#Flag=True
+
+#if len(card) == 1:
+#    Flag=False
+#    print("Invalid")
+#elif len(card) >20:
+#    Flag=False
+#    print ("Invalid")
+#elif int(card):
+#    Flag=True
+
+#card = "4629-0000-9401-8592"
+
+card =  "4629-1020-9401-8592"
+
+#if len(card) == 1:
+#    print("Invalid")
+
+
+for i in range(len(card) - 1):
+    if len(card) < 16:
+        #print("Invalid first")
+        print("Invalid")
+        break
+    if "-" in card:
+        cards = card.replace("-", "")
+        if (cards[i] == cards[i+1]) and (cards[i] == cards[i+2]) and (cards[i] == cards[i+3]):
+            #print("Invalid third")
+            print("Invalid")
+            break
+        elif i == len(cards) - 4:
+            break
+
+
+    if (card[-1] == card[-2]) and (card[-2] == card[-3]) and (card[-3] == card[-4]):
+        #print("Invalid second")
+        print("Invalid")
+        break
+    #if "-" in card:
+    #    cards = card.replace("-", "")
+    #    if (cards[i] == cards[i+1]) and (cards[i] == cards[i+2]) and cards[i] == cards[i+3]:
+    #        print("Invalid third")
+    #        break
+    #    elif i == len(cards) - 4:
+    #        break
+    elif (card[0] == "4" or card[0] == "5" or card[0] == "6") and len(card) == 16 and int(card):
+        #print("Valid")
+        pass
+
+    #else:
+    #    print("Invalid else")
+
+# If the card has "-", then the length of the card is 19
+#for i in range(len(card) - 1):
+    #if (len(card) == 19) and ("-" in card):
+    if (len(card) == 19):
+        count_of_valid_substrings = 0
+        card_substrings = card.split("-")
+        #print(card_substrings)
+
+        first_sub = card_substrings[0]
+
+        #if first_sub[0] != "4" or first_sub[0] != "5" or first_sub[0] != "6":
+        if first_sub[0] != "4" and first_sub[0] != "5" and first_sub[0] != "6":
+            #print("This is not valid")
+            print("Invalid")
+            break
+
+
+        for i in card_substrings:
+            if len(i) == 4:
+                count_of_valid_substrings = count_of_valid_substrings + 1
+            else:
+                #print("Invalid sub")
+                print("Invalid")
+                break
+
+        if count_of_valid_substrings == 4:
+            #print("Valid")
+            # break
+            pass
+
+        if (len(card) == 16) or (len(card) == 19 and "-" in card):
+            print("Valid")
+            break
+
+        else:
+            print("Invalid")
+            break
+
+
+# For completely invalid cards
+    else:
+        #print("Invalid here")
+        print("Invalid")
+        break
+"""
+
+# May need to use re.compile
+
+"""
+# Company Logo
+company_name = input()
+
+alphabetical = sorted(company_name)
+#print(alphabetical)
+
+letters_dict = {}
+
+count = 1
+for i in range(len(alphabetical) - 1):
+    if alphabetical[0] != alphabetical[1]:
+        letters_dict[alphabetical[0]] = 1
+    if alphabetical[i] == alphabetical[i+1]:
+        count = count + 1
+        letters_dict[alphabetical[i]] = count
+    elif alphabetical[i] != alphabetical[i+1]:
+        letters_dict[alphabetical[i+1]] = 1
+        count = 1
+
+#print(letters_dict)
+
+# Sort by value from largest value to smallest
+sorted_items_desc = sorted(letters_dict.items(), key=lambda item: item[1], reverse=True)
+
+#print(sorted_items_desc)
+
+items_count = 0
+for letter,values in sorted_items_desc:
+    print(letter, values)
+    items_count = items_count + 1
+    if items_count == 3:
+        break
+"""
+
+"""
+# Compress the String
+some_numbers = input()
+full_list = []
+
+count = 1
+for i in range(len(some_numbers) - 1):
+    if some_numbers[i] == some_numbers[i+1]:
+        count = count + 1
+    else:
+        full_list.append((count, int(some_numbers[i])))
+        count = 1
+
+full_list.append((count, int(some_numbers[-1])))
+
+print(*full_list)
+"""
+
+"""
+# Mod DivMod
+a = int(input())
+b = int(input())
+
+print(a//b)
+print(a%b)
+print(divmod(a,b))
+"""
+
+"""
+# Email
+def fun(s):
+    # return True if s is a valid email, else return False
+
+    # Your original code checked `"@" in s"`
+    # but we must ensure EXACTLY one "@"
+    if s.count("@") != 1:
+        return False
+
+    # Split into username and the rest
+    username, rest = s.split("@")
+
+    # Your original code tried: s[-4] == "."
+    # But extension length can be 1 to 3.
+    # So instead check if there's ANY "." in the rest.
+    if "." not in rest:
+        return False
+
+    # Split website and extension
+    website, extension = rest.rsplit(".", 1)
+
+    # ============
+    # CHECK USERNAME
+    # ============
+
+    # Your intent: username can contain letters, digits, '-', '_'
+    # But s.isalpha() or s.isnumeric() is not correct.
+    # So we check each character manually.
+
+    if not username:  # cannot be empty
+        return False
+
+    for c in username:
+        if not (c.isalnum() or c in "-_"):
+            return False
+
+    # ============
+    # CHECK WEBSITE
+    # ============
+
+    # Your intent: website can only have letters and digits
+    if not website or not website.isalnum():
+        return False
+
+    # ============
+    # CHECK EXTENSION
+    # ============
+
+    # Your rules: only letters, max length = 3
+    if not extension.isalpha() or len(extension) > 3:
+        return False
+
+    # If all checks passed, it's valid
+    return True
+
+
+def filter_mail(emails):
+    return list(filter(fun, emails))
+
+
+if __name__ == '__main__':
+    n = int(input())
+    emails = []
+    for _ in range(n):
+        emails.append(input())
+
+filtered_emails = filter_mail(emails)
+filtered_emails.sort()
+print(filtered_emails)
+"""
+
+"""
+# Fractions
+from fractions import Fraction
+from functools import reduce
+
+def product(fracs):
+    t = reduce((lambda x,y: x * y), fracs)# complete this line with a reduce statement
+    return t.numerator, t.denominator
+
+if __name__ == '__main__':
+    fracs = []
+    for _ in range(int(input())):
+        fracs.append(Fraction(*map(int, input().split())))
+    result = product(fracs)
+    print(*result)
+"""
+
+"""
+#
+sample_input = "..12345678910111213141516171820212223"
+
+numbers = re.findall(r'\d', sample_input)
+
+print(numbers)
+
+for i in range(0, len(numbers) - 1):
+    if numbers[i] == numbers[i+1]:
+        break
+    else:
+        pass
+"""
+
+"""
+def minion_game(string):
+    # Define the vowels
+    vowels = "AEIOU"
+
+    # Initialize the score count
+    stuart_score = 0
+    kevin_score = 0
+
+    word = len(string)
+
+    # Counting the number of substrings
+    for i in range(word):
+        if s[i] in vowels:
+            kevin_score = kevin_score + (word - i)
+        else:
+            stuart_score = stuart_score + (word - i)
+
+    # Why word - i. Ex at the first index 1 (A), then we have A, NANA left so that equates to word(6) - first index at lenght of 1 (6-1 = 5)
+
+    # Score comparison
+    if kevin_score > stuart_score:
+        print("Kevin", kevin_score)
+    elif stuart_score > kevin_score:
+        print("Stuart", stuart_score)
+    else:
+        print("Draw")
+
+if __name__ == '__main__':
+    s = input()
+    minion_game(s)
+"""
+
+############ DATA STRUCTURES AND ALGORITHMS ############
+
+""""
+x = 10
+print(x)
+print(hex(id(x))) # Print the memory address in hexadecimal format
+"""
+
+"""
+# Linked List Practice
+
+class Node:
+    next_node_pointer = None
+    def __init__(self, fruit_name):
+        self.fruit_name = fruit_name
+
+
+first_node = Node("apple")
+print(first_node.fruit_name)
+print(Node.next_node_pointer)
+print(id(first_node))
+
+
+second_node = Node("banana")
+print(second_node.fruit_name)
+print(Node.next_node_pointer)
+print(id(second_node))
+
+third_node = Node("orange")
+print(third_node.fruit_name)
+print(Node.next_node_pointer)
+print(id(second_node))
+
+fourth_node = Node("grape")
+print(fourth_node.fruit_name)
+print(Node.next_node_pointer)
+print(id(third_node))
+
+print("Connecting the nodes")
+
+first_node.next_node_pointer = second_node
+print(first_node.next_node_pointer, "After connecting")
+print(second_node)
+
+second_node.next_node_pointer = third_node
+print(second_node.next_node_pointer, "After connecting")
+print(third_node)
+
+third_node.next_node_pointer = fourth_node
+print(third_node.next_node_pointer, "After connecting")
+print(fourth_node)
+
+node_count = 0
+node = first_node
+print("Start of the while loop")
+while node.next_node_pointer != None:
+    print(node)
+    node_count += 1
+    node = node.next_node_pointer
+print("End of while loop")
+print(node_count)
+"""
+
+"""
+# Linked List practice
+class myNodes():
+    next_node_pointer = None
+    def __init__(self, vegetable):
+        self.vegetable = vegetable
+
+first_veggie = myNodes("Onion")
+
+second_veggie = myNodes("Eggplant")
+
+third_veggie = myNodes("Mushroom")
+
+fourth_veggie = myNodes("Jalapeno")
+
+fifth_veggie = myNodes("Olives")
+
+# Adding a new node at the beginning
+def adding_front_node(vegetable):
+    return myNodes(vegetable)
+
+zero_veggie = myNodes("Bell Peppers")
+
+zero_veggie.next_node_pointer = first_veggie
+print(zero_veggie.next_node_pointer)
+
+first_veggie.next_node_pointer = second_veggie
+print(first_veggie.next_node_pointer)
+
+second_veggie.next_node_pointer = third_veggie
+print(second_veggie.next_node_pointer)
+
+third_veggie.next_node_pointer = fourth_veggie
+print(third_veggie.next_node_pointer)
+
+fourth_veggie.next_node_pointer = fifth_veggie
+print(fourth_veggie.next_node_pointer)
+
+# Traverse over the Linked List
+node_count = 0
+node = zero_veggie
+while node != None:
+    node = node.next_node_pointer
+    print("Here is my node", node)
+    node_count += 1
+
+print(node_count)
+"""
+
+
+# Linked List practice
+class myNodes():
+    next_node_pointer = None
+    def __init__(self, vegetable):
+        self.vegetable = vegetable
+
+# Adding a new node at the beginning
+def add_new_head_node(vegetable):
+    new_node = myNodes(vegetable)
+    new_node.next_node_pointer = head_node
+    #head_node = new_node - Can't update a global variable in function
+    return new_node
+
+head_node = myNodes("Carrot")
+print("This is the starting head node", head_node)
+
+head_node = add_new_head_node("Kale")
+
+head_node = add_new_head_node("Beets")
+print("This is the veggie", head_node.vegetable)
+
+head_node = add_new_head_node("Cabbage")
+
+head_node = add_new_head_node("Spinach")
+
+
+
+# List out all the nodes
+def list_all_nodes():
+    count = 1
+    head = head_node
+    while head is not None:
+        print(head.vegetable, count)
+        head = head.next_node_pointer
+        count += 1
+
+print(list_all_nodes())
+print("########################")
+
+def delete_ending_node(): # My own solution
+    global head_node
+
+    current_node = head_node
+
+    while current_node.next_node_pointer is not None:
+        current_node.next_node_pointer.next_node_pointer
+        if current_node.next_node_pointer.next_node_pointer is None:
+            current_node.next_node_pointer = None
+        else:
+            current_node = current_node.next_node_pointer
+
+delete_ending_node()
+
+print(list_all_nodes())
+print("################")
+
+
+# Add a node in the middle of the Linked List
+def add_node_middle():
+    global head_node
+
+    current_node = head_node
+    while current_node.next_node_pointer is not None:
+        current_node = current_node.next_node_pointer
+        if current_node.vegetable == "Beets":
+            inserted_node = myNodes("Turnip")
+            saved_node = current_node.next_node_pointer
+            current_node.next_node_pointer = inserted_node
+            inserted_node.next_node_pointer = saved_node
+
+add_node_middle()
+
+print(list_all_nodes(), "Adding a node in between")
+
+def add_node_middle():
+    global head_node
+
+    current_node = head_node
+    while current_node.next_node_pointer is not None:
+        current_node = current_node.next_node_pointer
+        if current_node.vegetable == "Beets":
+            inserted_node = myNodes("Turnip")
+            inserted_node.next_node_pointer = current_node.next_node_pointer
+            current_node.next_node_pointer = inserted_node
+
+add_node_middle()
+
+print(list_all_nodes(), "Adding a node in between (Turnip)")
+
+def deleting_node_middle(veggie_name):
+    global head_node
+
+    current_node = head_node
+    while current_node.next_node_pointer is not None:
+        if current_node.next_node_pointer.vegetable == veggie_name:
+            saved_pointer = current_node.next_node_pointer.next_node_pointer
+            current_node.next_node_pointer = saved_pointer
+        else:
+            current_node = current_node.next_node_pointer
+
+deleting_node_middle("Turnip")
+
+print("##################")
+print(list_all_nodes(), "Deleted a node in between (Turnip)")
+
